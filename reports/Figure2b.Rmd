@@ -1,0 +1,275 @@
+---
+output: 
+  html_document:
+    keep_md: false
+---
+
+```{r setup, include=FALSE}
+# Set default knitr options
+knitr::opts_chunk$set(cache = FALSE,  # Cache all chunks
+                      echo = FALSE,  # Hide output
+                      dev = c("png", "pdf"))  # Figure formats to output
+
+# If cached chunk is changed, auto-update all following chunks
+knitr::dep_prev()
+
+# Define knitr functions
+fGetmtime <- function(files) {
+  lapply(Sys.glob(files), function(x) file.info(x)$mtime)
+}
+```
+
+```{r init-workspace, echo=FALSE, message=FALSE}
+# Set environment
+options(StringsAsFactors = FALSE)
+
+# Load libraries
+library(RColorBrewer)
+library(reshape2)
+library(pheatmap)
+
+# Load functions
+source(file = "../src/fReorderFactorLevels.R")
+source(file = "../src/fCalcOverlapMatrix.R")
+```
+
+```{r load-data}
+# Region subset
+region.subset <- "all"  #all
+
+# Load starting data: expr, samples, and probes
+load(file="../cache/nhp_PrePost_StartingData.RData")
+
+# Load macaque expr change
+load(paste0(file = "../cache/expr_dynamics/expr.summary.bystruc.long_", 
+            region.subset, ".RData"))
+```
+
+```{r process-data}
+# Convert gene symbol from factor to character 
+expr.summary.bystruc.long$gene <- as.character(expr.summary.bystruc.long$gene)
+
+# Remove missing data (i.e. E40 has no rate information)
+expr.summary.bystruc.long <- droplevels(na.omit(expr.summary.bystruc.long))
+# expr.summary.bystruc.long <- droplevels(expr.summary.bystruc.long[expr.summary.bystruc.long$gene %in% names(table(expr.summary.bystruc.long$gene))[1:100], ])
+  
+# Make table of unique structures with ages
+struc.age.lookup <- expr.summary.bystruc.long[, c("struc_age", "age_log2pcd")]
+struc.age.lookup <- unique(struc.age.lookup)
+```
+
+```{r calc-max-changing-genes, cache.extra=fGetmtime(paste0("../cache/expr_dynamics/max.change.genes_", region.subset, ".txt"))}
+# Load max changing genes matrix 
+try(max.change.genes <- read.table(file = paste0("../cache/expr_dynamics/max.change.genes_", region.subset, ".txt"), header=TRUE))
+
+# Run if file does not exist
+if (! exists("max.change.genes")) {
+  # Get lists of genes that have maximal rate of change across brain ######
+  max.change.genes <- NULL
+  for (struc1 in levels(expr.summary.bystruc.long$struc_age)) {
+    expr.summary.subset <- subset(expr.summary.bystruc.long, struc_age == struc1)
+    order1 <- order(expr.summary.subset$expr_diff_rate, decreasing=TRUE)
+    max.change.genes1 <- as.character(expr.summary.subset$gene[order1])
+    max.change.genes <- cbind(max.change.genes, max.change.genes1)
+  }
+  colnames(max.change.genes) <- levels(expr.summary.bystruc.long$struc_age)
+  
+  # Save output
+  write.table(max.change.genes, file = paste0("../cache/expr_dynamics/max.change.genes_", region.subset, ".txt"), quote = FALSE, row.names = FALSE, sep = "\t")
+}
+```
+
+
+```{r calc-gene-overlap, cache.extra=fGetmtime(paste0("../cache/expr_dynamics/gene.list.overlap.summary_", region.subset, "_increasing.RData")), message=FALSE}
+# Check if overlap matrix exists
+try(load(file = paste0("../cache/expr_dynamics/gene.list.overlap.summary_", 
+                 region.subset, "_increasing.RData")))
+
+# Run if file does not exist
+if (! exists("gene.list.overlap.summary")) {
+  # Load max changing genes matrix
+  max.change.genes <- read.table(file = paste0("../cache/expr_dynamics/max.change.genes_", region.subset, ".txt"), header=TRUE)
+  
+  gene.list.overlap.summary <- CalcOverlapMatrix(max.change.genes)
+  
+  # Save max overlap
+  save(gene.list.overlap.summary, 
+       file = paste0("../cache/expr_dynamics/gene.list.overlap.summary_", 
+                   region.subset, "_increasing.RData"))
+  
+  # Reverse matrix to look at max decreasing genes
+  max.change.genes <- max.change.genes[nrow(max.change.genes):1, ]
+  
+  gene.list.overlap.summary <- CalcOverlapMatrix(max.change.genes)
+  
+  # Save max overlap
+  save(gene.list.overlap.summary, 
+       file = paste0("../cache/expr_dynamics/gene.list.overlap.summary_", 
+                   region.subset, "_decreasing.RData"))
+}
+```
+
+
+```{r calc-random-overlap, eval=FALSE}
+# Shuffle genes to get distribution of overlap scores expected by chance
+for (p in 1:100) {
+  max.change.genes <- apply(max.change.genes, 2, 
+                              function(x) sample(x, length(x), replace=FALSE))
+  
+  # Calc all possible overlaps (SLOW)
+  gene.list.overlap.summary <- CalcOverlapMatrix(max.change.genes)
+  
+  # Save output
+  save(gene.list.overlap.summary, file = paste0("../cache/expr_dynamics/perm/gene.list.overlap.summary_random", p, ".RData"))
+}
+```
+
+```{r calc-random-overlap-ecdf, cache.extra=fGetmtime("../cache/expr_dynamics/perm/gene.list.overlap.summary_random_all.RData")}
+# Load perm scores
+try(load(file = "../cache/expr_dynamics/perm/gene.list.overlap.summary_random_all.RData"))
+
+# Run if file does not exist
+if (! exists("all.perm.scores")) {
+  # Calc ecdf of scores for shuffled gene lists
+  all.perm.scores <- NULL
+  for (p in 1:100) {
+    load(file = paste0("../cache/expr_dynamics/perm/gene.list.overlap.summary_random", p, ".RData"))
+    perm.scores <- gene.list.overlap.summary[["score"]]
+    perm.scores <- perm.scores[lower.tri(perm.scores)]
+    all.perm.scores <- c(all.perm.scores, perm.scores)
+  }
+  
+  save(all.perm.scores, file = "../cache/expr_dynamics/perm/gene.list.overlap.summary_random_all.RData")
+}
+```
+
+
+```{r edit-overlap-matrix}
+gene.list.overlap.bydir <- vector("list", 2)
+names(gene.list.overlap.bydir) <- c("decreasing", "increasing")
+
+for (rate.dir in names(gene.list.overlap.bydir)) {  
+  # Load increasing or decreasing gene overlap matrix
+  try(load(file = paste0("../cache/expr_dynamics/gene.list.overlap.summary_", 
+                   region.subset, "_", rate.dir, ".RData")))
+  
+  # Keep subset of structure comparisons
+  keep.rows <- 1:nrow(gene.list.overlap.summary[["score"]])  # Keep all data
+  score.matrix <- gene.list.overlap.summary[["score"]][keep.rows, keep.rows]
+  
+  # Set signficant score threshold (FWER < p.thresh)
+  num.tests <- sum(lower.tri(score.matrix))
+  p.thresh <- 0.025  # Increasing and decreasing gene comparisons
+  score.cutoff <- quantile(all.perm.scores, 1 - (p.thresh / num.tests))
+  overlap.matrix <- gene.list.overlap.summary[["overlap"]][keep.rows, keep.rows]
+  keep.overlap <- score.matrix > score.cutoff
+  
+  gene.list.overlap <- overlap.matrix * keep.overlap
+  
+  # Reorder by age
+  order1 <- with(struc.age.lookup, order(age_log2pcd, struc_age))
+  row.order <- match(struc.age.lookup$struc_age[order1][keep.rows], 
+                     rownames(gene.list.overlap))
+  row.order <- na.omit(row.order)
+  
+  # Reorder overlap heatmap
+  gene.list.overlap <- gene.list.overlap[row.order, row.order]
+  
+  # Plot same ages in red (make non-overlapping ages negative so plotted in blue)
+  age.order <- c("E40", "E50", "E70", "E80", "E90", "E120", 
+                 "0M", "3M", "12M", "48M")
+  gene.list.overlap <- -gene.list.overlap
+  for (age1 in age.order) {
+    subset1 <- grep(age1, colnames(gene.list.overlap))
+    if (length(subset1) > 0) {
+      gene.list.overlap[subset1, subset1] <- -gene.list.overlap[subset1, subset1]
+    }
+  }
+  
+  gene.list.overlap.bydir[[rate.dir]] <- gene.list.overlap
+}
+```
+
+
+# Figure 2b
+```{r plot-overlap-heatmap, fig.width=15, fig.height=15}
+# Define annotation color bars
+keep.cols <- c("age", "toplevel", "region", "layer_type")
+annot.cols <- c("age", "toplevel", "layer_type")
+keep.annot <- match(rownames(gene.list.overlap.bydir[[1]]), samplePrePost$struc_age)
+sample.annot <- samplePrePost[keep.annot, keep.cols]
+
+# Add annotation detail
+sample.annot$toplevel <- as.character(sample.annot$toplevel)
+edit.label <- which(sample.annot$toplevel == "NCX")
+sample.annot$toplevel[edit.label] <- as.character(sample.annot$region)[edit.label]
+sample.annot$toplevel <- as.factor(sample.annot$toplevel)
+
+# Label rows
+sample.annot <- droplevels(sample.annot[, annot.cols])
+rownames(sample.annot) <- samplePrePost$struc_age[keep.annot]
+
+# MKI67 as proliferation marker
+cc.expr <- exprPrePost["MKI67", keep.annot]
+# KLUDGE to fix color scaling (one sample has sig less expression)
+cc.expr[which.min(cc.expr)] <- cc.expr[which.min(cc.expr)] + 0.5
+sample.annot$cell_cycle_score <- cc.expr
+
+# Define color bars
+annot.color <- vector("list", ncol(sample.annot))
+names(annot.color) <- colnames(sample.annot)
+for (i in 1:(length(annot.color) - 1)) {
+  # Reorder palette to increase color discrimination
+  pal1 <- brewer.pal(9, "Set1")[c(1, 2, 5, 4, 6, 3, 7, 8, 9)]
+  annot.color[[i]] <- pal1[1:nlevels(sample.annot[, i])]
+  names(annot.color[[i]]) <- levels(sample.annot[, i])
+}
+annot.color[["cell_cycle_score"]] <- c("white", "grey70", "black")
+
+# Plot heatmap (clustered or not)
+cluster.heatmap <- TRUE
+for (rate.dir in rev(names(gene.list.overlap.bydir))) {
+  # Lock increasing to order of decreasing overlap heatmap
+  if (rate.dir == "increasing") {
+    # Reorder heatmap based on clustering
+    overlap.cor <- cor(abs(gene.list.overlap.bydir[[rate.dir]])/1000)
+    overlap.dist <- as.dist((1 - overlap.cor) / 2)
+    dend1 <- as.dendrogram(hclust(overlap.dist))
+    
+    # Reorder dendrogram based on ages
+    dend2 <- reorder(dend1, sample.annot$age, agglo.FUN=mean)
+    clust.order <- as.hclust(dend2)$order
+    clust.order.lab <- as.hclust(dend2)$labels[clust.order]
+    
+    # Save cluster order for future analyses
+    write.table(clust.order.lab, row.names=FALSE, col.names=FALSE, quote=FALSE, 
+                file=paste0("../analysis/go_enrich/", region.subset, "/clust.order.lab.txt"))
+    
+    # Plot dendrogram
+#     plot(dend2)  # Overlapping labels but doesn't have node shapes
+#     plot(dend2, nodePar=list(lab.cex=0.4))  # Readable leaf labels
+
+    # Define palette
+    pal1 <- colorRampPalette(rev(brewer.pal(11, "RdBu")))(100)
+    pal1.breaks <- seq(-1, 1, length=101)
+  } else {
+    # Define palette (make decreasing )
+    pal1 <- colorRampPalette((brewer.pal(11, "RdBu")))(100)
+    pal1.breaks <- seq(-1, 1, length=101)
+  }
+  if (cluster.heatmap == FALSE) clust.order <- 1:nrow(sample.annot)
+  
+  # Reorder gene list overlap matrix
+  overlap.matrix <- gene.list.overlap.bydir[[rate.dir]][clust.order, 
+                                                        clust.order]
+  overlap.matrix <- abs(overlap.matrix) / 1000
+  pheatmap(overlap.matrix, 
+           color=pal1, breaks=pal1.breaks, cluster_rows=FALSE, 
+           cluster_cols=FALSE, cellwidth=2, cellheight=2, 
+           main=paste("Overlap of top 1000", rate.dir, "genes"),
+           fontsize_row=2, fontsize_col=2, border_color=NA,
+           annotation=sample.annot[clust.order, ], 
+           annotation_colors=annot.color)
+}
+
+```

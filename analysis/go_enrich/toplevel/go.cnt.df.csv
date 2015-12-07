@@ -1,0 +1,1045 @@
+go_id,dir1,NCX,HP,AM,BG,any_reg,go_term,interesting_TB,interesting_MH
+GO:0000082,decreasing,5,4,1,4,6,G1/S transition of mitotic cell cycle,0,0
+GO:0000086,decreasing,3,2,1,3,5,G2/M transition of mitotic cell cycle,0,0
+GO:0000165,increasing,3,3,4,5,6,MAPK cascade,0,0
+GO:0000245,decreasing,1,2,2,1,2,spliceosomal complex assembly,0,0
+GO:0000302,increasing,1,2,4,3,5,response to reactive oxygen species,0,0
+GO:0000303,increasing,2,2,4,4,7,response to superoxide,0,0
+GO:0000305,increasing,2,2,4,4,7,response to oxygen radical,0,0
+GO:0000375,decreasing,3,3,1,3,3,"RNA splicing, via transesterification reactions",0,0
+GO:0000377,decreasing,3,3,1,2,3,"RNA splicing, via transesterification reactions with bulged adenosine as nucleophile",0,0
+GO:0000398,decreasing,3,3,1,1,3,"mRNA splicing, via spliceosome",0,0
+GO:0000902,increasing,4,3,3,4,5,cell morphogenesis,0,0
+GO:0000904,increasing,4,3,3,3,4,cell morphogenesis involved in differentiation,0,0
+GO:0000956,decreasing,1,2,3,2,3,nuclear-transcribed mRNA catabolic process,0,0
+GO:0001501,decreasing,4,3,2,2,5,skeletal system development,0,0
+GO:0001501,increasing,1,1,3,3,4,skeletal system development,0,0
+GO:0001503,increasing,4,3,4,3,6,ossification,0,0
+GO:0001505,increasing,6,3,2,2,7,regulation of neurotransmitter levels,1,1
+GO:0001508,increasing,8,7,6,6,8,action potential,1,0
+GO:0001525,increasing,2,2,2,3,4,angiogenesis,0,0
+GO:0001558,increasing,4,2,2,3,6,regulation of cell growth,0,0
+GO:0001568,increasing,3,2,3,4,4,blood vessel development,0,0
+GO:0001654,decreasing,6,4,3,1,7,eye development,0,1
+GO:0001655,increasing,1,1,2,4,4,urogenital system development,0,0
+GO:0001657,increasing,2,1,2,4,4,ureteric bud development,0,0
+GO:0001658,increasing,2,2,2,4,4,branching involved in ureteric bud morphogenesis,0,0
+GO:0001662,increasing,3,4,5,4,6,behavioral fear response,0,1
+GO:0001667,increasing,4,2,3,4,4,ameboidal cell migration,0,0
+GO:0001754,increasing,2,2,5,1,5,eye photoreceptor cell differentiation,0,1
+GO:0001763,increasing,2,1,2,2,3,morphogenesis of a branching structure,0,0
+GO:0001764,increasing,3,1,1,1,3,neuron migration,1,1
+GO:0001775,increasing,1,1,1,1,2,cell activation,0,0
+GO:0001820,increasing,2,1,3,3,5,serotonin secretion,1,1
+GO:0001822,increasing,1,1,2,4,4,kidney development,0,0
+GO:0001823,increasing,3,1,2,4,4,mesonephros development,0,0
+GO:0001837,decreasing,2,2,1,1,3,epithelial to mesenchymal transition,0,0
+GO:0001894,increasing,1,1,2,2,2,tissue homeostasis,0,0
+GO:0001932,increasing,3,3,4,5,6,regulation of protein phosphorylation,0,0
+GO:0001934,increasing,3,4,6,5,7,positive regulation of protein phosphorylation,0,0
+GO:0001935,increasing,2,4,3,4,5,endothelial cell proliferation,0,0
+GO:0001936,increasing,3,4,3,4,5,regulation of endothelial cell proliferation,0,0
+GO:0001944,increasing,4,2,3,4,4,vasculature development,0,0
+GO:0002016,increasing,2,3,4,1,5,regulation of blood volume by renin-angiotensin,0,0
+GO:0002028,increasing,4,5,4,1,7,regulation of sodium ion transport,0,0
+GO:0002062,decreasing,3,1,1,1,3,chondrocyte differentiation,0,0
+GO:0002062,increasing,2,1,2,1,3,chondrocyte differentiation,0,0
+GO:0002069,decreasing,2,2,2,1,4,columnar/cuboidal epithelial cell maturation,0,0
+GO:0002237,increasing,1,1,2,1,4,response to molecule of bacterial origin,0,0
+GO:0002548,increasing,3,2,5,4,6,monocyte chemotaxis,0,0
+GO:0002718,increasing,4,2,3,2,5,regulation of cytokine production involved in immune response,0,0
+GO:0002768,increasing,3,2,4,3,6,immune response-regulating cell surface receptor signaling pathway,0,0
+GO:0002790,increasing,4,4,4,1,6,peptide secretion,0,0
+GO:0002791,increasing,4,4,4,1,6,regulation of peptide secretion,0,0
+GO:0002792,increasing,2,5,4,3,7,negative regulation of peptide secretion,0,0
+GO:0003007,decreasing,3,4,2,2,6,heart morphogenesis,0,0
+GO:0003008,increasing,6,5,6,5,7,system process,0,0
+GO:0003009,increasing,2,2,1,1,2,skeletal muscle contraction,0,0
+GO:0003012,increasing,6,3,4,4,7,muscle system process,0,0
+GO:0003013,increasing,2,3,3,5,5,circulatory system process,0,0
+GO:0003014,increasing,3,5,4,4,6,renal system process,0,0
+GO:0003015,increasing,3,3,3,3,5,heart process,0,0
+GO:0003018,increasing,3,4,3,5,5,vascular process in circulatory system,0,0
+GO:0003091,increasing,1,5,3,3,5,renal water homeostasis,0,0
+GO:0003094,increasing,2,2,2,2,4,glomerular filtration,0,0
+GO:0003231,decreasing,5,4,5,3,6,cardiac ventricle development,0,0
+GO:0003279,decreasing,5,3,3,3,8,cardiac septum development,0,0
+GO:0003300,increasing,3,2,3,2,4,cardiac muscle hypertrophy,0,0
+GO:0006022,increasing,1,1,2,2,3,aminoglycan metabolic process,0,0
+GO:0006026,increasing,3,3,5,3,5,aminoglycan catabolic process,0,0
+GO:0006027,increasing,3,4,5,3,5,glycosaminoglycan catabolic process,0,0
+GO:0006091,increasing,2,2,1,1,2,generation of precursor metabolites and energy,0,0
+GO:0006140,increasing,3,5,1,5,6,regulation of nucleotide metabolic process,0,0
+GO:0006163,increasing,2,3,1,4,5,purine nucleotide metabolic process,0,0
+GO:0006164,increasing,2,3,2,2,4,purine nucleotide biosynthetic process,0,0
+GO:0006171,increasing,2,2,3,2,4,cAMP biosynthetic process,0,0
+GO:0006184,increasing,3,4,4,4,6,GTP catabolic process,0,0
+GO:0006302,decreasing,3,3,1,1,3,double-strand break repair,0,0
+GO:0006304,decreasing,4,3,2,2,4,DNA modification,0,0
+GO:0006305,decreasing,3,3,2,2,3,DNA alkylation,0,0
+GO:0006306,decreasing,2,3,2,1,3,DNA methylation,0,0
+GO:0006323,decreasing,5,4,1,4,7,DNA packaging,0,0
+GO:0006325,decreasing,4,2,1,3,5,chromatin organization,0,0
+GO:0006333,decreasing,5,5,2,5,7,chromatin assembly or disassembly,0,0
+GO:0006334,decreasing,7,7,4,6,9,nucleosome assembly,0,0
+GO:0006346,decreasing,3,3,3,1,5,methylation-dependent chromatin silencing,0,0
+GO:0006351,decreasing,3,4,2,2,4,"transcription, DNA-templated",0,0
+GO:0006355,decreasing,4,2,2,1,5,"regulation of transcription, DNA-templated",0,0
+GO:0006357,decreasing,3,2,2,1,4,regulation of transcription from RNA polymerase II promoter,0,0
+GO:0006366,decreasing,4,2,2,1,4,transcription from RNA polymerase II promoter,0,0
+GO:0006396,decreasing,1,1,1,1,2,RNA processing,0,0
+GO:0006397,decreasing,3,4,2,2,4,mRNA processing,0,0
+GO:0006401,decreasing,1,2,1,2,3,RNA catabolic process,0,0
+GO:0006402,decreasing,1,2,2,2,3,mRNA catabolic process,0,0
+GO:0006403,decreasing,2,2,1,2,3,RNA localization,0,0
+GO:0006412,decreasing,2,1,2,1,3,translation,0,0
+GO:0006413,decreasing,2,1,2,1,3,translational initiation,0,0
+GO:0006457,decreasing,1,1,2,1,2,protein folding,0,0
+GO:0006468,increasing,3,2,3,3,4,protein phosphorylation,0,0
+GO:0006474,decreasing,4,3,4,1,6,N-terminal protein amino acid acetylation,0,0
+GO:0006509,increasing,3,4,3,4,4,membrane protein ectodomain proteolysis,0,0
+GO:0006536,increasing,5,2,1,1,5,glutamate metabolic process,1,0
+GO:0006612,decreasing,1,2,1,1,3,protein targeting to membrane,0,0
+GO:0006629,increasing,2,3,3,3,4,lipid metabolic process,0,0
+GO:0006692,increasing,3,2,1,2,4,prostanoid metabolic process,0,0
+GO:0006693,increasing,3,2,1,2,4,prostaglandin metabolic process,0,0
+GO:0006704,increasing,3,2,1,3,4,glucocorticoid biosynthetic process,0,0
+GO:0006706,increasing,3,4,4,4,5,steroid catabolic process,0,0
+GO:0006793,increasing,2,3,3,3,3,phosphorus metabolic process,0,0
+GO:0006796,increasing,2,3,3,3,3,phosphate-containing compound metabolic process,0,0
+GO:0006801,increasing,2,3,5,4,6,superoxide metabolic process,0,0
+GO:0006809,increasing,2,1,4,1,5,nitric oxide biosynthetic process,0,0
+GO:0006810,increasing,4,4,3,4,6,transport,0,0
+GO:0006811,increasing,7,6,6,6,7,ion transport,1,1
+GO:0006812,increasing,7,6,5,4,7,cation transport,1,1
+GO:0006813,increasing,7,7,3,6,8,potassium ion transport,1,1
+GO:0006814,increasing,6,6,3,3,7,sodium ion transport,1,1
+GO:0006816,increasing,5,3,3,3,6,calcium ion transport,1,1
+GO:0006820,increasing,2,1,2,2,4,anion transport,0,0
+GO:0006833,increasing,1,5,4,3,5,water transport,0,0
+GO:0006835,increasing,5,3,4,6,7,dicarboxylic acid transport,0,0
+GO:0006836,increasing,6,5,3,2,7,neurotransmitter transport,1,1
+GO:0006837,increasing,3,2,3,4,7,serotonin transport,1,1
+GO:0006865,increasing,4,3,4,3,7,amino acid transport,0,0
+GO:0006873,increasing,6,5,5,6,7,cellular ion homeostasis,0,0
+GO:0006874,increasing,6,6,5,5,8,cellular calcium ion homeostasis,0,0
+GO:0006875,increasing,5,5,5,5,7,cellular metal ion homeostasis,0,0
+GO:0006887,increasing,4,4,1,3,6,exocytosis,0,0
+GO:0006915,increasing,2,1,3,1,3,apoptotic process,0,0
+GO:0006928,increasing,4,4,4,5,5,cellular component movement,0,0
+GO:0006935,increasing,4,2,3,5,5,chemotaxis,0,0
+GO:0006936,increasing,6,6,4,6,7,muscle contraction,0,0
+GO:0006937,increasing,4,4,1,1,6,regulation of muscle contraction,0,0
+GO:0006939,increasing,4,5,4,4,5,smooth muscle contraction,0,0
+GO:0006941,increasing,3,4,2,4,6,striated muscle contraction,0,0
+GO:0006942,increasing,2,3,2,1,6,regulation of striated muscle contraction,0,0
+GO:0006950,increasing,2,2,3,2,3,response to stress,0,1
+GO:0006952,increasing,1,2,2,2,2,defense response,0,0
+GO:0006954,increasing,1,2,3,2,3,inflammatory response,0,0
+GO:0006956,increasing,2,2,3,3,3,complement activation,0,0
+GO:0006959,increasing,2,2,3,2,3,humoral immune response,0,0
+GO:0007015,increasing,4,4,5,4,7,actin filament organization,1,0
+GO:0007044,increasing,1,2,1,3,3,cell-substrate junction assembly,0,0
+GO:0007052,decreasing,4,2,1,3,5,mitotic spindle organization,0,0
+GO:0007154,increasing,5,4,4,4,6,cell communication,0,0
+GO:0007155,decreasing,2,1,1,1,3,cell adhesion,1,0
+GO:0007155,increasing,4,4,3,4,4,cell adhesion,1,0
+GO:0007160,increasing,2,3,4,3,5,cell-matrix adhesion,1,0
+GO:0007162,increasing,4,1,2,2,4,negative regulation of cell adhesion,1,0
+GO:0007165,increasing,3,3,4,3,4,signal transduction,0,0
+GO:0007166,increasing,3,2,4,3,4,cell surface receptor signaling pathway,0,0
+GO:0007167,increasing,1,1,4,3,4,enzyme linked receptor protein signaling pathway,0,0
+GO:0007169,increasing,2,1,3,3,5,transmembrane receptor protein tyrosine kinase signaling pathway,0,0
+GO:0007173,increasing,1,2,3,4,5,epidermal growth factor receptor signaling pathway,0,0
+GO:0007186,increasing,2,4,4,4,4,G-protein coupled receptor signaling pathway,0,1
+GO:0007187,increasing,3,4,3,3,4,"G-protein coupled receptor signaling pathway, coupled to cyclic nucleotide second messenger",0,1
+GO:0007188,increasing,2,2,2,3,4,adenylate cyclase-modulating G-protein coupled receptor signaling pathway,0,1
+GO:0007200,increasing,3,3,6,5,7,phospholipase C-activating G-protein coupled receptor signaling pathway,0,0
+GO:0007204,increasing,6,5,5,4,8,positive regulation of cytosolic calcium ion concentration,0,0
+GO:0007215,increasing,6,4,3,3,6,glutamate receptor signaling pathway,1,1
+GO:0007259,increasing,2,5,6,5,7,JAK-STAT cascade,0,0
+GO:0007260,increasing,2,3,4,3,4,tyrosine phosphorylation of STAT protein,0,0
+GO:0007263,increasing,3,3,6,4,8,nitric oxide mediated signal transduction,0,0
+GO:0007264,increasing,4,3,4,6,6,small GTPase mediated signal transduction,0,0
+GO:0007265,increasing,4,3,4,5,6,Ras protein signal transduction,0,0
+GO:0007267,increasing,6,6,4,3,6,cell-cell signaling,1,0
+GO:0007268,increasing,7,7,5,5,8,synaptic transmission,1,1
+GO:0007269,increasing,5,5,1,1,7,neurotransmitter secretion,1,1
+GO:0007270,increasing,6,6,4,3,8,neuron-neuron synaptic transmission,1,1
+GO:0007271,increasing,5,4,1,2,6,"synaptic transmission, cholinergic",1,1
+GO:0007272,increasing,5,5,5,5,7,ensheathment of neurons,1,1
+GO:0007275,increasing,3,1,2,2,3,multicellular organismal development,0,0
+GO:0007399,increasing,5,4,4,3,5,nervous system development,0,0
+GO:0007405,decreasing,1,2,1,1,2,neuroblast proliferation,1,0
+GO:0007409,increasing,4,3,3,4,6,axonogenesis,1,1
+GO:0007411,increasing,2,1,1,2,3,axon guidance,1,1
+GO:0007417,increasing,3,1,1,1,4,central nervous system development,0,1
+GO:0007422,increasing,1,3,2,4,5,peripheral nervous system development,0,0
+GO:0007423,decreasing,5,2,2,1,6,sensory organ development,0,0
+GO:0007492,decreasing,2,1,1,2,3,endoderm development,0,0
+GO:0007519,increasing,1,1,2,1,3,skeletal muscle tissue development,0,0
+GO:0007586,increasing,6,4,1,2,7,digestion,0,0
+GO:0007596,increasing,4,3,5,5,8,blood coagulation,0,0
+GO:0007599,increasing,4,3,6,5,8,hemostasis,0,0
+GO:0007600,increasing,3,5,3,4,6,sensory perception,0,1
+GO:0007610,increasing,6,6,5,4,7,behavior,0,0
+GO:0007611,increasing,7,6,4,4,7,learning or memory,0,1
+GO:0007612,increasing,5,6,2,3,6,learning,0,1
+GO:0007618,increasing,4,3,3,2,4,mating,0,0
+GO:0007620,increasing,4,3,2,2,4,copulation,0,0
+GO:0007626,increasing,7,5,5,3,9,locomotory behavior,0,0
+GO:0007631,increasing,3,5,3,1,6,feeding behavior,0,0
+GO:0008015,increasing,2,3,3,5,5,blood circulation,0,0
+GO:0008016,increasing,3,3,2,3,5,regulation of heart contraction,0,0
+GO:0008038,increasing,4,3,1,2,4,neuron recognition,1,1
+GO:0008202,increasing,3,3,3,4,4,steroid metabolic process,0,0
+GO:0008211,increasing,2,2,1,2,2,glucocorticoid metabolic process,0,0
+GO:0008217,increasing,1,2,2,1,2,regulation of blood pressure,0,1
+GO:0008219,increasing,2,1,3,3,4,cell death,0,0
+GO:0008277,increasing,2,2,2,2,3,regulation of G-protein coupled receptor protein signaling pathway,0,1
+GO:0008283,increasing,3,2,2,2,3,cell proliferation,0,0
+GO:0008284,increasing,1,1,1,1,1,positive regulation of cell proliferation,0,0
+GO:0008285,increasing,2,1,2,1,3,negative regulation of cell proliferation,0,0
+GO:0008361,increasing,4,2,2,4,6,regulation of cell size,0,0
+GO:0008366,increasing,5,4,5,5,6,axon ensheathment,1,1
+GO:0008380,decreasing,3,3,2,3,3,RNA splicing,0,0
+GO:0008610,increasing,1,2,1,2,2,lipid biosynthetic process,0,0
+GO:0009058,decreasing,2,1,1,1,3,biosynthetic process,0,0
+GO:0009059,decreasing,4,3,2,2,4,macromolecule biosynthetic process,0,0
+GO:0009065,increasing,4,2,1,1,4,glutamine family amino acid catabolic process,1,0
+GO:0009118,increasing,3,4,1,4,5,regulation of nucleoside metabolic process,0,0
+GO:0009125,decreasing,1,1,1,2,2,nucleoside monophosphate catabolic process,0,0
+GO:0009128,decreasing,1,1,1,2,2,purine nucleoside monophosphate catabolic process,0,0
+GO:0009152,increasing,1,3,1,1,4,purine ribonucleotide biosynthetic process,0,0
+GO:0009158,decreasing,1,1,1,2,2,ribonucleoside monophosphate catabolic process,0,0
+GO:0009165,increasing,1,3,1,1,4,nucleotide biosynthetic process,0,0
+GO:0009169,decreasing,1,1,1,1,1,purine ribonucleoside monophosphate catabolic process,0,0
+GO:0009187,increasing,3,3,3,4,5,cyclic nucleotide metabolic process,0,0
+GO:0009190,increasing,3,3,4,4,5,cyclic nucleotide biosynthetic process,0,0
+GO:0009260,increasing,1,2,1,1,3,ribonucleotide biosynthetic process,0,0
+GO:0009266,increasing,2,2,1,3,3,response to temperature stimulus,0,0
+GO:0009314,decreasing,1,1,1,1,1,response to radiation,0,0
+GO:0009410,increasing,3,3,5,4,5,response to xenobiotic stimulus,0,0
+GO:0009605,increasing,2,1,2,3,4,response to external stimulus,0,0
+GO:0009611,increasing,3,4,3,4,4,response to wounding,0,0
+GO:0009612,increasing,2,5,5,5,7,response to mechanical stimulus,0,0
+GO:0009628,increasing,2,2,3,4,4,response to abiotic stimulus,0,0
+GO:0009719,increasing,5,4,4,4,6,response to endogenous stimulus,0,0
+GO:0009725,increasing,5,4,4,4,5,response to hormone,0,0
+GO:0009889,decreasing,3,2,2,1,3,regulation of biosynthetic process,0,0
+GO:0009890,decreasing,3,3,1,1,4,negative regulation of biosynthetic process,0,0
+GO:0009891,decreasing,3,2,2,1,3,positive regulation of biosynthetic process,0,0
+GO:0009892,decreasing,3,2,1,1,3,negative regulation of metabolic process,0,0
+GO:0009893,increasing,2,2,4,3,4,positive regulation of metabolic process,0,0
+GO:0009893,decreasing,2,1,2,1,2,positive regulation of metabolic process,0,0
+GO:0009894,increasing,1,2,2,2,3,regulation of catabolic process,0,0
+GO:0009914,increasing,4,4,1,3,6,hormone transport,0,0
+GO:0009966,increasing,3,2,3,3,3,regulation of signal transduction,0,0
+GO:0009967,increasing,3,2,4,4,5,positive regulation of signal transduction,0,0
+GO:0010001,increasing,5,5,6,5,7,glial cell differentiation,1,0
+GO:0010001,decreasing,2,2,1,2,4,glial cell differentiation,1,0
+GO:0010033,increasing,4,4,3,4,4,response to organic substance,0,0
+GO:0010038,increasing,3,1,1,2,5,response to metal ion,0,0
+GO:0010212,decreasing,2,2,1,1,3,response to ionizing radiation,0,0
+GO:0010243,increasing,4,3,3,3,5,response to organonitrogen compound,0,0
+GO:0010466,increasing,3,2,2,4,4,negative regulation of peptidase activity,0,0
+GO:0010467,decreasing,1,1,1,2,2,gene expression,0,0
+GO:0010468,decreasing,1,1,2,1,2,regulation of gene expression,0,0
+GO:0010517,increasing,5,5,6,6,8,regulation of phospholipase activity,0,0
+GO:0010518,increasing,5,5,6,6,8,positive regulation of phospholipase activity,0,0
+GO:0010522,increasing,4,3,1,2,7,regulation of calcium ion transport into cytosol,0,0
+GO:0010533,increasing,1,3,4,4,5,regulation of activation of Janus kinase activity,0,0
+GO:0010543,increasing,3,3,4,4,5,regulation of platelet activation,0,0
+GO:0010556,decreasing,3,2,2,1,3,regulation of macromolecule biosynthetic process,0,0
+GO:0010557,decreasing,3,2,2,1,3,positive regulation of macromolecule biosynthetic process,0,0
+GO:0010558,decreasing,4,3,1,2,5,negative regulation of macromolecule biosynthetic process,0,0
+GO:0010562,increasing,3,4,5,4,6,positive regulation of phosphorus metabolic process,0,0
+GO:0010563,increasing,1,2,1,3,4,negative regulation of phosphorus metabolic process,0,0
+GO:0010573,increasing,2,2,2,2,4,vascular endothelial growth factor production,0,0
+GO:0010594,increasing,2,2,3,4,4,regulation of endothelial cell migration,0,0
+GO:0010604,decreasing,1,1,2,1,2,positive regulation of macromolecule metabolic process,0,0
+GO:0010605,decreasing,2,1,1,1,2,negative regulation of macromolecule metabolic process,0,0
+GO:0010611,increasing,3,2,3,2,4,regulation of cardiac muscle hypertrophy,0,0
+GO:0010628,decreasing,4,4,2,3,6,positive regulation of gene expression,0,0
+GO:0010629,decreasing,3,4,2,1,4,negative regulation of gene expression,0,0
+GO:0010631,increasing,4,2,3,4,4,epithelial cell migration,0,0
+GO:0010632,increasing,3,3,3,4,5,regulation of epithelial cell migration,0,0
+GO:0010633,increasing,3,4,4,3,6,negative regulation of epithelial cell migration,0,0
+GO:0010634,increasing,2,1,2,2,4,positive regulation of epithelial cell migration,0,0
+GO:0010644,increasing,3,3,3,2,5,cell communication by electrical coupling,0,0
+GO:0010646,increasing,4,4,4,3,5,regulation of cell communication,0,0
+GO:0010647,increasing,3,4,4,4,5,positive regulation of cell communication,0,0
+GO:0010712,increasing,3,2,3,1,5,regulation of collagen metabolic process,0,0
+GO:0010769,increasing,2,4,3,4,6,regulation of cell morphogenesis involved in differentiation,0,0
+GO:0010810,increasing,4,2,5,3,5,regulation of cell-substrate adhesion,1,0
+GO:0010810,decreasing,2,1,2,2,2,regulation of cell-substrate adhesion,1,0
+GO:0010817,increasing,4,4,1,3,6,regulation of hormone levels,0,0
+GO:0010827,increasing,2,2,3,2,5,regulation of glucose transport,0,0
+GO:0010934,increasing,6,4,5,3,7,macrophage cytokine production,0,0
+GO:0010941,increasing,2,1,3,3,4,regulation of cell death,0,0
+GO:0010942,increasing,2,2,1,2,4,positive regulation of cell death,0,0
+GO:0010959,increasing,3,2,4,1,5,regulation of metal ion transport,0,0
+GO:0010975,increasing,5,4,5,5,8,regulation of neuron projection development,1,1
+GO:0010996,increasing,2,2,3,3,4,response to auditory stimulus,0,0
+GO:0012501,increasing,2,1,3,1,3,programmed cell death,0,0
+GO:0014003,increasing,3,4,2,4,6,oligodendrocyte development,1,1
+GO:0014013,decreasing,3,2,1,3,5,regulation of gliogenesis,1,1
+GO:0014014,decreasing,3,3,2,4,6,negative regulation of gliogenesis,1,1
+GO:0014031,decreasing,4,4,3,1,5,mesenchymal cell development,0,0
+GO:0014047,increasing,4,5,3,4,8,glutamate secretion,1,1
+GO:0014051,increasing,5,3,1,2,6,gamma-aminobutyric acid secretion,1,1
+GO:0014052,increasing,4,2,1,1,6,regulation of gamma-aminobutyric acid secretion,1,1
+GO:0014065,increasing,4,4,4,6,7,phosphatidylinositol 3-kinase signaling,0,0
+GO:0014070,increasing,6,4,3,4,6,response to organic cyclic compound,0,0
+GO:0014074,increasing,3,4,2,2,7,response to purine-containing compound,0,0
+GO:0014743,increasing,3,2,3,2,4,regulation of muscle hypertrophy,0,0
+GO:0014812,increasing,2,2,3,1,3,muscle cell migration,0,0
+GO:0014819,increasing,2,2,1,2,2,regulation of skeletal muscle contraction,0,0
+GO:0014848,increasing,3,3,1,1,5,urinary tract smooth muscle contraction,0,0
+GO:0014855,increasing,1,1,1,2,3,striated muscle cell proliferation,0,0
+GO:0014896,increasing,3,2,3,2,4,muscle hypertrophy,0,0
+GO:0014897,increasing,3,1,3,2,4,striated muscle hypertrophy,0,0
+GO:0014909,increasing,2,2,3,1,3,smooth muscle cell migration,0,0
+GO:0015672,increasing,6,6,3,4,6,monovalent inorganic cation transport,0,0
+GO:0015698,increasing,2,1,3,2,4,inorganic anion transport,0,0
+GO:0015698,decreasing,2,2,3,2,4,inorganic anion transport,0,0
+GO:0015711,increasing,2,1,2,3,4,organic anion transport,0,0
+GO:0015718,increasing,4,1,1,1,6,monocarboxylic acid transport,0,0
+GO:0015800,increasing,3,3,4,3,6,acidic amino acid transport,0,0
+GO:0015807,increasing,2,2,4,3,5,L-amino acid transport,0,0
+GO:0015810,increasing,2,3,2,2,3,aspartate transport,0,0
+GO:0015812,increasing,5,3,1,2,6,gamma-aminobutyric acid transport,1,1
+GO:0015833,increasing,3,3,3,2,6,peptide transport,0,0
+GO:0015837,increasing,4,4,5,4,7,amine transport,0,0
+GO:0015844,increasing,4,6,4,7,9,monoamine transport,0,0
+GO:0015849,increasing,3,2,2,3,6,organic acid transport,0,0
+GO:0015850,increasing,3,4,3,4,7,organic hydroxy compound transport,0,0
+GO:0015874,increasing,4,5,5,7,8,norepinephrine transport,1,1
+GO:0015931,decreasing,2,1,1,2,3,nucleobase-containing compound transport,0,0
+GO:0015980,increasing,2,2,1,1,2,energy derivation by oxidation of organic compounds,0,0
+GO:0016042,increasing,1,2,1,2,3,lipid catabolic process,0,0
+GO:0016043,increasing,1,1,1,1,1,cellular component organization,0,0
+GO:0016049,increasing,3,2,2,4,6,cell growth,1,0
+GO:0016070,decreasing,3,2,2,2,3,RNA metabolic process,0,0
+GO:0016071,decreasing,2,3,2,3,3,mRNA metabolic process,0,0
+GO:0016125,increasing,3,4,3,4,4,sterol metabolic process,0,0
+GO:0016265,increasing,2,2,3,3,4,death,0,0
+GO:0016310,increasing,3,3,4,4,5,phosphorylation,0,0
+GO:0016337,increasing,2,3,3,3,3,single organismal cell-cell adhesion,1,0
+GO:0016358,increasing,5,3,4,2,7,dendrite development,1,1
+GO:0016477,increasing,3,3,4,5,5,cell migration,1,0
+GO:0017145,decreasing,1,1,1,1,1,stem cell division,0,0
+GO:0018108,increasing,3,4,6,5,7,peptidyl-tyrosine phosphorylation,0,0
+GO:0018130,decreasing,2,1,1,1,3,heterocycle biosynthetic process,0,0
+GO:0018212,increasing,3,4,6,5,7,peptidyl-tyrosine modification,0,0
+GO:0018904,increasing,2,1,2,3,6,ether metabolic process,0,0
+GO:0019216,increasing,2,3,3,4,4,regulation of lipid metabolic process,0,0
+GO:0019218,increasing,2,3,3,4,4,regulation of steroid metabolic process,0,0
+GO:0019219,decreasing,3,2,2,1,3,regulation of nucleobase-containing compound metabolic process,0,0
+GO:0019220,increasing,3,4,4,4,5,regulation of phosphate metabolic process,0,0
+GO:0019226,increasing,7,6,6,5,8,transmission of nerve impulse,1,0
+GO:0019228,increasing,7,7,6,6,9,neuronal action potential,1,1
+GO:0019233,increasing,4,4,2,3,5,sensory perception of pain,0,1
+GO:0019438,decreasing,3,1,1,1,3,aromatic compound biosynthetic process,0,0
+GO:0019722,increasing,5,5,4,3,6,calcium-mediated signaling,1,1
+GO:0019725,increasing,7,5,5,6,8,cellular homeostasis,0,0
+GO:0019748,increasing,2,3,2,3,5,secondary metabolic process,0,0
+GO:0019932,increasing,6,5,5,4,7,second-messenger-mediated signaling,0,0
+GO:0019935,increasing,2,4,3,3,4,cyclic-nucleotide-mediated signaling,0,0
+GO:0021534,increasing,2,2,4,3,5,cell proliferation in hindbrain,0,1
+GO:0021545,increasing,2,2,1,2,4,cranial nerve development,0,1
+GO:0021675,increasing,2,2,2,2,4,nerve development,0,0
+GO:0021697,decreasing,1,2,2,1,4,cerebellar cortex formation,0,0
+GO:0021781,increasing,1,2,2,1,4,glial cell fate commitment,1,1
+GO:0021782,increasing,4,5,5,6,7,glial cell development,1,1
+GO:0021782,decreasing,1,4,2,2,5,glial cell development,1,1
+GO:0021800,increasing,2,1,1,2,2,cerebral cortex tangential migration,1,1
+GO:0021877,decreasing,3,2,2,2,5,forebrain neuron fate commitment,1,1
+GO:0021892,increasing,3,2,1,1,3,cerebral cortex GABAergic interneuron differentiation,1,1
+GO:0021892,decreasing,3,1,2,3,5,cerebral cortex GABAergic interneuron differentiation,1,1
+GO:0021953,increasing,3,2,1,1,3,central nervous system neuron differentiation,1,1
+GO:0021954,increasing,3,1,1,1,3,central nervous system neuron development,1,1
+GO:0022008,decreasing,2,1,3,2,4,neurogenesis,1,1
+GO:0022008,increasing,5,5,6,6,7,neurogenesis,1,1
+GO:0022600,increasing,6,4,3,3,7,digestive system process,0,0
+GO:0022604,increasing,2,4,3,4,6,regulation of cell morphogenesis,0,0
+GO:0022607,increasing,1,1,1,1,1,cellular component assembly,0,0
+GO:0022610,increasing,4,4,5,5,5,biological adhesion,0,0
+GO:0022610,decreasing,3,1,1,2,3,biological adhesion,0,0
+GO:0022616,decreasing,3,3,1,2,6,DNA strand elongation,0,0
+GO:0022898,increasing,4,5,3,2,5,regulation of transmembrane transporter activity,0,0
+GO:0023014,increasing,3,4,4,5,6,signal transduction by phosphorylation,0,0
+GO:0023051,increasing,4,4,4,3,5,regulation of signaling,0,0
+GO:0023052,increasing,5,4,4,5,6,signaling,0,0
+GO:0023056,increasing,3,4,4,4,5,positive regulation of signaling,0,0
+GO:0023061,increasing,4,4,2,3,6,signal release,0,0
+GO:0030001,increasing,6,5,5,4,6,metal ion transport,0,0
+GO:0030003,increasing,6,5,5,5,7,cellular cation homeostasis,0,0
+GO:0030004,increasing,3,3,3,5,5,cellular monovalent inorganic cation homeostasis,0,0
+GO:0030029,increasing,3,3,6,5,7,actin filament-based process,1,0
+GO:0030030,increasing,5,4,5,4,7,cell projection organization,1,0
+GO:0030036,increasing,2,2,3,3,6,actin cytoskeleton organization,1,0
+GO:0030048,increasing,5,4,6,5,7,actin filament-based movement,1,0
+GO:0030072,increasing,4,4,3,1,6,peptide hormone secretion,0,0
+GO:0030104,increasing,1,3,3,3,4,water homeostasis,0,0
+GO:0030154,increasing,4,3,4,2,4,cell differentiation,0,0
+GO:0030155,increasing,4,2,3,4,4,regulation of cell adhesion,1,0
+GO:0030162,increasing,3,2,2,1,3,regulation of proteolysis,0,0
+GO:0030168,increasing,6,5,6,6,8,platelet activation,0,0
+GO:0030182,increasing,4,3,3,3,5,neuron differentiation,1,1
+GO:0030193,increasing,3,2,4,4,5,regulation of blood coagulation,0,0
+GO:0030198,increasing,2,3,4,5,5,extracellular matrix organization,0,0
+GO:0030198,decreasing,3,3,2,2,3,extracellular matrix organization,0,0
+GO:0030278,increasing,5,3,4,5,7,regulation of ossification,0,0
+GO:0030282,increasing,4,2,5,3,6,bone mineralization,0,0
+GO:0030316,increasing,1,2,2,1,3,osteoclast differentiation,0,0
+GO:0030318,increasing,2,2,2,1,3,melanocyte differentiation,0,0
+GO:0030334,increasing,4,4,4,4,5,regulation of cell migration,0,0
+GO:0030335,increasing,3,2,3,3,4,positive regulation of cell migration,0,0
+GO:0030336,increasing,3,3,3,3,4,negative regulation of cell migration,0,0
+GO:0030431,increasing,1,4,1,1,4,sleep,0,1
+GO:0030500,increasing,1,2,3,3,4,regulation of bone mineralization,0,0
+GO:0030516,increasing,2,2,1,2,3,regulation of axon extension,1,1
+GO:0030534,increasing,5,6,6,5,8,adult behavior,0,0
+GO:0030595,increasing,2,2,2,3,4,leukocyte chemotaxis,0,0
+GO:0030799,increasing,2,3,2,1,4,regulation of cyclic nucleotide metabolic process,0,0
+GO:0030801,increasing,1,1,1,1,3,positive regulation of cyclic nucleotide metabolic process,0,0
+GO:0030802,increasing,3,3,1,2,5,regulation of cyclic nucleotide biosynthetic process,0,0
+GO:0030808,increasing,3,3,2,2,5,regulation of nucleotide biosynthetic process,0,0
+GO:0030810,increasing,1,1,1,2,3,positive regulation of nucleotide biosynthetic process,0,0
+GO:0030811,increasing,3,4,1,4,5,regulation of nucleotide catabolic process,0,0
+GO:0030814,increasing,2,2,1,2,4,regulation of cAMP metabolic process,0,0
+GO:0030817,increasing,2,2,2,2,4,regulation of cAMP biosynthetic process,0,0
+GO:0030900,decreasing,2,1,1,1,4,forebrain development,1,1
+GO:0031016,decreasing,1,1,1,1,3,pancreas development,0,0
+GO:0031076,decreasing,5,5,3,2,6,embryonic camera-type eye development,0,0
+GO:0031099,increasing,3,5,6,6,8,regeneration,0,0
+GO:0031102,increasing,3,4,5,4,8,neuron projection regeneration,0,1
+GO:0031103,increasing,3,4,4,4,7,axon regeneration,0,1
+GO:0031109,decreasing,2,2,1,2,5,microtubule polymerization or depolymerization,0,0
+GO:0031123,decreasing,2,2,3,2,3,RNA 3'-end processing,0,0
+GO:0031175,increasing,6,3,5,6,9,neuron projection development,1,1
+GO:0031214,increasing,3,2,5,3,6,biomineral tissue development,0,0
+GO:0031279,increasing,1,2,1,2,3,regulation of cyclase activity,0,0
+GO:0031325,increasing,2,2,4,3,4,positive regulation of cellular metabolic process,0,0
+GO:0031326,decreasing,3,1,1,1,3,regulation of cellular biosynthetic process,0,0
+GO:0031327,decreasing,2,1,1,1,2,negative regulation of cellular biosynthetic process,0,0
+GO:0031328,decreasing,2,1,2,1,2,positive regulation of cellular biosynthetic process,0,0
+GO:0031344,increasing,4,4,5,5,8,regulation of cell projection organization,1,0
+GO:0031345,increasing,1,2,3,2,6,negative regulation of cell projection organization,1,0
+GO:0031346,increasing,3,3,3,3,3,positive regulation of cell projection organization,1,0
+GO:0031399,increasing,1,1,2,2,2,regulation of protein modification process,0,0
+GO:0031401,increasing,2,3,4,3,5,positive regulation of protein modification process,0,0
+GO:0031440,decreasing,1,1,2,2,2,regulation of mRNA 3'-end processing,0,0
+GO:0031497,decreasing,5,5,2,5,7,chromatin assembly,0,0
+GO:0031529,increasing,2,1,2,3,3,ruffle organization,0,0
+GO:0031589,decreasing,2,1,2,2,2,cell-substrate adhesion,1,0
+GO:0031589,increasing,4,3,5,4,5,cell-substrate adhesion,1,0
+GO:0031644,increasing,2,1,1,1,2,regulation of neurological system process,1,1
+GO:0031946,increasing,1,1,1,1,2,regulation of glucocorticoid biosynthetic process,1,1
+GO:0031960,increasing,5,4,7,6,9,response to corticosteroid,0,0
+GO:0032101,increasing,2,1,1,4,4,regulation of response to external stimulus,0,0
+GO:0032147,increasing,1,3,4,4,5,activation of protein kinase activity,0,0
+GO:0032228,increasing,4,7,4,4,8,"regulation of synaptic transmission, GABAergic",1,1
+GO:0032231,increasing,5,6,5,4,8,regulation of actin filament bundle assembly,1,1
+GO:0032270,increasing,2,2,4,3,5,positive regulation of cellular protein metabolic process,0,0
+GO:0032274,increasing,1,1,3,2,4,gonadotropin secretion,1,0
+GO:0032276,increasing,1,1,3,1,3,regulation of gonadotropin secretion,1,0
+GO:0032318,increasing,3,2,1,3,4,regulation of Ras GTPase activity,0,0
+GO:0032319,increasing,1,1,1,2,2,regulation of Rho GTPase activity,0,0
+GO:0032320,increasing,3,2,2,3,5,positive regulation of Ras GTPase activity,0,0
+GO:0032321,increasing,1,2,1,2,3,positive regulation of Rho GTPase activity,0,0
+GO:0032368,increasing,5,4,1,2,6,regulation of lipid transport,0,0
+GO:0032370,increasing,5,4,1,2,6,positive regulation of lipid transport,0,0
+GO:0032409,increasing,5,5,3,3,6,regulation of transporter activity,0,0
+GO:0032412,increasing,3,3,2,1,5,regulation of ion transmembrane transporter activity,0,0
+GO:0032465,decreasing,4,4,2,4,6,regulation of cytokinesis,0,0
+GO:0032501,increasing,3,3,3,3,3,multicellular organismal process,0,0
+GO:0032502,increasing,3,2,4,4,5,developmental process,0,0
+GO:0032535,increasing,3,3,1,2,6,regulation of cellular component size,0,0
+GO:0032774,decreasing,4,4,2,2,5,RNA biosynthetic process,0,0
+GO:0032835,increasing,3,1,1,3,3,glomerulus development,0,0
+GO:0032844,increasing,3,3,2,3,6,regulation of homeostatic process,0,0
+GO:0032870,increasing,4,3,2,3,4,cellular response to hormone stimulus,0,0
+GO:0032879,increasing,5,3,3,4,6,regulation of localization,0,0
+GO:0032890,increasing,3,1,1,1,5,regulation of organic acid transport,0,0
+GO:0032892,increasing,3,2,2,1,5,positive regulation of organic acid transport,0,0
+GO:0032940,increasing,4,4,3,4,6,secretion by cell,0,0
+GO:0032945,decreasing,2,4,3,3,5,negative regulation of mononuclear cell proliferation,0,0
+GO:0032956,increasing,3,2,5,4,6,regulation of actin cytoskeleton organization,1,0
+GO:0032958,increasing,2,1,2,1,5,inositol phosphate biosynthetic process,0,0
+GO:0032963,decreasing,3,3,2,2,3,collagen metabolic process,0,0
+GO:0032963,increasing,3,2,2,2,5,collagen metabolic process,0,0
+GO:0032964,decreasing,1,2,2,2,2,collagen biosynthetic process,0,0
+GO:0032970,increasing,3,2,5,4,6,regulation of actin filament-based process,1,0
+GO:0032989,increasing,4,3,3,4,5,cellular component morphogenesis,0,0
+GO:0032990,increasing,4,3,3,3,5,cell part morphogenesis,0,0
+GO:0033002,increasing,3,3,5,4,7,muscle cell proliferation,0,0
+GO:0033121,increasing,3,4,1,4,5,regulation of purine nucleotide catabolic process,0,0
+GO:0033124,increasing,3,4,4,4,6,regulation of GTP catabolic process,0,0
+GO:0033555,increasing,5,4,5,3,7,multicellular organismal response to stress,0,0
+GO:0033604,increasing,1,4,3,2,6,negative regulation of catecholamine secretion,1,0
+GO:0033619,increasing,3,4,3,4,4,membrane protein proteolysis,0,0
+GO:0033674,increasing,3,4,6,5,7,positive regulation of kinase activity,0,0
+GO:0033700,increasing,2,2,3,2,3,phospholipid efflux,0,0
+GO:0033993,increasing,5,4,4,4,5,response to lipid,0,0
+GO:0034101,decreasing,1,1,2,1,2,erythrocyte homeostasis,0,0
+GO:0034103,increasing,5,5,6,6,8,regulation of tissue remodeling,0,0
+GO:0034104,increasing,4,5,5,4,7,negative regulation of tissue remodeling,0,0
+GO:0034109,increasing,3,3,3,4,4,homotypic cell-cell adhesion,1,0
+GO:0034110,increasing,2,2,1,2,3,regulation of homotypic cell-cell adhesion,1,0
+GO:0034205,increasing,3,4,3,2,4,beta-amyloid formation,0,0
+GO:0034220,increasing,6,6,4,3,6,ion transmembrane transport,0,0
+GO:0034248,increasing,3,3,2,2,3,regulation of cellular amide metabolic process,0,0
+GO:0034330,decreasing,1,1,1,1,2,cell junction organization,0,0
+GO:0034332,decreasing,1,2,1,2,4,adherens junction organization,0,0
+GO:0034333,increasing,1,2,1,3,3,adherens junction assembly,0,0
+GO:0034367,increasing,3,3,3,4,5,macromolecular complex remodeling,0,0
+GO:0034368,increasing,3,3,3,4,5,protein-lipid complex remodeling,0,0
+GO:0034369,increasing,2,3,3,4,4,plasma lipoprotein particle remodeling,0,0
+GO:0034405,increasing,1,2,5,3,6,response to fluid shear stress,0,0
+GO:0034433,increasing,2,3,3,4,4,steroid esterification,0,0
+GO:0034434,increasing,2,3,3,4,4,sterol esterification,0,0
+GO:0034435,increasing,2,3,3,4,4,cholesterol esterification,0,0
+GO:0034453,decreasing,3,2,1,3,5,microtubule anchoring,0,0
+GO:0034614,increasing,2,2,3,3,4,cellular response to reactive oxygen species,0,0
+GO:0034645,decreasing,5,2,1,1,5,cellular macromolecule biosynthetic process,0,0
+GO:0034654,decreasing,3,1,1,1,3,nucleobase-containing compound biosynthetic process,0,0
+GO:0034698,increasing,3,3,4,3,5,response to gonadotropin,0,0
+GO:0034724,decreasing,6,6,1,6,9,DNA replication-independent nucleosome organization,0,0
+GO:0034728,decreasing,6,6,4,6,9,nucleosome organization,0,0
+GO:0034762,increasing,5,5,4,3,6,regulation of transmembrane transport,0,0
+GO:0034765,increasing,5,2,1,2,5,regulation of ion transmembrane transport,0,0
+GO:0035023,increasing,1,1,1,2,2,regulation of Rho protein signal transduction,0,0
+GO:0035107,decreasing,5,6,4,3,6,appendage morphogenesis,0,0
+GO:0035108,decreasing,5,6,4,3,6,limb morphogenesis,0,0
+GO:0035150,increasing,3,4,4,5,6,regulation of tube size,0,0
+GO:0035249,increasing,6,6,4,4,8,"synaptic transmission, glutamatergic",1,0
+GO:0035265,increasing,1,1,3,2,4,organ growth,0,0
+GO:0035272,increasing,2,1,1,1,3,exocrine system development,0,0
+GO:0035329,decreasing,5,5,3,3,7,hippo signaling,0,0
+GO:0035556,increasing,3,3,4,4,5,intracellular signal transduction,0,0
+GO:0035637,increasing,7,7,6,7,8,multicellular organismal signaling,0,0
+GO:0035725,increasing,6,5,3,2,6,sodium ion transmembrane transport,0,0
+GO:0035812,increasing,4,5,3,4,6,renal sodium excretion,0,0
+GO:0036293,increasing,2,2,3,5,5,response to decreased oxygen levels,0,0
+GO:0036314,increasing,2,4,3,4,4,response to sterol,0,0
+GO:0038093,increasing,5,2,5,4,6,Fc receptor signaling pathway,0,0
+GO:0038127,increasing,2,2,3,4,5,ERBB signaling pathway,0,0
+GO:0038179,increasing,3,3,4,4,5,neurotrophin signaling pathway,1,0
+GO:0040007,increasing,3,4,2,3,4,growth,0,0
+GO:0040008,increasing,3,4,2,4,5,regulation of growth,0,0
+GO:0040011,increasing,4,4,4,5,5,locomotion,0,0
+GO:0040012,increasing,4,4,4,4,5,regulation of locomotion,0,0
+GO:0040013,increasing,3,3,4,3,4,negative regulation of locomotion,0,0
+GO:0040017,increasing,4,3,4,5,5,positive regulation of locomotion,0,0
+GO:0040029,decreasing,2,3,1,1,3,"regulation of gene expression, epigenetic",0,0
+GO:0042044,increasing,2,5,4,3,5,fluid transport,0,0
+GO:0042060,increasing,4,3,4,4,5,wound healing,0,0
+GO:0042063,decreasing,3,3,1,2,6,gliogenesis,1,1
+GO:0042063,increasing,5,5,6,5,7,gliogenesis,1,1
+GO:0042127,increasing,3,1,1,2,3,regulation of cell proliferation,0,0
+GO:0042220,increasing,5,3,5,2,7,response to cocaine,0,0
+GO:0042221,increasing,4,4,4,4,5,response to chemical,0,0
+GO:0042310,increasing,2,4,3,5,5,vasoconstriction,0,0
+GO:0042325,increasing,3,4,4,5,6,regulation of phosphorylation,0,0
+GO:0042327,increasing,3,4,6,5,7,positive regulation of phosphorylation,0,0
+GO:0042330,increasing,4,2,3,5,5,taxis,0,0
+GO:0042391,increasing,8,7,5,7,8,regulation of membrane potential,0,0
+GO:0042445,increasing,2,1,2,2,3,hormone metabolic process,0,0
+GO:0042476,decreasing,2,1,1,1,3,odontogenesis,0,0
+GO:0042506,increasing,4,2,2,2,4,tyrosine phosphorylation of Stat5 protein,0,0
+GO:0042509,increasing,2,4,4,3,5,regulation of tyrosine phosphorylation of STAT protein,0,0
+GO:0042531,increasing,3,4,5,5,8,positive regulation of tyrosine phosphorylation of STAT protein,0,0
+GO:0042542,increasing,1,1,2,1,5,response to hydrogen peroxide,0,0
+GO:0042552,increasing,5,3,4,4,5,myelination,1,1
+GO:0042592,increasing,5,4,5,5,7,homeostatic process,0,0
+GO:0042596,increasing,3,4,5,4,6,fear response,0,0
+GO:0042692,increasing,1,1,2,2,3,muscle cell differentiation,0,0
+GO:0042886,increasing,3,4,4,3,6,amide transport,0,0
+GO:0042976,increasing,2,3,4,4,6,activation of Janus kinase activity,0,0
+GO:0042981,increasing,1,1,3,1,3,regulation of apoptotic process,0,0
+GO:0043010,decreasing,6,4,3,1,7,camera-type eye development,0,0
+GO:0043062,increasing,3,3,4,5,5,extracellular structure organization,0,0
+GO:0043062,decreasing,3,3,2,2,3,extracellular structure organization,0,0
+GO:0043066,increasing,1,1,2,1,4,negative regulation of apoptotic process,0,0
+GO:0043067,increasing,2,1,3,1,3,regulation of programmed cell death,0,0
+GO:0043069,increasing,1,2,2,2,4,negative regulation of programmed cell death,0,0
+GO:0043084,increasing,2,2,2,2,3,penile erection,0,0
+GO:0043085,increasing,3,3,6,4,7,positive regulation of catalytic activity,0,0
+GO:0043086,increasing,2,1,1,1,3,negative regulation of catalytic activity,0,0
+GO:0043087,increasing,3,4,3,4,6,regulation of GTPase activity,0,0
+GO:0043090,increasing,4,3,4,4,6,amino acid import,0,0
+GO:0043149,increasing,5,5,6,4,7,stress fiber assembly,0,0
+GO:0043269,increasing,4,4,6,3,6,regulation of ion transport,0,0
+GO:0043270,increasing,4,3,3,3,5,positive regulation of ion transport,0,0
+GO:0043279,increasing,4,4,5,4,6,response to alkaloid,0,0
+GO:0043405,increasing,2,1,1,2,3,regulation of MAP kinase activity,0,0
+GO:0043408,increasing,3,3,4,5,6,regulation of MAPK cascade,0,0
+GO:0043409,increasing,1,2,2,5,6,negative regulation of MAPK cascade,0,0
+GO:0043410,increasing,3,3,4,4,5,positive regulation of MAPK cascade,0,0
+GO:0043434,increasing,2,1,1,3,3,response to peptide hormone,0,0
+GO:0043491,increasing,2,1,4,4,5,protein kinase B signaling,0,0
+GO:0043523,increasing,4,5,5,4,6,regulation of neuron apoptotic process,1,1
+GO:0043534,increasing,2,3,3,3,5,blood vessel endothelial cell migration,0,0
+GO:0043535,increasing,2,3,3,2,4,regulation of blood vessel endothelial cell migration,0,0
+GO:0043542,increasing,2,2,3,4,4,endothelial cell migration,0,0
+GO:0043547,increasing,3,2,2,4,5,positive regulation of GTPase activity,0,0
+GO:0043549,increasing,3,3,3,4,6,regulation of kinase activity,0,0
+GO:0043550,increasing,4,2,3,3,5,regulation of lipid kinase activity,0,0
+GO:0043589,decreasing,2,1,2,1,2,skin morphogenesis,0,0
+GO:0043647,increasing,1,1,1,1,4,inositol phosphate metabolic process,0,0
+GO:0043649,increasing,4,2,2,3,7,dicarboxylic acid catabolic process,0,0
+GO:0043931,increasing,3,2,3,1,3,ossification involved in bone maturation,0,0
+GO:0043933,increasing,1,1,1,1,1,macromolecular complex subunit organization,0,0
+GO:0044057,increasing,5,3,3,3,6,regulation of system process,0,0
+GO:0044058,increasing,5,5,4,2,6,regulation of digestive system process,0,0
+GO:0044062,increasing,4,5,3,4,6,regulation of excretion,0,0
+GO:0044070,increasing,3,2,2,2,5,regulation of anion transport,0,0
+GO:0044092,increasing,2,1,1,1,3,negative regulation of molecular function,0,0
+GO:0044093,increasing,3,3,5,4,6,positive regulation of molecular function,0,0
+GO:0044236,increasing,3,2,1,2,4,multicellular organismal metabolic process,0,0
+GO:0044236,decreasing,3,3,2,2,3,multicellular organismal metabolic process,0,0
+GO:0044243,decreasing,3,3,2,2,3,multicellular organismal catabolic process,0,0
+GO:0044252,increasing,2,2,1,1,3,negative regulation of multicellular organismal metabolic process,0,0
+GO:0044259,increasing,3,2,2,2,5,multicellular organismal macromolecule metabolic process,0,0
+GO:0044259,decreasing,3,3,2,2,3,multicellular organismal macromolecule metabolic process,0,0
+GO:0044271,decreasing,1,1,1,1,2,cellular nitrogen compound biosynthetic process,0,0
+GO:0044321,increasing,2,5,2,2,5,response to leptin,0,0
+GO:0044699,increasing,3,3,3,3,3,single-organism process,0,0
+GO:0044700,increasing,5,4,4,5,6,single organism signaling,0,0
+GO:0044707,increasing,3,3,3,3,3,single-multicellular organism process,0,0
+GO:0044708,increasing,7,6,5,6,7,single-organism behavior,0,0
+GO:0044728,decreasing,4,3,2,2,4,DNA methylation or demethylation,0,0
+GO:0044763,increasing,3,3,3,3,3,single-organism cellular process,0,0
+GO:0044765,increasing,4,4,3,4,6,single-organism transport,0,0
+GO:0044767,increasing,3,2,4,3,4,single-organism developmental process,0,0
+GO:0044770,decreasing,5,6,1,4,7,cell cycle phase transition,0,0
+GO:0044772,decreasing,5,5,1,4,7,mitotic cell cycle phase transition,0,0
+GO:0044786,decreasing,4,3,1,2,4,cell cycle DNA replication,0,0
+GO:0044839,decreasing,4,2,2,3,5,cell cycle G2/M phase transition,0,0
+GO:0044843,decreasing,5,5,1,5,7,cell cycle G1/S phase transition,0,0
+GO:0045103,increasing,3,4,1,2,6,intermediate filament-based process,1,0
+GO:0045104,increasing,3,4,1,2,6,intermediate filament cytoskeleton organization,1,0
+GO:0045109,increasing,3,4,1,2,6,intermediate filament organization,1,0
+GO:0045453,increasing,1,2,4,5,6,bone resorption,0,0
+GO:0045595,increasing,3,2,4,2,4,regulation of cell differentiation,1,0
+GO:0045664,increasing,5,4,5,5,8,regulation of neuron differentiation,1,1
+GO:0045667,decreasing,3,2,2,1,5,regulation of osteoblast differentiation,0,0
+GO:0045667,increasing,3,4,2,1,4,regulation of osteoblast differentiation,0,0
+GO:0045723,increasing,5,2,4,2,6,positive regulation of fatty acid biosynthetic process,0,0
+GO:0045761,increasing,1,2,1,2,3,regulation of adenylate cyclase activity,0,0
+GO:0045785,increasing,2,2,3,3,4,positive regulation of cell adhesion,1,0
+GO:0045787,decreasing,3,5,1,1,7,positive regulation of cell cycle,0,0
+GO:0045814,decreasing,3,4,1,1,5,"negative regulation of gene expression, epigenetic",0,0
+GO:0045834,increasing,4,3,3,4,5,positive regulation of lipid metabolic process,0,0
+GO:0045859,increasing,3,3,4,4,6,regulation of protein kinase activity,0,0
+GO:0045860,increasing,3,4,5,4,6,positive regulation of protein kinase activity,0,0
+GO:0045892,decreasing,4,4,2,1,4,"negative regulation of transcription, DNA-templated",0,0
+GO:0045893,decreasing,3,1,2,2,4,"positive regulation of transcription, DNA-templated",0,0
+GO:0045927,increasing,1,2,1,1,3,positive regulation of growth,0,0
+GO:0045932,increasing,2,1,2,3,4,negative regulation of muscle contraction,0,0
+GO:0045934,decreasing,3,3,2,2,4,negative regulation of nucleobase-containing compound metabolic process,0,0
+GO:0045935,decreasing,3,2,2,2,3,positive regulation of nucleobase-containing compound metabolic process,0,0
+GO:0045936,increasing,1,2,1,3,4,negative regulation of phosphate metabolic process,0,0
+GO:0045937,increasing,3,4,5,4,6,positive regulation of phosphate metabolic process,0,0
+GO:0045940,increasing,2,3,3,4,4,positive regulation of steroid metabolic process,0,0
+GO:0045944,decreasing,1,1,2,1,2,positive regulation of transcription from RNA polymerase II promoter,0,0
+GO:0046039,increasing,3,4,4,4,6,GTP metabolic process,0,0
+GO:0046058,increasing,2,2,3,4,4,cAMP metabolic process,0,0
+GO:0046068,increasing,1,2,1,1,2,cGMP metabolic process,0,0
+GO:0046323,increasing,1,2,2,2,5,glucose import,0,0
+GO:0046390,increasing,1,2,2,1,3,ribose phosphate biosynthetic process,0,0
+GO:0046425,increasing,2,4,6,5,7,regulation of JAK-STAT cascade,0,0
+GO:0046427,increasing,2,5,6,5,7,positive regulation of JAK-STAT cascade,0,0
+GO:0046457,increasing,3,2,1,1,4,prostanoid biosynthetic process,0,0
+GO:0046541,increasing,4,4,3,1,6,saliva secretion,0,0
+GO:0046578,increasing,3,3,2,4,5,regulation of Ras protein signal transduction,0,0
+GO:0046683,increasing,2,4,2,2,6,response to organophosphorus,0,0
+GO:0046717,increasing,4,3,2,1,6,acid secretion,0,0
+GO:0046849,increasing,4,5,6,5,8,bone remodeling,0,0
+GO:0046850,increasing,4,5,5,5,8,regulation of bone remodeling,0,0
+GO:0046879,increasing,4,4,1,3,6,hormone secretion,0,0
+GO:0046883,increasing,4,4,1,3,6,regulation of hormone secretion,0,0
+GO:0046889,increasing,3,3,4,4,5,positive regulation of lipid biosynthetic process,0,0
+GO:0046890,increasing,2,3,3,3,4,regulation of lipid biosynthetic process,0,0
+GO:0046903,increasing,4,5,4,4,6,secretion,0,0
+GO:0046942,increasing,3,2,2,3,6,carboxylic acid transport,0,0
+GO:0048009,decreasing,4,3,3,4,6,insulin-like growth factor receptor signaling pathway,0,0
+GO:0048009,increasing,3,2,5,2,5,insulin-like growth factor receptor signaling pathway,0,0
+GO:0048011,increasing,3,4,4,4,5,neurotrophin TRK receptor signaling pathway,1,0
+GO:0048015,increasing,4,3,4,6,7,phosphatidylinositol-mediated signaling,0,0
+GO:0048017,increasing,4,3,4,6,7,inositol lipid-mediated signaling,0,0
+GO:0048048,decreasing,5,5,3,2,6,embryonic eye morphogenesis,0,0
+GO:0048167,increasing,7,7,6,6,8,regulation of synaptic plasticity,1,1
+GO:0048168,increasing,5,7,5,6,8,regulation of neuronal synaptic plasticity,1,1
+GO:0048241,increasing,3,3,2,2,6,epinephrine transport,0,0
+GO:0048242,increasing,3,3,2,2,6,epinephrine secretion,1,0
+GO:0048243,increasing,4,5,5,7,8,norepinephrine secretion,1,0
+GO:0048468,increasing,4,3,3,2,4,cell development,0,0
+GO:0048483,decreasing,2,4,5,2,6,autonomic nervous system development,0,0
+GO:0048514,increasing,2,2,3,3,4,blood vessel morphogenesis,0,0
+GO:0048518,increasing,2,2,3,3,3,positive regulation of biological process,0,0
+GO:0048520,increasing,1,2,3,2,5,positive regulation of behavior,0,0
+GO:0048521,increasing,2,1,1,3,3,negative regulation of behavior,0,0
+GO:0048522,increasing,2,2,4,3,4,positive regulation of cellular process,0,0
+GO:0048545,increasing,5,4,5,4,6,response to steroid hormone,0,0
+GO:0048568,decreasing,2,3,2,1,6,embryonic organ development,0,0
+GO:0048583,increasing,2,2,2,2,3,regulation of response to stimulus,0,0
+GO:0048584,increasing,1,2,3,2,3,positive regulation of response to stimulus,0,0
+GO:0048588,increasing,3,2,2,4,6,developmental cell growth,0,0
+GO:0048589,increasing,2,3,2,3,4,developmental growth,0,0
+GO:0048592,decreasing,3,3,3,1,5,eye morphogenesis,0,0
+GO:0048593,decreasing,3,3,3,1,5,camera-type eye morphogenesis,0,0
+GO:0048596,decreasing,5,5,3,2,6,embryonic camera-type eye morphogenesis,0,0
+GO:0048638,increasing,2,2,1,3,4,regulation of developmental growth,0,0
+GO:0048639,increasing,1,2,1,1,3,positive regulation of developmental growth,0,0
+GO:0048659,increasing,4,5,5,5,6,smooth muscle cell proliferation,0,0
+GO:0048665,decreasing,1,2,1,1,2,neuron fate specification,1,1
+GO:0048666,increasing,5,3,5,5,7,neuron development,1,1
+GO:0048667,increasing,4,3,3,4,6,cell morphogenesis involved in neuron differentiation,1,1
+GO:0048673,increasing,2,1,2,4,5,collateral sprouting of intact axon in response to injury,0,1
+GO:0048675,increasing,3,2,1,2,3,axon extension,1,0
+GO:0048678,increasing,3,4,4,4,7,response to axon injury,0,1
+GO:0048699,increasing,4,3,2,2,4,generation of neurons,1,1
+GO:0048705,decreasing,3,2,2,2,4,skeletal system morphogenesis,0,0
+GO:0048706,decreasing,2,3,1,2,4,embryonic skeletal system development,0,0
+GO:0048708,increasing,3,3,3,5,5,astrocyte differentiation,1,1
+GO:0048709,increasing,6,6,6,6,8,oligodendrocyte differentiation,1,1
+GO:0048709,decreasing,1,2,1,2,4,oligodendrocyte differentiation,1,1
+GO:0048731,increasing,3,2,2,3,3,system development,0,0
+GO:0048736,decreasing,4,5,3,3,6,appendage development,0,0
+GO:0048754,increasing,1,1,2,1,2,branching morphogenesis of an epithelial tube,0,0
+GO:0048762,decreasing,4,3,3,1,5,mesenchymal cell differentiation,0,0
+GO:0048771,increasing,5,5,6,6,8,tissue remodeling,0,0
+GO:0048812,increasing,4,3,4,4,6,neuron projection morphogenesis,1,1
+GO:0048856,increasing,3,2,4,3,4,anatomical structure development,0,0
+GO:0048858,increasing,4,3,3,3,5,cell projection morphogenesis,1,0
+GO:0048863,decreasing,3,3,1,1,5,stem cell differentiation,0,0
+GO:0048864,decreasing,4,4,3,1,5,stem cell development,0,0
+GO:0048869,increasing,4,3,4,4,4,cellular developmental process,0,0
+GO:0048870,increasing,4,4,4,5,5,cell motility,0,0
+GO:0048878,increasing,7,5,5,6,8,chemical homeostasis,0,0
+GO:0050432,increasing,3,6,5,7,8,catecholamine secretion,1,0
+GO:0050433,increasing,3,6,5,6,8,regulation of catecholamine secretion,1,0
+GO:0050657,decreasing,2,2,1,2,3,nucleic acid transport,0,0
+GO:0050658,decreasing,2,2,1,2,3,RNA transport,0,0
+GO:0050672,decreasing,2,4,1,3,4,negative regulation of lymphocyte proliferation,0,0
+GO:0050673,increasing,2,3,4,2,5,epithelial cell proliferation,0,0
+GO:0050673,decreasing,1,1,2,2,4,epithelial cell proliferation,0,0
+GO:0050678,increasing,2,3,4,4,5,regulation of epithelial cell proliferation,0,0
+GO:0050680,increasing,3,3,4,4,5,negative regulation of epithelial cell proliferation,0,0
+GO:0050727,increasing,1,1,1,2,2,regulation of inflammatory response,0,0
+GO:0050730,increasing,3,5,6,5,7,regulation of peptidyl-tyrosine phosphorylation,0,0
+GO:0050731,increasing,3,6,6,5,8,positive regulation of peptidyl-tyrosine phosphorylation,0,0
+GO:0050767,increasing,4,3,5,3,6,regulation of neurogenesis,1,0
+GO:0050768,decreasing,2,1,2,2,4,negative regulation of neurogenesis,1,1
+GO:0050769,increasing,3,2,2,1,4,positive regulation of neurogenesis,1,1
+GO:0050770,increasing,3,4,3,4,7,regulation of axonogenesis,1,1
+GO:0050772,increasing,2,3,1,3,4,positive regulation of axonogenesis,1,1
+GO:0050773,increasing,4,1,4,2,6,regulation of dendrite development,1,1
+GO:0050789,increasing,3,2,3,3,3,regulation of biological process,0,0
+GO:0050790,increasing,3,2,4,4,5,regulation of catalytic activity,0,0
+GO:0050793,increasing,3,2,3,2,3,regulation of developmental process,0,0
+GO:0050794,increasing,3,2,3,3,3,regulation of cellular process,0,0
+GO:0050795,increasing,3,2,3,3,4,regulation of behavior,0,0
+GO:0050801,increasing,7,6,5,6,8,ion homeostasis,0,0
+GO:0050804,increasing,7,7,4,5,8,regulation of synaptic transmission,1,1
+GO:0050805,increasing,2,3,3,2,6,negative regulation of synaptic transmission,1,1
+GO:0050806,increasing,5,6,5,5,8,positive regulation of synaptic transmission,1,1
+GO:0050810,increasing,2,3,2,3,3,regulation of steroid biosynthetic process,0,0
+GO:0050817,increasing,4,3,6,5,8,coagulation,0,0
+GO:0050818,increasing,3,2,3,4,4,regulation of coagulation,0,0
+GO:0050848,increasing,4,3,6,5,8,regulation of calcium-mediated signaling,0,0
+GO:0050848,decreasing,1,2,2,2,3,regulation of calcium-mediated signaling,0,0
+GO:0050865,increasing,1,1,1,1,2,regulation of cell activation,0,0
+GO:0050866,increasing,2,1,1,2,3,negative regulation of cell activation,0,0
+GO:0050877,increasing,8,7,7,6,8,neurological system process,1,1
+GO:0050878,increasing,3,4,3,4,4,regulation of body fluid levels,0,0
+GO:0050879,increasing,3,2,2,1,3,multicellular organismal movement,0,0
+GO:0050880,increasing,3,4,3,5,5,regulation of blood vessel size,0,0
+GO:0050881,increasing,3,2,2,1,3,musculoskeletal movement,0,0
+GO:0050886,increasing,4,4,1,2,6,endocrine process,0,0
+GO:0050890,increasing,7,6,4,5,7,cognition,0,0
+GO:0050896,increasing,3,4,4,4,5,response to stimulus,0,0
+GO:0050900,increasing,3,1,3,4,4,leukocyte migration,0,0
+GO:0050905,increasing,6,4,3,3,6,neuromuscular process,0,0
+GO:0050922,increasing,2,1,1,2,3,negative regulation of chemotaxis,0,0
+GO:0050954,increasing,3,5,5,4,6,sensory perception of mechanical stimulus,0,0
+GO:0051017,increasing,5,5,6,4,8,actin filament bundle assembly,1,0
+GO:0051043,increasing,2,4,3,3,4,regulation of membrane protein ectodomain proteolysis,0,0
+GO:0051046,increasing,4,4,3,4,6,regulation of secretion,0,0
+GO:0051047,increasing,4,4,3,3,6,positive regulation of secretion,0,0
+GO:0051048,increasing,1,3,2,1,3,negative regulation of secretion,0,0
+GO:0051049,increasing,3,3,3,4,5,regulation of transport,0,0
+GO:0051050,increasing,3,3,2,2,4,positive regulation of transport,0,0
+GO:0051056,increasing,5,4,4,4,6,regulation of small GTPase mediated signal transduction,0,0
+GO:0051057,increasing,4,3,3,2,4,positive regulation of small GTPase mediated signal transduction,0,0
+GO:0051128,increasing,1,1,1,1,1,regulation of cellular component organization,0,0
+GO:0051146,increasing,2,1,2,1,3,striated muscle cell differentiation,0,0
+GO:0051171,decreasing,3,2,2,1,3,regulation of nitrogen compound metabolic process,0,0
+GO:0051172,decreasing,3,3,2,2,4,negative regulation of nitrogen compound metabolic process,0,0
+GO:0051173,decreasing,3,2,2,1,3,positive regulation of nitrogen compound metabolic process,0,0
+GO:0051174,increasing,3,4,4,4,5,regulation of phosphorus metabolic process,0,0
+GO:0051179,increasing,4,4,3,4,6,localization,0,0
+GO:0051209,increasing,3,2,1,1,5,release of sequestered calcium ion into cytosol,0,0
+GO:0051216,increasing,1,1,3,2,3,cartilage development,0,0
+GO:0051216,decreasing,4,1,2,2,5,cartilage development,0,0
+GO:0051225,decreasing,4,2,2,3,5,spindle assembly,0,0
+GO:0051234,increasing,4,4,3,4,6,establishment of localization,0,0
+GO:0051236,decreasing,2,2,1,2,3,establishment of RNA localization,0,0
+GO:0051239,increasing,2,2,2,2,3,regulation of multicellular organismal process,0,0
+GO:0051240,increasing,2,2,2,2,3,positive regulation of multicellular organismal process,0,0
+GO:0051246,increasing,2,1,2,2,3,regulation of protein metabolic process,0,0
+GO:0051247,increasing,1,1,2,2,2,positive regulation of protein metabolic process,0,0
+GO:0051252,decreasing,4,4,2,2,5,regulation of RNA metabolic process,0,0
+GO:0051253,decreasing,4,4,2,2,5,negative regulation of RNA metabolic process,0,0
+GO:0051254,decreasing,4,3,2,3,5,positive regulation of RNA metabolic process,0,0
+GO:0051259,increasing,5,4,3,4,6,protein oligomerization,0,0
+GO:0051270,increasing,4,4,4,4,5,regulation of cellular component movement,0,0
+GO:0051271,increasing,3,3,3,3,4,negative regulation of cellular component movement,0,0
+GO:0051272,increasing,4,3,4,5,5,positive regulation of cellular component movement,0,0
+GO:0051279,increasing,3,3,1,1,5,regulation of release of sequestered calcium ion into cytosol,0,0
+GO:0051282,increasing,5,2,3,2,7,regulation of sequestering of calcium ion,0,0
+GO:0051283,increasing,3,2,1,1,5,negative regulation of sequestering of calcium ion,0,0
+GO:0051291,decreasing,6,5,3,5,7,protein heterooligomerization,0,0
+GO:0051336,increasing,3,4,5,4,6,regulation of hydrolase activity,0,0
+GO:0051338,increasing,3,3,2,4,5,regulation of transferase activity,0,0
+GO:0051339,increasing,1,2,1,2,3,regulation of lyase activity,0,0
+GO:0051345,increasing,4,5,5,4,6,positive regulation of hydrolase activity,0,0
+GO:0051346,increasing,3,2,2,4,4,negative regulation of hydrolase activity,0,0
+GO:0051347,increasing,3,4,6,5,7,positive regulation of transferase activity,0,0
+GO:0051384,increasing,5,4,7,5,9,response to glucocorticoid,0,0
+GO:0051402,increasing,4,4,4,3,6,neuron apoptotic process,1,1
+GO:0051480,increasing,6,6,5,5,8,cytosolic calcium ion homeostasis,0,0
+GO:0051674,increasing,4,4,4,5,5,localization of cell,0,0
+GO:0051716,increasing,3,3,4,3,4,cellular response to stimulus,0,0
+GO:0051899,increasing,6,2,5,4,8,membrane depolarization,0,0
+GO:0051924,increasing,4,3,3,2,5,regulation of calcium ion transport,0,0
+GO:0051928,increasing,3,4,3,4,6,positive regulation of calcium ion transport,0,0
+GO:0051932,increasing,4,7,4,4,8,"synaptic transmission, GABAergic",1,1
+GO:0051937,increasing,3,6,4,7,8,catecholamine transport,1,1
+GO:0051952,increasing,4,4,4,4,7,regulation of amine transport,0,0
+GO:0051953,increasing,3,5,3,2,8,negative regulation of amine transport,0,0
+GO:0051954,increasing,4,2,1,1,6,positive regulation of amine transport,0,0
+GO:0051955,increasing,4,1,1,1,6,regulation of amino acid transport,0,0
+GO:0051960,increasing,4,3,5,3,6,regulation of nervous system development,1,0
+GO:0051966,increasing,5,2,2,3,5,"regulation of synaptic transmission, glutamatergic",1,1
+GO:0052547,increasing,3,1,1,1,3,regulation of peptidase activity,0,0
+GO:0052652,increasing,3,3,3,3,5,cyclic purine nucleotide metabolic process,0,0
+GO:0055017,increasing,1,1,1,3,4,cardiac muscle tissue growth,0,0
+GO:0055065,increasing,6,5,5,5,7,metal ion homeostasis,0,0
+GO:0055067,increasing,3,5,3,5,6,monovalent inorganic cation homeostasis,0,0
+GO:0055074,increasing,7,6,5,5,8,calcium ion homeostasis,0,0
+GO:0055078,increasing,6,5,3,6,8,sodium ion homeostasis,0,0
+GO:0055080,increasing,6,5,5,6,7,cation homeostasis,0,0
+GO:0055082,increasing,7,5,5,5,8,cellular chemical homeostasis,0,0
+GO:0055085,increasing,6,6,4,4,6,transmembrane transport,0,0
+GO:0055117,increasing,2,1,3,1,5,regulation of cardiac muscle contraction,0,0
+GO:0055123,decreasing,1,2,1,1,4,digestive system development,0,0
+GO:0060038,increasing,2,1,1,2,4,cardiac muscle cell proliferation,0,0
+GO:0060047,increasing,4,5,3,3,8,heart contraction,0,0
+GO:0060048,increasing,4,4,3,2,7,cardiac muscle contraction,0,0
+GO:0060078,increasing,4,2,3,2,7,regulation of postsynaptic membrane potential,1,1
+GO:0060173,decreasing,5,5,4,3,6,limb development,0,0
+GO:0060180,increasing,2,1,1,1,2,female mating behavior,0,0
+GO:0060191,increasing,4,5,7,4,8,regulation of lipase activity,0,0
+GO:0060193,increasing,4,4,6,4,7,positive regulation of lipase activity,0,0
+GO:0060255,decreasing,1,1,1,1,2,regulation of macromolecule metabolic process,0,0
+GO:0060284,increasing,4,3,4,2,5,regulation of cell development,0,0
+GO:0060326,increasing,2,1,2,4,4,cell chemotaxis,0,0
+GO:0060348,decreasing,3,3,1,2,4,bone development,0,0
+GO:0060349,decreasing,3,2,3,3,4,bone morphogenesis,0,0
+GO:0060350,decreasing,3,2,3,3,4,endochondral bone morphogenesis,0,0
+GO:0060351,decreasing,3,1,3,1,4,cartilage development involved in endochondral bone morphogenesis,0,0
+GO:0060359,increasing,5,4,6,4,6,response to ammonium ion,0,0
+GO:0060401,increasing,5,4,2,2,7,cytosolic calcium ion transport,0,0
+GO:0060402,increasing,4,3,1,1,7,calcium ion transport into cytosol,0,0
+GO:0060419,increasing,1,1,1,3,4,heart growth,0,0
+GO:0060428,increasing,2,2,3,3,4,lung epithelium development,0,0
+GO:0060479,increasing,3,2,3,3,4,lung cell differentiation,0,0
+GO:0060487,increasing,3,2,3,3,4,lung epithelial cell differentiation,0,0
+GO:0060512,increasing,1,2,2,3,5,prostate gland morphogenesis,0,0
+GO:0060538,increasing,1,1,2,1,3,skeletal muscle organ development,0,0
+GO:0060548,increasing,2,2,3,2,4,negative regulation of cell death,0,0
+GO:0060563,decreasing,2,2,1,1,4,neuroepithelial cell differentiation,1,1
+GO:0060675,increasing,2,2,2,4,4,ureteric bud morphogenesis,0,0
+GO:0060688,increasing,2,1,2,1,3,regulation of morphogenesis of a branching structure,0,0
+GO:0060740,increasing,1,1,1,1,3,prostate gland epithelium morphogenesis,0,0
+GO:0060836,decreasing,1,2,2,1,3,lymphatic endothelial cell differentiation,0,0
+GO:0060996,increasing,3,3,4,1,6,dendritic spine development,1,1
+GO:0061004,increasing,2,1,1,1,2,pattern specification involved in kidney development,0,0
+GO:0061014,decreasing,1,1,2,2,2,positive regulation of mRNA catabolic process,0,0
+GO:0061041,increasing,3,3,3,5,5,regulation of wound healing,0,0
+GO:0061061,increasing,1,1,2,1,3,muscle structure development,0,0
+GO:0061082,increasing,5,3,3,3,6,myeloid leukocyte cytokine production,0,0
+GO:0061138,increasing,1,1,2,2,2,morphogenesis of a branching epithelium,0,0
+GO:0061337,increasing,4,1,1,3,5,cardiac conduction,0,0
+GO:0061351,decreasing,3,3,1,2,4,neural precursor cell proliferation,1,0
+GO:0061351,increasing,3,2,3,2,4,neural precursor cell proliferation,1,0
+GO:0061383,increasing,1,1,1,2,2,trabecula morphogenesis,0,0
+GO:0061387,increasing,4,2,2,4,6,regulation of extent of cell growth,0,0
+GO:0061448,decreasing,2,1,1,1,2,connective tissue development,0,0
+GO:0061448,increasing,1,1,3,2,3,connective tissue development,0,0
+GO:0061564,increasing,4,4,4,5,7,axon development,1,1
+GO:0061572,increasing,5,5,6,4,8,actin filament bundle organization,1,0
+GO:0065004,decreasing,5,5,2,6,8,protein-DNA complex assembly,0,0
+GO:0065007,increasing,3,3,3,3,3,biological regulation,0,0
+GO:0065008,increasing,5,4,3,4,6,regulation of biological quality,0,0
+GO:0065009,increasing,3,2,3,4,4,regulation of molecular function,0,0
+GO:0070167,increasing,1,2,3,3,4,regulation of biomineral tissue development,0,0
+GO:0070252,increasing,6,4,6,5,7,actin-mediated cell contraction,1,0
+GO:0070371,increasing,3,3,4,4,5,ERK1 and ERK2 cascade,0,0
+GO:0070372,increasing,3,3,4,4,5,regulation of ERK1 and ERK2 cascade,0,0
+GO:0070482,increasing,2,3,3,5,5,response to oxygen levels,0,0
+GO:0070509,increasing,2,2,2,2,5,calcium ion import,0,0
+GO:0070527,increasing,4,3,3,4,4,platelet aggregation,0,0
+GO:0070661,increasing,1,1,1,1,2,leukocyte proliferation,0,0
+GO:0070661,decreasing,1,2,1,1,4,leukocyte proliferation,0,0
+GO:0070662,increasing,3,1,2,2,3,mast cell proliferation,0,0
+GO:0070663,increasing,2,1,1,1,3,regulation of leukocyte proliferation,0,0
+GO:0070664,decreasing,2,4,3,3,5,negative regulation of leukocyte proliferation,0,0
+GO:0070665,increasing,2,1,1,1,3,positive regulation of leukocyte proliferation,0,0
+GO:0070838,increasing,5,4,4,4,6,divalent metal ion transport,0,0
+GO:0070848,increasing,3,2,4,4,5,response to growth factor,0,0
+GO:0070848,decreasing,1,1,1,1,2,response to growth factor,0,0
+GO:0070887,increasing,3,4,3,4,4,cellular response to chemical stimulus,0,0
+GO:0070977,increasing,3,2,3,3,4,bone maturation,0,0
+GO:0070977,decreasing,3,2,2,1,4,bone maturation,0,0
+GO:0070997,increasing,4,5,3,5,6,neuron death,1,1
+GO:0071103,decreasing,5,3,1,5,7,DNA conformation change,0,0
+GO:0071229,decreasing,1,1,1,1,2,cellular response to acid chemical,0,0
+GO:0071241,increasing,2,3,2,2,5,cellular response to inorganic substance,0,0
+GO:0071242,increasing,5,3,5,3,6,cellular response to ammonium ion,0,0
+GO:0071248,increasing,3,3,3,2,5,cellular response to metal ion,0,0
+GO:0071310,increasing,3,4,4,3,5,cellular response to organic substance,0,0
+GO:0071312,increasing,4,4,5,2,6,cellular response to alkaloid,0,0
+GO:0071347,increasing,5,2,4,2,7,cellular response to interleukin-1,0,0
+GO:0071363,increasing,2,2,4,4,5,cellular response to growth factor stimulus,0,0
+GO:0071383,increasing,4,4,4,4,7,cellular response to steroid hormone stimulus,0,0
+GO:0071384,increasing,4,3,2,3,7,cellular response to corticosteroid stimulus,0,0
+GO:0071396,increasing,4,4,3,4,4,cellular response to lipid,0,0
+GO:0071407,increasing,4,3,3,3,5,cellular response to organic cyclic compound,0,0
+GO:0071417,increasing,3,3,2,2,5,cellular response to organonitrogen compound,0,0
+GO:0071436,increasing,3,2,2,3,4,sodium ion export,0,0
+GO:0071450,increasing,2,2,4,4,7,cellular response to oxygen radical,0,0
+GO:0071451,increasing,2,2,4,4,7,cellular response to superoxide,0,0
+GO:0071453,increasing,2,2,2,2,4,cellular response to oxygen levels,0,0
+GO:0071466,increasing,3,3,4,4,4,cellular response to xenobiotic stimulus,0,0
+GO:0071478,decreasing,1,2,1,1,2,cellular response to radiation,0,0
+GO:0071495,increasing,4,3,3,3,5,cellular response to endogenous stimulus,0,0
+GO:0071559,decreasing,3,6,2,3,6,response to transforming growth factor beta,0,0
+GO:0071560,decreasing,3,4,2,2,6,cellular response to transforming growth factor beta stimulus,0,0
+GO:0071705,increasing,3,4,3,2,5,nitrogen compound transport,0,0
+GO:0071804,increasing,7,6,2,4,8,cellular potassium ion transport,0,0
+GO:0071805,increasing,5,5,2,3,6,potassium ion transmembrane transport,0,0
+GO:0071822,increasing,1,1,1,1,1,protein complex subunit organization,0,0
+GO:0071824,decreasing,5,6,2,6,8,protein-DNA complex subunit organization,0,0
+GO:0071825,increasing,2,3,3,4,4,protein-lipid complex subunit organization,0,0
+GO:0071827,increasing,2,3,3,4,4,plasma lipoprotein particle organization,0,0
+GO:0071840,increasing,1,1,1,1,1,cellular component organization or biogenesis,0,0
+GO:0071897,decreasing,3,3,2,3,6,DNA biosynthetic process,0,0
+GO:0071900,increasing,1,1,1,1,1,regulation of protein serine/threonine kinase activity,0,0
+GO:0071902,increasing,1,1,1,1,1,positive regulation of protein serine/threonine kinase activity,0,0
+GO:0072001,increasing,1,1,2,4,4,renal system development,0,0
+GO:0072006,increasing,1,1,1,2,3,nephron development,0,0
+GO:0072012,increasing,2,1,1,2,3,glomerulus vasculature development,0,0
+GO:0072048,increasing,1,1,1,1,1,renal system pattern specification,0,0
+GO:0072078,increasing,1,2,2,2,2,nephron tubule morphogenesis,0,0
+GO:0072079,increasing,2,1,1,2,3,nephron tubule formation,0,0
+GO:0072089,decreasing,1,1,1,1,1,stem cell proliferation,0,0
+GO:0072163,increasing,3,1,2,4,4,mesonephric epithelium development,0,0
+GO:0072164,increasing,3,1,2,4,4,mesonephric tubule development,0,0
+GO:0072239,increasing,3,1,1,3,3,metanephric glomerulus vasculature development,0,0
+GO:0072376,increasing,2,2,3,2,3,protein activation cascade,0,0
+GO:0072503,increasing,6,5,5,5,8,cellular divalent inorganic cation homeostasis,0,0
+GO:0072507,increasing,7,5,5,5,8,divalent inorganic cation homeostasis,0,0
+GO:0072511,increasing,5,4,5,4,7,divalent inorganic cation transport,0,0
+GO:0072521,increasing,2,2,1,2,4,purine-containing compound metabolic process,0,0
+GO:0072522,increasing,1,3,2,2,4,purine-containing compound biosynthetic process,0,0
+GO:0072577,increasing,2,1,4,3,4,endothelial cell apoptotic process,0,0
+GO:0072593,increasing,2,3,5,4,6,reactive oxygen species metabolic process,0,0
+GO:0080134,increasing,1,1,1,2,2,regulation of response to stress,0,0
+GO:0086010,increasing,6,6,4,5,8,membrane depolarization during action potential,0,0
+GO:0086065,increasing,3,1,1,3,5,cell communication involved in cardiac conduction,0,0
+GO:0090066,increasing,3,5,3,4,5,regulation of anatomical structure size,0,0
+GO:0090075,increasing,2,3,1,1,4,relaxation of muscle,0,0
+GO:0090083,increasing,3,2,2,2,3,regulation of inclusion body assembly,0,0
+GO:0090087,increasing,3,4,4,2,7,regulation of peptide transport,0,0
+GO:0090130,increasing,4,3,3,4,4,tissue migration,0,0
+GO:0090132,increasing,4,2,3,4,4,epithelium migration,0,0
+GO:0090150,decreasing,2,1,2,1,3,establishment of protein localization to membrane,0,0
+GO:0090257,increasing,4,2,2,3,5,regulation of muscle system process,0,0
+GO:0090276,increasing,4,4,3,1,6,regulation of peptide hormone secretion,0,0
+GO:0090287,increasing,1,2,3,2,5,regulation of cellular response to growth factor stimulus,0,0
+GO:0090304,decreasing,5,3,2,2,5,nucleic acid metabolic process,0,0
+GO:0090322,increasing,1,3,4,4,4,regulation of superoxide metabolic process,0,0
+GO:0090407,increasing,1,2,1,1,2,organophosphate biosynthetic process,0,0
+GO:0097006,increasing,2,3,3,4,4,regulation of plasma lipoprotein particle levels,0,0
+GO:0097061,increasing,1,4,3,2,5,dendritic spine organization,1,0
+GO:0097090,increasing,3,5,3,2,6,presynaptic membrane organization,1,0
+GO:0097154,increasing,3,2,1,1,3,GABAergic neuron differentiation,1,1
+GO:0097154,decreasing,3,1,2,4,6,GABAergic neuron differentiation,1,1
+GO:0097178,increasing,2,1,1,3,3,ruffle assembly,0,0
+GO:0097190,increasing,1,1,1,1,2,apoptotic signaling pathway,0,0
+GO:0097191,increasing,2,2,2,3,4,extrinsic apoptotic signaling pathway,0,0
+GO:0097285,increasing,2,1,3,2,3,cell-type specific apoptotic process,0,0
+GO:0097305,increasing,4,4,3,4,4,response to alcohol,0,0
+GO:0097306,increasing,3,3,3,4,4,cellular response to alcohol,0,0
+GO:0097479,increasing,1,3,1,1,5,synaptic vesicle localization,1,1
+GO:0097485,increasing,3,1,1,2,3,neuron projection guidance,1,1
+GO:0097529,increasing,2,1,3,5,5,myeloid leukocyte migration,0,0
+GO:0097530,increasing,1,1,1,3,4,granulocyte migration,0,0
+GO:0098602,increasing,3,3,3,3,3,single organism cell adhesion,1,0
+GO:0098609,decreasing,3,1,3,2,5,cell-cell adhesion,1,0
+GO:0098609,increasing,5,2,1,4,5,cell-cell adhesion,1,0
+GO:0098655,increasing,5,6,3,3,6,cation transmembrane transport,0,0
+GO:0098657,increasing,2,2,4,1,7,import into cell,0,0
+GO:0098660,increasing,5,5,3,3,5,inorganic ion transmembrane transport,0,0
+GO:0098661,decreasing,2,3,3,2,4,inorganic anion transmembrane transport,0,0
+GO:0098661,increasing,3,1,3,2,7,inorganic anion transmembrane transport,0,0
+GO:0098662,increasing,5,4,2,2,5,inorganic cation transmembrane transport,0,0
+GO:1900046,increasing,3,2,4,4,5,regulation of hemostasis,0,0
+GO:1900151,decreasing,1,1,2,2,2,"regulation of nuclear-transcribed mRNA catabolic process, deadenylation-dependent decay",0,0
+GO:1900274,increasing,5,6,6,6,8,regulation of phospholipase C activity,0,0
+GO:1900371,increasing,2,3,1,2,4,regulation of purine nucleotide biosynthetic process,0,0
+GO:1900373,increasing,1,1,1,2,3,positive regulation of purine nucleotide biosynthetic process,0,0
+GO:1900449,increasing,4,2,1,2,5,regulation of glutamate receptor signaling pathway,1,1
+GO:1900542,increasing,3,4,1,5,6,regulation of purine nucleotide metabolic process,0,0
+GO:1901031,increasing,1,1,3,2,3,regulation of response to reactive oxygen species,0,0
+GO:1901068,increasing,3,4,4,4,6,guanosine-containing compound metabolic process,0,0
+GO:1901069,increasing,3,4,4,4,6,guanosine-containing compound catabolic process,0,0
+GO:1901214,increasing,4,5,3,4,6,regulation of neuron death,1,1
+GO:1901293,increasing,1,3,1,1,3,nucleoside phosphate biosynthetic process,0,0
+GO:1901342,increasing,1,2,2,2,2,regulation of vasculature development,0,0
+GO:1901362,decreasing,1,1,1,1,2,organic cyclic compound biosynthetic process,0,0
+GO:1901652,increasing,2,2,2,4,4,response to peptide,0,0
+GO:1901698,increasing,5,3,4,5,6,response to nitrogen compound,0,0
+GO:1901699,increasing,2,3,2,3,3,cellular response to nitrogen compound,0,0
+GO:1901700,increasing,3,2,3,4,4,response to oxygen-containing compound,0,0
+GO:1901701,increasing,3,2,3,3,3,cellular response to oxygen-containing compound,0,0
+GO:1902003,increasing,3,4,3,2,4,regulation of beta-amyloid formation,0,0
+GO:1902305,increasing,3,1,3,1,4,regulation of sodium ion transmembrane transport,0,0
+GO:1902531,increasing,3,3,4,4,5,regulation of intracellular signal transduction,0,0
+GO:1902533,increasing,3,4,6,5,7,positive regulation of intracellular signal transduction,0,0
+GO:1902679,decreasing,5,4,2,2,5,negative regulation of RNA biosynthetic process,0,0
+GO:1902680,decreasing,4,3,2,3,5,positive regulation of RNA biosynthetic process,0,0
+GO:1902850,decreasing,4,2,1,3,5,microtubule cytoskeleton organization involved in mitosis,0,0
+GO:1902930,increasing,2,2,2,3,3,regulation of alcohol biosynthetic process,0,0
+GO:1902931,increasing,1,2,2,2,2,negative regulation of alcohol biosynthetic process,0,0
+GO:1902991,increasing,3,3,2,2,3,regulation of amyloid precursor protein catabolic process,0,0
+GO:1903034,increasing,2,2,3,3,3,regulation of response to wounding,0,0
+GO:1903053,increasing,2,2,5,3,5,regulation of extracellular matrix organization,0,0
+GO:1990138,increasing,3,2,1,2,3,neuron projection extension,1,1
+GO:1990267,increasing,1,1,2,2,4,response to transition metal nanoparticle,0,0
+GO:2000021,increasing,4,6,5,3,7,regulation of ion homeostasis,0,0
+GO:2000112,decreasing,3,2,1,1,3,regulation of cellular macromolecule biosynthetic process,0,0
+GO:2000113,decreasing,3,2,1,1,3,negative regulation of cellular macromolecule biosynthetic process,0,0
+GO:2000145,increasing,4,4,4,4,5,regulation of cell motility,0,0
+GO:2000146,increasing,3,3,3,3,4,negative regulation of cell motility,0,0
+GO:2000147,increasing,4,3,4,4,5,positive regulation of cell motility,0,0
+GO:2000377,increasing,2,2,5,5,6,regulation of reactive oxygen species metabolic process,0,0
+GO:2000736,increasing,1,2,2,3,4,regulation of stem cell differentiation,1,0
+GO:2001138,increasing,2,2,2,1,3,regulation of phospholipid transport,0,0
+GO:2001141,decreasing,4,5,2,2,5,regulation of RNA biosynthetic process,0,0
+GO:2001236,increasing,2,2,3,3,3,regulation of extrinsic apoptotic signaling pathway,0,0

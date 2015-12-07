@@ -1,0 +1,384 @@
+Area (full name),Age (orig units),Synaptic density units,Cortical volume,Synaptic density (orig units),species,area,age_pcd,syn_dens_per_um3_neuropil,syn_dens_pct_max,source,area_vol,plot
+Prefrontal (10),0.03,synapses per 100um^3 neuropil,neuropil,4.94,chimp,prefrontal,249,4.94,32.9,Bianchi 2013,prefrontal,yes
+Prefrontal (10),0.03,synapses per 100um^3 neuropil,neuropil,7.21,chimp,prefrontal,248,7.21,47.99,Bianchi 2013,prefrontal,yes
+Prefrontal (10),0.03,synapses per 100um^3 neuropil,neuropil,7.49,chimp,prefrontal,248,7.49,49.9,Bianchi 2013,prefrontal,yes
+Prefrontal (10),0.04,synapses per 100um^3 neuropil,neuropil,8.21,chimp,prefrontal,251,8.21,54.67,Bianchi 2013,prefrontal,yes
+Prefrontal (10),0,synapses per 100um^3 neuropil,neuropil,9.39,chimp,prefrontal,238,9.39,62.5,Bianchi 2013,prefrontal,yes
+Prefrontal (10),0,synapses per 100um^3 neuropil,neuropil,11.75,chimp,prefrontal,237,11.75,78.26,Bianchi 2013,prefrontal,yes
+Prefrontal (10),1.08,synapses per 100um^3 neuropil,neuropil,13.23,chimp,prefrontal,633,13.23,88.07,Bianchi 2013,prefrontal,yes
+Prefrontal (10),1.56,synapses per 100um^3 neuropil,neuropil,15.02,chimp,prefrontal,806,15.02,100,Bianchi 2013,prefrontal,yes
+Prefrontal (10),2.02,synapses per 100um^3 neuropil,neuropil,9.67,chimp,prefrontal,975,9.67,64.37,Bianchi 2013,prefrontal,yes
+Prefrontal (10),4.99,synapses per 100um^3 neuropil,neuropil,10.38,chimp,prefrontal,2059,10.38,69.09,Bianchi 2013,prefrontal,yes
+Prefrontal (10),5.45,synapses per 100um^3 neuropil,neuropil,14.52,chimp,prefrontal,2225,14.52,96.68,Bianchi 2013,prefrontal,yes
+Prefrontal (10),6.02,synapses per 100um^3 neuropil,neuropil,13.71,chimp,prefrontal,2436,13.71,91.32,Bianchi 2013,prefrontal,yes
+Prefrontal (10),9.95,synapses per 100um^3 neuropil,neuropil,14.21,chimp,prefrontal,3867,14.21,94.59,Bianchi 2013,prefrontal,yes
+Prefrontal (10),9.99,synapses per 100um^3 neuropil,neuropil,11.18,chimp,prefrontal,3884,11.18,74.44,Bianchi 2013,prefrontal,yes
+Prefrontal (10),9.96,synapses per 100um^3 neuropil,neuropil,12.44,chimp,prefrontal,3871,12.44,82.84,Bianchi 2013,prefrontal,yes
+Prefrontal (10),9.96,synapses per 100um^3 neuropil,neuropil,11.94,chimp,prefrontal,3871,11.94,79.5,Bianchi 2013,prefrontal,yes
+Prefrontal (10),9.97,synapses per 100um^3 neuropil,neuropil,9.59,chimp,prefrontal,3875,9.59,63.84,Bianchi 2013,prefrontal,yes
+Prefrontal (10),8.99,synapses per 100um^3 neuropil,neuropil,7.31,chimp,prefrontal,3520,7.31,48.68,Bianchi 2013,prefrontal,yes
+Prestriate visual cortex (18),0,synapses per 100um^3 neuropil,neuropil,11.08,chimp,visual,237,11.08,60.39,Bianchi 2013,visual,yes
+Prestriate visual cortex (18),0.03,synapses per 100um^3 neuropil,neuropil,7.88,chimp,visual,248,7.88,42.96,Bianchi 2013,visual,yes
+Prestriate visual cortex (18),0.02,synapses per 100um^3 neuropil,neuropil,6.93,chimp,visual,245,6.93,37.8,Bianchi 2013,visual,yes
+Prestriate visual cortex (18),0.01,synapses per 100um^3 neuropil,neuropil,5.46,chimp,visual,242,5.46,29.75,Bianchi 2013,visual,yes
+Prestriate visual cortex (18),0.03,synapses per 100um^3 neuropil,neuropil,4.6,chimp,visual,249,4.6,25.06,Bianchi 2013,visual,yes
+Prestriate visual cortex (18),0.95,synapses per 100um^3 neuropil,neuropil,17.89,chimp,visual,584,17.89,97.51,Bianchi 2013,visual,yes
+Prestriate visual cortex (18),1.48,synapses per 100um^3 neuropil,neuropil,18.35,chimp,visual,776,18.35,100,Bianchi 2013,visual,yes
+Prestriate visual cortex (18),5.44,synapses per 100um^3 neuropil,neuropil,16.7,chimp,visual,2224,16.7,91.03,Bianchi 2013,visual,yes
+Prestriate visual cortex (18),2.02,synapses per 100um^3 neuropil,neuropil,10.26,chimp,visual,975,10.26,55.9,Bianchi 2013,visual,yes
+Prestriate visual cortex (18),4.98,synapses per 100um^3 neuropil,neuropil,12.56,chimp,visual,2055,12.56,68.44,Bianchi 2013,visual,yes
+Prestriate visual cortex (18),6.02,synapses per 100um^3 neuropil,neuropil,15.26,chimp,visual,2435,15.26,83.2,Bianchi 2013,visual,yes
+Prestriate visual cortex (18),8.97,synapses per 100um^3 neuropil,neuropil,11.56,chimp,visual,3512,11.56,62.99,Bianchi 2013,visual,yes
+Prestriate visual cortex (18),10.01,synapses per 100um^3 neuropil,neuropil,7.98,chimp,visual,3891,7.98,43.51,Bianchi 2013,visual,yes
+Prestriate visual cortex (18),10,synapses per 100um^3 neuropil,neuropil,7.21,chimp,visual,3886,7.21,39.29,Bianchi 2013,visual,yes
+Prestriate visual cortex (18),10.01,synapses per 100um^3 neuropil,neuropil,6.71,chimp,visual,3889,6.71,36.55,Bianchi 2013,visual,yes
+Prestriate visual cortex (18),10.04,synapses per 100um^3 neuropil,neuropil,4.87,chimp,visual,3902,4.87,26.54,Bianchi 2013,visual,yes
+S1 (3b),0.03,synapses per 100um^3 neuropil,neuropil,4,chimp,sensory,249,4,22.3,Bianchi 2013,sensory,yes
+S1 (3b),0.03,synapses per 100um^3 neuropil,neuropil,5,chimp,sensory,249,5,26.97,Bianchi 2013,sensory,yes
+S1 (3b),0.02,synapses per 100um^3 neuropil,neuropil,6,chimp,sensory,244,6,31.52,Bianchi 2013,sensory,yes
+S1 (3b),0.02,synapses per 100um^3 neuropil,neuropil,10,chimp,sensory,244,10,52.32,Bianchi 2013,sensory,yes
+S1 (3b),0.01,synapses per 100um^3 neuropil,neuropil,13,chimp,sensory,239,13,63.79,Bianchi 2013,sensory,yes
+S1 (3b),1.06,synapses per 100um^3 neuropil,neuropil,10,chimp,sensory,625,10,50.86,Bianchi 2013,sensory,yes
+S1 (3b),1.48,synapses per 100um^3 neuropil,neuropil,20,chimp,sensory,777,20,100,Bianchi 2013,sensory,yes
+S1 (3b),2.03,synapses per 100um^3 neuropil,neuropil,9,chimp,sensory,977,9,47.6,Bianchi 2013,sensory,yes
+S1 (3b),5.45,synapses per 100um^3 neuropil,neuropil,10,chimp,sensory,2226,10,51.09,Bianchi 2013,sensory,yes
+S1 (3b),4.97,synapses per 100um^3 neuropil,neuropil,12,chimp,sensory,2050,12,62.56,Bianchi 2013,sensory,yes
+S1 (3b),6.03,synapses per 100um^3 neuropil,neuropil,11,chimp,sensory,2438,11,54.91,Bianchi 2013,sensory,yes
+S1 (3b),8.99,synapses per 100um^3 neuropil,neuropil,10,chimp,sensory,3518,10,48.56,Bianchi 2013,sensory,yes
+S1 (3b),10.04,synapses per 100um^3 neuropil,neuropil,6,chimp,sensory,3901,6,32.93,Bianchi 2013,sensory,yes
+S1 (3b),10.04,synapses per 100um^3 neuropil,neuropil,5,chimp,sensory,3901,5,26.86,Bianchi 2013,sensory,yes
+S1 (3b),10.01,synapses per 100um^3 neuropil,neuropil,8,chimp,sensory,3892,8,42.54,Bianchi 2013,sensory,yes
+S1 (3b),9.95,synapses per 100um^3 neuropil,neuropil,13,chimp,sensory,3870,13,66.04,Bianchi 2013,sensory,yes
+M1 (4),0.02,synapses per 100um^3 neuropil,neuropil,6,chimp,motor,244,6,30.2,Bianchi 2013,motor,yes
+M1 (4),0.03,synapses per 100um^3 neuropil,neuropil,7,chimp,motor,249,7,34.56,Bianchi 2013,motor,yes
+M1 (4),0.01,synapses per 100um^3 neuropil,neuropil,9,chimp,motor,242,9,44.91,Bianchi 2013,motor,yes
+M1 (4),0.01,synapses per 100um^3 neuropil,neuropil,10,chimp,motor,239,10,51.07,Bianchi 2013,motor,yes
+M1 (4),0.02,synapses per 100um^3 neuropil,neuropil,10,chimp,motor,244,10,55.37,Bianchi 2013,motor,yes
+M1 (4),1.1,synapses per 100um^3 neuropil,neuropil,13,chimp,motor,637,13,67.8,Bianchi 2013,motor,yes
+M1 (4),1.48,synapses per 100um^3 neuropil,neuropil,19,chimp,motor,777,19,100,Bianchi 2013,motor,yes
+M1 (4),2.02,synapses per 100um^3 neuropil,neuropil,10,chimp,motor,975,10,52.17,Bianchi 2013,motor,yes
+M1 (4),5.04,synapses per 100um^3 neuropil,neuropil,9,chimp,motor,2076,9,50.08,Bianchi 2013,motor,yes
+M1 (4),6.01,synapses per 100um^3 neuropil,neuropil,12,chimp,motor,2431,12,63.39,Bianchi 2013,motor,yes
+M1 (4),5.46,synapses per 100um^3 neuropil,neuropil,17,chimp,motor,2231,17,89.6,Bianchi 2013,motor,yes
+M1 (4),8.99,synapses per 100um^3 neuropil,neuropil,7,chimp,motor,3518,7,37.81,Bianchi 2013,motor,yes
+M1 (4),10.01,synapses per 100um^3 neuropil,neuropil,7,chimp,motor,3892,7,36.88,Bianchi 2013,motor,yes
+M1 (4),10.02,synapses per 100um^3 neuropil,neuropil,8,chimp,motor,3894,8,39.79,Bianchi 2013,motor,yes
+M1 (4),9.99,synapses per 100um^3 neuropil,neuropil,9,chimp,motor,3885,9,49.09,Bianchi 2013,motor,yes
+M1 (4),10,synapses per 100um^3 neuropil,neuropil,11,chimp,motor,3887,11,60.48,Bianchi 2013,motor,yes
+V1,194.46,synaptic density %max,neuropil,21,human,visual,194,NA,20.64,Rakic 1994,visual,no
+V1,285.05,synaptic density %max,neuropil,44,human,visual,285,NA,43.58,Rakic 1994,visual,no
+V1,344.44,synaptic density %max,neuropil,45,human,visual,344,NA,45.07,Rakic 1994,visual,no
+V1,360.57,synaptic density %max,neuropil,55,human,visual,361,NA,54.69,Rakic 1994,visual,no
+V1,393.3,synaptic density %max,neuropil,88,human,visual,393,NA,88.46,Rakic 1994,visual,no
+V1,551.28,synaptic density %max,neuropil,100,human,visual,551,NA,100.12,Rakic 1994,visual,no
+V1,636.84,synaptic density %max,neuropil,97,human,visual,637,NA,97.27,Rakic 1994,visual,no
+V1,873.41,synaptic density %max,neuropil,86,human,visual,873,NA,85.58,Rakic 1994,visual,no
+V1,1734.51,synaptic density %max,neuropil,78,human,visual,1735,NA,77.5,Rakic 1994,visual,no
+V1,4267.34,synaptic density %max,neuropil,62,human,visual,4267,NA,62.23,Rakic 1994,visual,no
+V1,9690.51,synaptic density %max,neuropil,62,human,visual,9691,NA,61.8,Rakic 1994,visual,no
+V1,26159.28,synaptic density %max,neuropil,57,human,visual,26159,NA,57.02,Rakic 1994,visual,no
+Prefrontal,284.79,synaptic density %max,neuropil,52,human,prefrontal,285,NA,51.79,Rakic 1994,prefrontal,no
+Prefrontal,288.61,synaptic density %max,neuropil,69,human,prefrontal,289,NA,69.38,Rakic 1994,prefrontal,no
+Prefrontal,335.11,synaptic density %max,neuropil,71,human,prefrontal,335,NA,71.27,Rakic 1994,prefrontal,no
+Prefrontal,513.71,synaptic density %max,neuropil,79,human,prefrontal,514,NA,78.9,Rakic 1994,prefrontal,no
+Prefrontal,456.57,synaptic density %max,neuropil,84,human,prefrontal,457,NA,84.03,Rakic 1994,prefrontal,no
+Prefrontal,539.78,synaptic density %max,neuropil,89,human,prefrontal,540,NA,88.92,Rakic 1994,prefrontal,no
+Prefrontal,687.26,synaptic density %max,neuropil,96,human,prefrontal,687,NA,95.69,Rakic 1994,prefrontal,no
+Prefrontal,638.26,synaptic density %max,neuropil,100,human,prefrontal,638,NA,100.19,Rakic 1994,prefrontal,no
+Prefrontal,2246.1,synaptic density %max,neuropil,96,human,prefrontal,2246,NA,95.79,Rakic 1994,prefrontal,no
+Prefrontal,2942.73,synaptic density %max,neuropil,94,human,prefrontal,2943,NA,94.44,Rakic 1994,prefrontal,no
+Prefrontal,6301.77,synaptic density %max,neuropil,66,human,prefrontal,6302,NA,66.08,Rakic 1994,prefrontal,no
+Prefrontal,12990.43,synaptic density %max,neuropil,62,human,prefrontal,12990,NA,61.87,Rakic 1994,prefrontal,no
+Prefrontal,19485.79,synaptic density %max,neuropil,73,human,prefrontal,19486,NA,72.74,Rakic 1994,prefrontal,no
+Prefrontal,24859.17,synaptic density %max,neuropil,69,human,prefrontal,24859,NA,69.49,Rakic 1994,prefrontal,no
+Prefrontal,25515.59,synaptic density %max,neuropil,66,human,prefrontal,25516,NA,65.62,Rakic 1994,prefrontal,no
+Prefrontal,26781.52,synaptic density %max,neuropil,64,human,prefrontal,26782,NA,64.12,Rakic 1994,prefrontal,no
+Prefrontal,23725.78,synaptic density %max,neuropil,61,human,prefrontal,23726,NA,61.37,Rakic 1994,prefrontal,no
+Prefrontal,28841.69,synaptic density %max,neuropil,59,human,prefrontal,28842,NA,59.39,Rakic 1994,prefrontal,no
+Prefrontal,29583.85,synaptic density %max,neuropil,57,human,prefrontal,29584,NA,56.62,Rakic 1994,prefrontal,no
+Prefrontal,26690.03,synaptic density %max,neuropil,57,human,prefrontal,26690,NA,56.55,Rakic 1994,prefrontal,no
+Prefrontal,20037.85,synaptic density %max,neuropil,52,human,prefrontal,20038,NA,52.38,Rakic 1994,prefrontal,no
+Prefrontal,33563.55,synaptic density %max,neuropil,51,human,prefrontal,33564,NA,50.86,Rakic 1994,prefrontal,no
+Prefrontal (area 9),138.92,synapses per 100um^2 neuropil,neuropil,3.44,macaque,prefrontal,139,NA,12.94,Rakic 1986,prefrontal,no
+Prefrontal (area 9),106.32,synapses per 100um^2 neuropil,neuropil,0.8,macaque,prefrontal,106,NA,3.01,Rakic 1986,prefrontal,no
+Prefrontal (area 9),106.25,synapses per 100um^2 neuropil,neuropil,1.74,macaque,prefrontal,106,NA,6.52,Rakic 1986,prefrontal,no
+Prefrontal (area 9),137.87,synapses per 100um^2 neuropil,neuropil,7.82,macaque,prefrontal,138,NA,29.36,Rakic 1986,prefrontal,no
+Prefrontal (area 9),164.72,synapses per 100um^2 neuropil,neuropil,15.53,macaque,prefrontal,165,NA,58.35,Rakic 1986,prefrontal,no
+Prefrontal (area 9),176.03,synapses per 100um^2 neuropil,neuropil,15.97,macaque,prefrontal,176,NA,59.98,Rakic 1986,prefrontal,no
+Prefrontal (area 9),164.22,synapses per 100um^2 neuropil,neuropil,16.43,macaque,prefrontal,164,NA,61.73,Rakic 1986,prefrontal,no
+Prefrontal (area 9),176.75,synapses per 100um^2 neuropil,neuropil,17.34,macaque,prefrontal,177,NA,65.12,Rakic 1986,prefrontal,no
+Prefrontal (area 9),176.17,synapses per 100um^2 neuropil,neuropil,18.71,macaque,prefrontal,176,NA,70.26,Rakic 1986,prefrontal,no
+Prefrontal (area 9),226.99,synapses per 100um^2 neuropil,neuropil,24.09,macaque,prefrontal,227,NA,90.47,Rakic 1986,prefrontal,no
+Prefrontal (area 9),225.52,synapses per 100um^2 neuropil,neuropil,26.62,macaque,prefrontal,226,NA,100,Rakic 1986,prefrontal,no
+Prefrontal (area 9),296.06,synapses per 100um^2 neuropil,neuropil,25.76,macaque,prefrontal,296,NA,96.75,Rakic 1986,prefrontal,no
+Prefrontal (area 9),297.39,synapses per 100um^2 neuropil,neuropil,22.49,macaque,prefrontal,297,NA,84.46,Rakic 1986,prefrontal,no
+Prefrontal (area 9),265.19,synapses per 100um^2 neuropil,neuropil,20.11,macaque,prefrontal,265,NA,75.55,Rakic 1986,prefrontal,no
+Prefrontal (area 9),386.35,synapses per 100um^2 neuropil,neuropil,22.56,macaque,prefrontal,386,NA,84.73,Rakic 1986,prefrontal,no
+Prefrontal (area 9),385.09,synapses per 100um^2 neuropil,neuropil,23.86,macaque,prefrontal,385,NA,89.62,Rakic 1986,prefrontal,no
+Prefrontal (area 9),462.05,synapses per 100um^2 neuropil,neuropil,20.72,macaque,prefrontal,462,NA,77.84,Rakic 1986,prefrontal,no
+Prefrontal (area 9),781.81,synapses per 100um^2 neuropil,neuropil,20.73,macaque,prefrontal,782,NA,77.87,Rakic 1986,prefrontal,no
+Prefrontal (area 9),784.42,synapses per 100um^2 neuropil,neuropil,19.33,macaque,prefrontal,784,NA,72.6,Rakic 1986,prefrontal,no
+Prefrontal (area 9),1884.59,synapses per 100um^2 neuropil,neuropil,19.44,macaque,prefrontal,1885,NA,73.03,Rakic 1986,prefrontal,no
+Prefrontal (area 9),1872.76,synapses per 100um^2 neuropil,neuropil,17.64,macaque,prefrontal,1873,NA,66.25,Rakic 1986,prefrontal,no
+Prefrontal (area 9),3644.36,synapses per 100um^2 neuropil,neuropil,19.15,macaque,prefrontal,3644,NA,71.93,Rakic 1986,prefrontal,no
+Prefrontal (area 9),3647.52,synapses per 100um^2 neuropil,neuropil,17.75,macaque,prefrontal,3648,NA,66.67,Rakic 1986,prefrontal,no
+Prefrontal (area 9),7590.8,synapses per 100um^2 neuropil,neuropil,18.53,macaque,prefrontal,7591,NA,69.59,Rakic 1986,prefrontal,no
+Prefrontal (area 9),7590.68,synapses per 100um^2 neuropil,neuropil,14.55,macaque,prefrontal,7591,NA,54.67,Rakic 1986,prefrontal,no
+Prefrontal (area 9),7576.8,synapses per 100um^2 neuropil,neuropil,13.52,macaque,prefrontal,7577,NA,50.78,Rakic 1986,prefrontal,no
+Visual (area 17),142.67,synapses per 100um^2 neuropil,neuropil,6.47,macaque,visual,143,NA,17.54,Rakic 1986,visual,no
+Visual (area 17),142.28,synapses per 100um^2 neuropil,neuropil,8.18,macaque,visual,142,NA,22.16,Rakic 1986,visual,no
+Visual (area 17),171.74,synapses per 100um^2 neuropil,neuropil,18.5,macaque,visual,172,NA,50.14,Rakic 1986,visual,no
+Visual (area 17),185.24,synapses per 100um^2 neuropil,neuropil,19.15,macaque,visual,185,NA,51.89,Rakic 1986,visual,no
+Visual (area 17),171.27,synapses per 100um^2 neuropil,neuropil,19.9,macaque,visual,171,NA,53.92,Rakic 1986,visual,no
+Visual (area 17),184.24,synapses per 100um^2 neuropil,neuropil,21.91,macaque,visual,184,NA,59.37,Rakic 1986,visual,no
+Visual (area 17),191.81,synapses per 100um^2 neuropil,neuropil,23.1,macaque,visual,192,NA,62.6,Rakic 1986,visual,no
+Visual (area 17),192.26,synapses per 100um^2 neuropil,neuropil,24.74,macaque,visual,192,NA,67.04,Rakic 1986,visual,no
+Visual (area 17),191.73,synapses per 100um^2 neuropil,neuropil,26.68,macaque,visual,192,NA,72.3,Rakic 1986,visual,no
+Visual (area 17),191.66,synapses per 100um^2 neuropil,neuropil,29.51,macaque,visual,192,NA,79.96,Rakic 1986,visual,no
+Visual (area 17),239.35,synapses per 100um^2 neuropil,neuropil,30.22,macaque,visual,239,NA,81.9,Rakic 1986,visual,no
+Visual (area 17),237.61,synapses per 100um^2 neuropil,neuropil,27.9,macaque,visual,238,NA,75.62,Rakic 1986,visual,no
+Visual (area 17),237.65,synapses per 100um^2 neuropil,neuropil,26.58,macaque,visual,238,NA,72.02,Rakic 1986,visual,no
+Visual (area 17),249.33,synapses per 100um^2 neuropil,neuropil,26.75,macaque,visual,249,NA,72.48,Rakic 1986,visual,no
+Visual (area 17),292.19,synapses per 100um^2 neuropil,neuropil,30.83,macaque,visual,292,NA,83.56,Rakic 1986,visual,no
+Visual (area 17),293.59,synapses per 100um^2 neuropil,neuropil,33.08,macaque,visual,294,NA,89.66,Rakic 1986,visual,no
+Visual (area 17),286.13,synapses per 100um^2 neuropil,neuropil,36.9,macaque,visual,286,NA,100,Rakic 1986,visual,no
+Visual (area 17),300.21,synapses per 100um^2 neuropil,neuropil,36.52,macaque,visual,300,NA,98.98,Rakic 1986,visual,no
+Visual (area 17),381.05,synapses per 100um^2 neuropil,neuropil,28.76,macaque,visual,381,NA,77.93,Rakic 1986,visual,no
+Visual (area 17),381.08,synapses per 100um^2 neuropil,neuropil,28.18,macaque,visual,381,NA,76.36,Rakic 1986,visual,no
+Visual (area 17),757.71,synapses per 100um^2 neuropil,neuropil,26.64,macaque,visual,758,NA,72.21,Rakic 1986,visual,no
+Visual (area 17),759.71,synapses per 100um^2 neuropil,neuropil,25.83,macaque,visual,760,NA,69.99,Rakic 1986,visual,no
+Visual (area 17),1812.95,synapses per 100um^2 neuropil,neuropil,19.63,macaque,visual,1813,NA,53.19,Rakic 1986,visual,no
+Visual (area 17),1817.72,synapses per 100um^2 neuropil,neuropil,18.81,macaque,visual,1818,NA,50.97,Rakic 1986,visual,no
+Visual (area 17),6545.13,synapses per 100um^2 neuropil,neuropil,15.81,macaque,visual,6545,NA,42.84,Rakic 1986,visual,no
+Visual (area 17),6562.65,synapses per 100um^2 neuropil,neuropil,14.65,macaque,visual,6563,NA,39.7,Rakic 1986,visual,no
+Visual (area 17),7617.18,synapses per 100um^2 neuropil,neuropil,14.89,macaque,visual,7617,NA,40.35,Rakic 1986,visual,no
+Visual (area 17),7618.23,synapses per 100um^2 neuropil,neuropil,13.8,macaque,visual,7618,NA,37.4,Rakic 1986,visual,no
+Motor (area 4),115,synapses per 100um^2 neuropil,neuropil,6.22,macaque,motor,115,NA,21.86,Rakic 1986,motor,no
+Motor (area 4),115,synapses per 100um^2 neuropil,neuropil,7.86,macaque,motor,115,NA,27.6,Rakic 1986,motor,no
+Motor (area 4),141,synapses per 100um^2 neuropil,neuropil,14.43,macaque,motor,141,NA,50.68,Rakic 1986,motor,no
+Motor (area 4),141,synapses per 100um^2 neuropil,neuropil,15.33,macaque,motor,141,NA,53.85,Rakic 1986,motor,no
+Motor (area 4),169,synapses per 100um^2 neuropil,neuropil,19.4,macaque,motor,169,NA,68.13,Rakic 1986,motor,no
+Motor (area 4),170,synapses per 100um^2 neuropil,neuropil,20.03,macaque,motor,170,NA,70.33,Rakic 1986,motor,no
+Motor (area 4),190,synapses per 100um^2 neuropil,neuropil,18.84,macaque,motor,190,NA,66.17,Rakic 1986,motor,no
+Motor (area 4),190,synapses per 100um^2 neuropil,neuropil,18.11,macaque,motor,190,NA,63.61,Rakic 1986,motor,no
+Motor (area 4),190,synapses per 100um^2 neuropil,neuropil,22.53,macaque,motor,190,NA,79.12,Rakic 1986,motor,no
+Motor (area 4),191,synapses per 100um^2 neuropil,neuropil,26.18,macaque,motor,191,NA,91.95,Rakic 1986,motor,no
+Motor (area 4),225,synapses per 100um^2 neuropil,neuropil,27.33,macaque,motor,225,NA,95.97,Rakic 1986,motor,no
+Motor (area 4),226,synapses per 100um^2 neuropil,neuropil,28.47,macaque,motor,226,NA,100,Rakic 1986,motor,no
+Motor (area 4),293,synapses per 100um^2 neuropil,neuropil,25.06,macaque,motor,293,NA,88.02,Rakic 1986,motor,no
+Motor (area 4),292,synapses per 100um^2 neuropil,neuropil,24.09,macaque,motor,292,NA,84.6,Rakic 1986,motor,no
+Motor (area 4),275,synapses per 100um^2 neuropil,neuropil,23.32,macaque,motor,275,NA,81.91,Rakic 1986,motor,no
+Motor (area 4),273,synapses per 100um^2 neuropil,neuropil,22.45,macaque,motor,273,NA,78.86,Rakic 1986,motor,no
+Motor (area 4),261,synapses per 100um^2 neuropil,neuropil,22.87,macaque,motor,261,NA,80.33,Rakic 1986,motor,no
+Motor (area 4),274,synapses per 100um^2 neuropil,neuropil,20.47,macaque,motor,274,NA,71.89,Rakic 1986,motor,no
+Motor (area 4),364,synapses per 100um^2 neuropil,neuropil,23.46,macaque,motor,364,NA,82.38,Rakic 1986,motor,no
+Motor (area 4),376,synapses per 100um^2 neuropil,neuropil,23.74,macaque,motor,376,NA,83.36,Rakic 1986,motor,no
+Motor (area 4),780,synapses per 100um^2 neuropil,neuropil,21.33,macaque,motor,780,NA,74.89,Rakic 1986,motor,no
+Motor (area 4),811,synapses per 100um^2 neuropil,neuropil,21.57,macaque,motor,811,NA,75.75,Rakic 1986,motor,no
+Motor (area 4),1742,synapses per 100um^2 neuropil,neuropil,16.55,macaque,motor,1742,NA,58.12,Rakic 1986,motor,no
+Motor (area 4),1821,synapses per 100um^2 neuropil,neuropil,16.9,macaque,motor,1821,NA,59.33,Rakic 1986,motor,no
+Motor (area 4),3631,synapses per 100um^2 neuropil,neuropil,12.85,macaque,motor,3631,NA,45.13,Rakic 1986,motor,no
+Motor (area 4),3629,synapses per 100um^2 neuropil,neuropil,11.84,macaque,motor,3629,NA,41.59,Rakic 1986,motor,no
+Motor (area 4),6563,synapses per 100um^2 neuropil,neuropil,12.53,macaque,motor,6563,NA,44,Rakic 1986,motor,no
+Motor (area 4),6591,synapses per 100um^2 neuropil,neuropil,11.14,macaque,motor,6591,NA,39.11,Rakic 1986,motor,no
+Motor (area 4),7641,synapses per 100um^2 neuropil,neuropil,15.8,macaque,motor,7641,NA,55.47,Rakic 1986,motor,no
+Motor (area 4),7648,synapses per 100um^2 neuropil,neuropil,17.12,macaque,motor,7648,NA,60.11,Rakic 1986,motor,no
+Somatosensory (area 1),113.55,synapses per 100um^2 neuropil,neuropil,9.13,macaque,sensory,114,NA,31.5,Rakic 1986,sensory,no
+Somatosensory (area 1),113.03,synapses per 100um^2 neuropil,neuropil,10.92,macaque,sensory,113,NA,37.69,Rakic 1986,sensory,no
+Somatosensory (area 1),137.94,synapses per 100um^2 neuropil,neuropil,10.99,macaque,sensory,138,NA,37.91,Rakic 1986,sensory,no
+Somatosensory (area 1),137.97,synapses per 100um^2 neuropil,neuropil,11.91,macaque,sensory,138,NA,41.12,Rakic 1986,sensory,no
+Somatosensory (area 1),172.29,synapses per 100um^2 neuropil,neuropil,16.83,macaque,sensory,172,NA,58.07,Rakic 1986,sensory,no
+Somatosensory (area 1),173.18,synapses per 100um^2 neuropil,neuropil,18.19,macaque,sensory,173,NA,62.77,Rakic 1986,sensory,no
+Somatosensory (area 1),191.2,synapses per 100um^2 neuropil,neuropil,21.44,macaque,sensory,191,NA,74,Rakic 1986,sensory,no
+Somatosensory (area 1),182.04,synapses per 100um^2 neuropil,neuropil,21.94,macaque,sensory,182,NA,75.72,Rakic 1986,sensory,no
+Somatosensory (area 1),190.29,synapses per 100um^2 neuropil,neuropil,22.4,macaque,sensory,190,NA,77.32,Rakic 1986,sensory,no
+Somatosensory (area 1),224.56,synapses per 100um^2 neuropil,neuropil,26.95,macaque,sensory,225,NA,93.01,Rakic 1986,sensory,no
+Somatosensory (area 1),224.64,synapses per 100um^2 neuropil,neuropil,28.97,macaque,sensory,225,NA,100,Rakic 1986,sensory,no
+Somatosensory (area 1),272.1,synapses per 100um^2 neuropil,neuropil,28.41,macaque,sensory,272,NA,98.05,Rakic 1986,sensory,no
+Somatosensory (area 1),271.97,synapses per 100um^2 neuropil,neuropil,25.82,macaque,sensory,272,NA,89.11,Rakic 1986,sensory,no
+Somatosensory (area 1),294.87,synapses per 100um^2 neuropil,neuropil,24.09,macaque,sensory,295,NA,83.15,Rakic 1986,sensory,no
+Somatosensory (area 1),294.8,synapses per 100um^2 neuropil,neuropil,22.76,macaque,sensory,295,NA,78.57,Rakic 1986,sensory,no
+Somatosensory (area 1),271.79,synapses per 100um^2 neuropil,neuropil,22.07,macaque,sensory,272,NA,76.16,Rakic 1986,sensory,no
+Somatosensory (area 1),271,synapses per 100um^2 neuropil,neuropil,19.74,macaque,sensory,271,NA,68.14,Rakic 1986,sensory,no
+Somatosensory (area 1),383.38,synapses per 100um^2 neuropil,neuropil,20.9,macaque,sensory,383,NA,72.15,Rakic 1986,sensory,no
+Somatosensory (area 1),382.55,synapses per 100um^2 neuropil,neuropil,22.56,macaque,sensory,383,NA,77.87,Rakic 1986,sensory,no
+Somatosensory (area 1),380.8,synapses per 100um^2 neuropil,neuropil,24.36,macaque,sensory,381,NA,84.06,Rakic 1986,sensory,no
+Somatosensory (area 1),807.84,synapses per 100um^2 neuropil,neuropil,22.82,macaque,sensory,808,NA,78.77,Rakic 1986,sensory,no
+Somatosensory (area 1),811.53,synapses per 100um^2 neuropil,neuropil,20.83,macaque,sensory,812,NA,71.9,Rakic 1986,sensory,no
+Somatosensory (area 1),1890.58,synapses per 100um^2 neuropil,neuropil,20.43,macaque,sensory,1891,NA,70.5,Rakic 1986,sensory,no
+Somatosensory (area 1),1889.96,synapses per 100um^2 neuropil,neuropil,18.63,macaque,sensory,1890,NA,64.32,Rakic 1986,sensory,no
+Somatosensory (area 1),3597.18,synapses per 100um^2 neuropil,neuropil,15.44,macaque,sensory,3597,NA,53.3,Rakic 1986,sensory,no
+Somatosensory (area 1),3587.22,synapses per 100um^2 neuropil,neuropil,13.75,macaque,sensory,3587,NA,47.46,Rakic 1986,sensory,no
+Somatosensory (area 1),6410.05,synapses per 100um^2 neuropil,neuropil,15.01,macaque,sensory,6410,NA,51.8,Rakic 1986,sensory,no
+Somatosensory (area 1),6442.63,synapses per 100um^2 neuropil,neuropil,15.84,macaque,sensory,6443,NA,54.66,Rakic 1986,sensory,no
+Somatosensory (area 1),7504.75,synapses per 100um^2 neuropil,neuropil,16.7,macaque,sensory,7505,NA,57.64,Rakic 1986,sensory,no
+Somatosensory (area 1),7469.86,synapses per 100um^2 neuropil,neuropil,18.09,macaque,sensory,7470,NA,62.45,Rakic 1986,sensory,no
+Limbic (dentate gyrus),105.95,synapses per 100um^2 neuropil,neuropil,0.72,macaque,limbic,106,NA,2.54,Rakic 1986,limbic,no
+Limbic (dentate gyrus),106.2,synapses per 100um^2 neuropil,neuropil,1.71,macaque,limbic,106,NA,6.05,Rakic 1986,limbic,no
+Limbic (dentate gyrus),123.48,synapses per 100um^2 neuropil,neuropil,4.16,macaque,limbic,123,NA,14.77,Rakic 1986,limbic,no
+Limbic (dentate gyrus),132.18,synapses per 100um^2 neuropil,neuropil,4.36,macaque,limbic,132,NA,15.5,Rakic 1986,limbic,no
+Limbic (dentate gyrus),126.61,synapses per 100um^2 neuropil,neuropil,5.08,macaque,limbic,127,NA,18.04,Rakic 1986,limbic,no
+Limbic (dentate gyrus),150.21,synapses per 100um^2 neuropil,neuropil,7.64,macaque,limbic,150,NA,27.12,Rakic 1986,limbic,no
+Limbic (dentate gyrus),150.18,synapses per 100um^2 neuropil,neuropil,9,macaque,limbic,150,NA,31.96,Rakic 1986,limbic,no
+Limbic (dentate gyrus),168.1,synapses per 100um^2 neuropil,neuropil,12.55,macaque,limbic,168,NA,44.55,Rakic 1986,limbic,no
+Limbic (dentate gyrus),168.06,synapses per 100um^2 neuropil,neuropil,13.95,macaque,limbic,168,NA,49.52,Rakic 1986,limbic,no
+Limbic (dentate gyrus),197.52,synapses per 100um^2 neuropil,neuropil,12.75,macaque,limbic,198,NA,45.28,Rakic 1986,limbic,no
+Limbic (dentate gyrus),198.88,synapses per 100um^2 neuropil,neuropil,16.37,macaque,limbic,199,NA,58.11,Rakic 1986,limbic,no
+Limbic (dentate gyrus),184.78,synapses per 100um^2 neuropil,neuropil,18.82,macaque,limbic,185,NA,66.83,Rakic 1986,limbic,no
+Limbic (dentate gyrus),184.7,synapses per 100um^2 neuropil,neuropil,21.07,macaque,limbic,185,NA,74.82,Rakic 1986,limbic,no
+Limbic (dentate gyrus),231.16,synapses per 100um^2 neuropil,neuropil,20.77,macaque,limbic,231,NA,73.73,Rakic 1986,limbic,no
+Limbic (dentate gyrus),245.57,synapses per 100um^2 neuropil,neuropil,21.04,macaque,limbic,246,NA,74.7,Rakic 1986,limbic,no
+Limbic (dentate gyrus),229.65,synapses per 100um^2 neuropil,neuropil,15.62,macaque,limbic,230,NA,55.45,Rakic 1986,limbic,no
+Limbic (dentate gyrus),245.13,synapses per 100um^2 neuropil,neuropil,17.12,macaque,limbic,245,NA,60.77,Rakic 1986,limbic,no
+Limbic (dentate gyrus),288.48,synapses per 100um^2 neuropil,neuropil,22.47,macaque,limbic,288,NA,79.78,Rakic 1986,limbic,no
+Limbic (dentate gyrus),290.56,synapses per 100um^2 neuropil,neuropil,24.42,macaque,limbic,291,NA,86.68,Rakic 1986,limbic,no
+Limbic (dentate gyrus),302.53,synapses per 100um^2 neuropil,neuropil,24.28,macaque,limbic,303,NA,86.2,Rakic 1986,limbic,no
+Limbic (dentate gyrus),314.95,synapses per 100um^2 neuropil,neuropil,24.72,macaque,limbic,315,NA,87.77,Rakic 1986,limbic,no
+Limbic (dentate gyrus),301.6,synapses per 100um^2 neuropil,neuropil,27.18,macaque,limbic,302,NA,96.49,Rakic 1986,limbic,no
+Limbic (dentate gyrus),310.02,synapses per 100um^2 neuropil,neuropil,28.17,macaque,limbic,310,NA,100,Rakic 1986,limbic,no
+Limbic (dentate gyrus),450.86,synapses per 100um^2 neuropil,neuropil,20.39,macaque,limbic,451,NA,72.4,Rakic 1986,limbic,no
+Limbic (dentate gyrus),454.52,synapses per 100um^2 neuropil,neuropil,17.7,macaque,limbic,455,NA,62.83,Rakic 1986,limbic,no
+Limbic (dentate gyrus),1822.23,synapses per 100um^2 neuropil,neuropil,19.2,macaque,limbic,1822,NA,68.16,Rakic 1986,limbic,no
+Limbic (dentate gyrus),1832.42,synapses per 100um^2 neuropil,neuropil,16.37,macaque,limbic,1832,NA,58.11,Rakic 1986,limbic,no
+Limbic (dentate gyrus),3647.8,synapses per 100um^2 neuropil,neuropil,14.46,macaque,limbic,3648,NA,51.33,Rakic 1986,limbic,no
+Limbic (dentate gyrus),3630.4,synapses per 100um^2 neuropil,neuropil,13.09,macaque,limbic,3630,NA,46.49,Rakic 1986,limbic,no
+Auditory,192.3739734,synapses per 100um^3 whole cortex,whole cortex,11.2174,human,auditory,192,NA,20.34,Huttenlocher 1997,auditory (whole cortex),no
+Auditory,195.4438849,synapses per 100um^3 whole cortex,whole cortex,7.890351091,human,auditory,195,NA,14.31,Huttenlocher 1997,auditory (whole cortex),no
+Auditory,321.7302606,synapses per 100um^3 whole cortex,whole cortex,20.08247746,human,auditory,322,NA,36.42,Huttenlocher 1997,auditory (whole cortex),no
+Auditory,283.7794357,synapses per 100um^3 whole cortex,whole cortex,29.42258965,human,auditory,284,NA,53.36,Huttenlocher 1997,auditory (whole cortex),no
+Auditory,372.6939258,synapses per 100um^3 whole cortex,whole cortex,40.97555546,human,auditory,373,NA,74.31,Huttenlocher 1997,auditory (whole cortex),no
+Auditory,378.1565032,synapses per 100um^3 whole cortex,whole cortex,53.3489119,human,auditory,378,NA,96.75,Huttenlocher 1997,auditory (whole cortex),no
+Auditory,701.2450743,synapses per 100um^3 whole cortex,whole cortex,44.70295281,human,auditory,701,NA,81.07,Huttenlocher 1997,auditory (whole cortex),no
+Auditory,1632.616916,synapses per 100um^3 whole cortex,whole cortex,55.13971309,human,auditory,1633,NA,100,Huttenlocher 1997,auditory (whole cortex),no
+Auditory,4671.989445,synapses per 100um^3 whole cortex,whole cortex,27.92794409,human,auditory,4672,NA,50.65,Huttenlocher 1997,auditory (whole cortex),no
+Auditory,5064.692344,synapses per 100um^3 whole cortex,whole cortex,28.56894455,human,auditory,5065,NA,51.81,Huttenlocher 1997,auditory (whole cortex),no
+Auditory,5737.178349,synapses per 100um^3 whole cortex,whole cortex,39.83195587,human,auditory,5737,NA,72.24,Huttenlocher 1997,auditory (whole cortex),no
+Auditory,7297.55488,synapses per 100um^3 whole cortex,whole cortex,24.42034656,human,auditory,7298,NA,44.29,Huttenlocher 1997,auditory (whole cortex),no
+Auditory,10990.52391,synapses per 100um^3 whole cortex,whole cortex,34.04550684,human,auditory,10991,NA,61.74,Huttenlocher 1997,auditory (whole cortex),no
+Visual cortex (area 17),200.8534127,synapses per 100um^3 neuropil,neuropil,12.55926577,human,visual,201,12.55926577,21.78,Huttenlocher 1987,visual,yes
+Visual cortex (area 17),284.4496203,synapses per 100um^3 neuropil,neuropil,25.74551695,human,visual,284,25.74551695,44.65,Huttenlocher 1987,visual,yes
+Visual cortex (area 17),343.3775071,synapses per 100um^3 neuropil,neuropil,26.73534867,human,visual,343,26.73534867,46.36,Huttenlocher 1987,visual,yes
+Visual cortex (area 17),351.9470515,synapses per 100um^3 neuropil,neuropil,31.81285726,human,visual,352,31.81285726,55.17,Huttenlocher 1987,visual,yes
+Visual cortex (area 17),401.0982026,synapses per 100um^3 neuropil,neuropil,50.60497477,human,visual,401,50.60497477,87.76,Huttenlocher 1987,visual,yes
+Visual cortex (area 17),522.3295339,synapses per 100um^3 neuropil,neuropil,57.66388448,human,visual,522,57.66388448,100,Huttenlocher 1987,visual,yes
+Visual cortex (area 17),613.674368,synapses per 100um^3 neuropil,neuropil,56.14433214,human,visual,614,56.14433214,97.36,Huttenlocher 1987,visual,yes
+Visual cortex (area 17),851.3580023,synapses per 100um^3 neuropil,neuropil,49.31138932,human,visual,851,49.31138932,85.52,Huttenlocher 1987,visual,yes
+Visual cortex (area 17),1671.017595,synapses per 100um^3 neuropil,neuropil,44.5752161,human,visual,1671,44.5752161,77.3,Huttenlocher 1987,visual,yes
+Visual cortex (area 17),4301.268564,synapses per 100um^3 neuropil,neuropil,35.34144328,human,visual,4301,35.34144328,61.29,Huttenlocher 1987,visual,yes
+Visual cortex (area 17),9635.208806,synapses per 100um^3 neuropil,neuropil,35.38958731,human,visual,9635,35.38958731,61.37,Huttenlocher 1987,visual,yes
+Visual cortex (area 17),10988.33976,synapses per 100um^3 neuropil,neuropil,31.82761053,human,visual,10988,31.82761053,55.2,Huttenlocher 1987,visual,yes
+Prefrontal (middle frontal gyrus),191.7270904,synapses per 100um^3 whole cortex,whole cortex,3.629894047,human,prefrontal,192,3.629894047,6.21,Huttenlocher 1997,prefrontal (whole cortex),yes
+Prefrontal (middle frontal gyrus),197.4670471,synapses per 100um^3 whole cortex,whole cortex,2.812399558,human,prefrontal,197,2.812399558,4.81,Huttenlocher 1997,prefrontal (whole cortex),yes
+Prefrontal (middle frontal gyrus),324.0828751,synapses per 100um^3 whole cortex,whole cortex,11.38588706,human,prefrontal,324,11.38588706,19.47,Huttenlocher 1997,prefrontal (whole cortex),yes
+Prefrontal (middle frontal gyrus),281.9965445,synapses per 100um^3 whole cortex,whole cortex,19.09193022,human,prefrontal,282,19.09193022,32.65,Huttenlocher 1997,prefrontal (whole cortex),yes
+Prefrontal (middle frontal gyrus),374.3290601,synapses per 100um^3 whole cortex,whole cortex,29.82764006,human,prefrontal,374,29.82764006,51.02,Huttenlocher 1997,prefrontal (whole cortex),yes
+Prefrontal (middle frontal gyrus),379.4284258,synapses per 100um^3 whole cortex,whole cortex,30.81968647,human,prefrontal,379,30.81968647,52.71,Huttenlocher 1997,prefrontal (whole cortex),yes
+Prefrontal (middle frontal gyrus),700.7391135,synapses per 100um^3 whole cortex,whole cortex,36.64848725,human,prefrontal,701,36.64848725,62.68,Huttenlocher 1997,prefrontal (whole cortex),yes
+Prefrontal (middle frontal gyrus),1633.103713,synapses per 100um^3 whole cortex,whole cortex,58.46655756,human,prefrontal,1633,58.46655756,100,Huttenlocher 1997,prefrontal (whole cortex),yes
+Prefrontal (middle frontal gyrus),4679.839925,synapses per 100um^3 whole cortex,whole cortex,46.66333138,human,prefrontal,4680,46.66333138,79.81,Huttenlocher 1997,prefrontal (whole cortex),yes
+Prefrontal (middle frontal gyrus),5057.571613,synapses per 100um^3 whole cortex,whole cortex,42.86857327,human,prefrontal,5058,42.86857327,73.32,Huttenlocher 1997,prefrontal (whole cortex),yes
+Prefrontal (middle frontal gyrus),5753.766165,synapses per 100um^3 whole cortex,whole cortex,42.04981811,human,prefrontal,5754,42.04981811,71.92,Huttenlocher 1997,prefrontal (whole cortex),yes
+Prefrontal (middle frontal gyrus),7260.587474,synapses per 100um^3 whole cortex,whole cortex,27.74725917,human,prefrontal,7261,27.74725917,47.46,Huttenlocher 1997,prefrontal (whole cortex),yes
+Prefrontal (middle frontal gyrus),10932.73303,synapses per 100um^3 whole cortex,whole cortex,35.21288883,human,prefrontal,10933,35.21288883,60.23,Huttenlocher 1997,prefrontal (whole cortex),yes
+Prefrontal (middle frontal gyrus L3),0.02,synapses x10^8 per mm^3 neuropil,neuropil,8.830021484,human,prefrontal,276,88.30021484,52.03,Huttenlocher 1979,prefrontal,yes
+Prefrontal (middle frontal gyrus L3),0.04,synapses x10^8 per mm^3 neuropil,neuropil,11.78946886,human,prefrontal,285,117.8946886,69.47,Huttenlocher 1979,prefrontal,yes
+Prefrontal (middle frontal gyrus L3),0.15,synapses x10^8 per mm^3 neuropil,neuropil,12.07033251,human,prefrontal,325,120.7033251,71.13,Huttenlocher 1979,prefrontal,yes
+Prefrontal (middle frontal gyrus L3),0.52,synapses x10^8 per mm^3 neuropil,neuropil,14.29866277,human,prefrontal,459,142.9866277,84.26,Huttenlocher 1979,prefrontal,yes
+Prefrontal (middle frontal gyrus L3),0.67,synapses x10^8 per mm^3 neuropil,neuropil,13.32682177,human,prefrontal,515,133.2682177,78.53,Huttenlocher 1979,prefrontal,yes
+Prefrontal (middle frontal gyrus L3),0.7,synapses x10^8 per mm^3 neuropil,neuropil,15.15891523,human,prefrontal,525,151.5891523,89.33,Huttenlocher 1979,prefrontal,yes
+Prefrontal (middle frontal gyrus L3),0.96,synapses x10^8 per mm^3 neuropil,neuropil,16.97013602,human,prefrontal,620,169.7013602,100,Huttenlocher 1979,prefrontal,yes
+Prefrontal (middle frontal gyrus L3),1.13,synapses x10^8 per mm^3 neuropil,neuropil,16.29487052,human,prefrontal,682,162.9487052,96.02,Huttenlocher 1979,prefrontal,yes
+Prefrontal (middle frontal gyrus L3),5.22,synapses x10^8 per mm^3 neuropil,neuropil,16.37,human,prefrontal,2176,163.7,96.47,Huttenlocher 1979,prefrontal,yes
+Prefrontal (middle frontal gyrus L3),7.11,synapses x10^8 per mm^3 neuropil,neuropil,16.12,human,prefrontal,2865,161.2,95,Huttenlocher 1979,prefrontal,yes
+Prefrontal (middle frontal gyrus L3),16.54,synapses x10^8 per mm^3 neuropil,neuropil,11.29,human,prefrontal,6308,112.9,66.52,Huttenlocher 1979,prefrontal,yes
+Prefrontal (middle frontal gyrus L3),31.65,synapses x10^8 per mm^3 neuropil,neuropil,10.57,human,prefrontal,11822,105.7,62.28,Huttenlocher 1979,prefrontal,yes
+Prefrontal (middle frontal gyrus L3),54.57,synapses x10^8 per mm^3 neuropil,neuropil,8.79,human,prefrontal,20190,87.9,51.78,Huttenlocher 1979,prefrontal,yes
+Prefrontal (middle frontal gyrus L3),51.1,synapses x10^8 per mm^3 neuropil,neuropil,12.45,human,prefrontal,18922,124.5,73.37,Huttenlocher 1979,prefrontal,yes
+Prefrontal (middle frontal gyrus L3),67.58,synapses x10^8 per mm^3 neuropil,neuropil,11.97,human,prefrontal,24937,119.7,70.52,Huttenlocher 1979,prefrontal,yes
+Prefrontal (middle frontal gyrus L3),65.02,synapses x10^8 per mm^3 neuropil,neuropil,10.57,human,prefrontal,24004,105.7,62.28,Huttenlocher 1979,prefrontal,yes
+Prefrontal (middle frontal gyrus L3),68.8,synapses x10^8 per mm^3 neuropil,neuropil,11.16,human,prefrontal,25381,111.6,65.78,Huttenlocher 1979,prefrontal,yes
+Prefrontal (middle frontal gyrus L3),72.04,synapses x10^8 per mm^3 neuropil,neuropil,10.93,human,prefrontal,26564,109.3,64.4,Huttenlocher 1979,prefrontal,yes
+Prefrontal (middle frontal gyrus L3),78.26,synapses x10^8 per mm^3 neuropil,neuropil,10.16,human,prefrontal,28834,101.6,59.88,Huttenlocher 1979,prefrontal,yes
+Prefrontal (middle frontal gyrus L3),73.99,synapses x10^8 per mm^3 neuropil,neuropil,9.65,human,prefrontal,27275,96.5,56.89,Huttenlocher 1979,prefrontal,yes
+Prefrontal (middle frontal gyrus L3),79.49,synapses x10^8 per mm^3 neuropil,neuropil,9.7,human,prefrontal,29283,97,57.18,Huttenlocher 1979,prefrontal,yes
+Prefrontal (middle frontal gyrus L3),90.69,synapses x10^8 per mm^3 neuropil,neuropil,8.66,human,prefrontal,33373,86.6,51.05,Huttenlocher 1979,prefrontal,yes
+Visual cortex,0,synapses per 100um^2 neuropil,neuropil,0.18,rat,visual,21,NA,2.39,Blue 1983,visual,yes
+Visual cortex,2,synapses per 100um^2 neuropil,neuropil,0.18,rat,visual,23,NA,2.4,Blue 1983,visual,yes
+Visual cortex,4,synapses per 100um^2 neuropil,neuropil,0.39,rat,visual,25,NA,5.2,Blue 1983,visual,yes
+Visual cortex,6,synapses per 100um^2 neuropil,neuropil,0.75,rat,visual,27,NA,10.03,Blue 1983,visual,yes
+Visual cortex,8,synapses per 100um^2 neuropil,neuropil,0.94,rat,visual,29,NA,12.62,Blue 1983,visual,yes
+Visual cortex,14,synapses per 100um^2 neuropil,neuropil,2.89,rat,visual,35,NA,38.68,Blue 1983,visual,yes
+Visual cortex,16,synapses per 100um^2 neuropil,neuropil,6.66,rat,visual,37,NA,89.26,Blue 1983,visual,yes
+Visual cortex,20,synapses per 100um^2 neuropil,neuropil,6.84,rat,visual,41,NA,91.63,Blue 1983,visual,yes
+Visual cortex,28,synapses per 100um^2 neuropil,neuropil,7.46,rat,visual,49,NA,100,Blue 1983,visual,yes
+Visual cortex,90,synapses per 100um^2 neuropil,neuropil,7.38,rat,visual,111,NA,98.97,Blue 1983,visual,yes
+Visual cortex (area 17),40.39805689,synapses per 100um^3 neuropil,neuropil,0.127654837,macaque,visual,40.39805689,0.127654837,0.108,Rakic 1994,visual,yes
+Visual cortex (area 17),44.8941804,synapses per 100um^3 neuropil,neuropil,0.137303168,macaque,visual,44.8941804,0.137303168,0.116,Rakic 1994,visual,yes
+Visual cortex (area 17),47.51902363,synapses per 100um^3 neuropil,neuropil,0.142498423,macaque,visual,47.51902363,0.142498423,0.12,Rakic 1994,visual,yes
+Visual cortex (area 17),112.1726081,synapses per 100um^3 neuropil,neuropil,5.463181723,macaque,visual,112.1726081,5.463181723,4.605,Rakic 1994,visual,yes
+Visual cortex (area 17),142.7117984,synapses per 100um^3 neuropil,neuropil,15.5464295,macaque,visual,142.7117984,15.5464295,13.105,Rakic 1994,visual,yes
+Visual cortex (area 17),163.68444,synapses per 100um^3 neuropil,neuropil,48.79705107,macaque,visual,163.68444,48.79705107,41.132,Rakic 1994,visual,yes
+Visual cortex (area 17),177.7380613,synapses per 100um^3 neuropil,neuropil,44.36846728,macaque,visual,177.7380613,44.36846728,37.399,Rakic 1994,visual,yes
+Visual cortex (area 17),185.7393515,synapses per 100um^3 neuropil,neuropil,61.62759917,macaque,visual,185.7393515,61.62759917,51.948,Rakic 1994,visual,yes
+Visual cortex (area 17),225.8443526,synapses per 100um^3 neuropil,neuropil,59.08340858,macaque,visual,225.8443526,59.08340858,49.803,Rakic 1994,visual,yes
+Visual cortex (area 17),224.9327766,synapses per 100um^3 neuropil,neuropil,74.03114679,macaque,visual,224.9327766,74.03114679,62.403,Rakic 1994,visual,yes
+Visual cortex (area 17),260.4840919,synapses per 100um^3 neuropil,neuropil,71.7019408,macaque,visual,260.4840919,71.7019408,60.44,Rakic 1994,visual,yes
+Visual cortex (area 17),301.4139279,synapses per 100um^3 neuropil,neuropil,72.32017614,macaque,visual,301.4139279,72.32017614,60.961,Rakic 1994,visual,yes
+Visual cortex (area 17),313.5774088,synapses per 100um^3 neuropil,neuropil,76.10603268,macaque,visual,313.5774088,76.10603268,64.152,Rakic 1994,visual,yes
+Visual cortex (area 17),382.1333225,synapses per 100um^3 neuropil,neuropil,65.35111265,macaque,visual,382.1333225,65.35111265,55.086,Rakic 1994,visual,yes
+Visual cortex (area 17),379.9843575,synapses per 100um^3 neuropil,neuropil,86.19373353,macaque,visual,379.9843575,86.19373353,72.655,Rakic 1994,visual,yes
+Visual cortex (area 17),299.531149,synapses per 100um^3 neuropil,neuropil,95.47864379,macaque,visual,299.531149,95.47864379,80.482,Rakic 1994,visual,yes
+Visual cortex (area 17),259.9874825,synapses per 100um^3 neuropil,neuropil,108.7547469,macaque,visual,259.9874825,108.7547469,91.672,Rakic 1994,visual,yes
+Visual cortex (area 17),307.4836834,synapses per 100um^3 neuropil,neuropil,118.6341427,macaque,visual,307.4836834,118.6341427,100,Rakic 1994,visual,yes
+Visual cortex (area 17),564.2786723,synapses per 100um^3 neuropil,neuropil,94.78915923,macaque,visual,564.2786723,94.78915923,79.9,Rakic 1994,visual,yes
+Visual cortex (area 17),562.3693551,synapses per 100um^3 neuropil,neuropil,77.31578492,macaque,visual,562.3693551,77.31578492,65.172,Rakic 1994,visual,yes
+Visual cortex (area 17),960.9094918,synapses per 100um^3 neuropil,neuropil,107.3720668,macaque,visual,960.9094918,107.3720668,90.507,Rakic 1994,visual,yes
+Visual cortex (area 17),756.595878,synapses per 100um^3 neuropil,neuropil,60.86760759,macaque,visual,756.595878,60.86760759,51.307,Rakic 1994,visual,yes
+Visual cortex (area 17),757.1132429,synapses per 100um^3 neuropil,neuropil,58.3412293,macaque,visual,757.1132429,58.3412293,49.177,Rakic 1994,visual,yes
+Visual cortex (area 17),964.7762518,synapses per 100um^3 neuropil,neuropil,62.5295944,macaque,visual,964.7762518,62.5295944,52.708,Rakic 1994,visual,yes
+Visual cortex (area 17),1252.940815,synapses per 100um^3 neuropil,neuropil,56.61096199,macaque,visual,1252.940815,56.61096199,47.719,Rakic 1994,visual,yes
+Visual cortex (area 17),1108.892579,synapses per 100um^3 neuropil,neuropil,87.99054958,macaque,visual,1108.892579,87.99054958,74.17,Rakic 1994,visual,yes
+Visual cortex (area 17),1244.688843,synapses per 100um^3 neuropil,neuropil,81.03261878,macaque,visual,1244.688843,81.03261878,68.305,Rakic 1994,visual,yes
+Visual cortex (area 17),1786.312749,synapses per 100um^3 neuropil,neuropil,65.84169316,macaque,visual,1786.312749,65.84169316,55.5,Rakic 1994,visual,yes
+Visual cortex (area 17),1790.795636,synapses per 100um^3 neuropil,neuropil,56.5783061,macaque,visual,1790.795636,56.5783061,47.691,Rakic 1994,visual,yes
+Visual cortex (area 17),2006.323453,synapses per 100um^3 neuropil,neuropil,56.56791559,macaque,visual,2006.323453,56.56791559,47.683,Rakic 1994,visual,yes
+Visual cortex (area 17),1995.324828,synapses per 100um^3 neuropil,neuropil,46.88420766,macaque,visual,1995.324828,46.88420766,39.52,Rakic 1994,visual,yes
+Visual cortex (area 17),1996.120624,synapses per 100um^3 neuropil,neuropil,45.41048699,macaque,visual,1996.120624,45.41048699,38.278,Rakic 1994,visual,yes
+Visual cortex (area 17),2837.767153,synapses per 100um^3 neuropil,neuropil,65.16779437,macaque,visual,2837.767153,65.16779437,54.932,Rakic 1994,visual,yes
+Visual cortex (area 17),3806.559629,synapses per 100um^3 neuropil,neuropil,59.66725629,macaque,visual,3806.559629,59.66725629,50.295,Rakic 1994,visual,yes
+Visual cortex (area 17),4958.470946,synapses per 100um^3 neuropil,neuropil,42.5904531,macaque,visual,4958.470946,42.5904531,35.901,Rakic 1994,visual,yes
+Visual cortex (area 17),6337.598442,synapses per 100um^3 neuropil,neuropil,35.62064743,macaque,visual,6337.598442,35.62064743,30.026,Rakic 1994,visual,yes
+Visual cortex (area 17),7518.912252,synapses per 100um^3 neuropil,neuropil,33.92080947,macaque,visual,7518.912252,33.92080947,28.593,Rakic 1994,visual,yes
+Visual cortex (area 17),7513.774288,synapses per 100um^3 neuropil,neuropil,36.44718776,macaque,visual,7513.774288,36.44718776,30.722,Rakic 1994,visual,yes
+Prefrontal cortex (area 46),39.87517262,synapses per 100um^3 neuropil,neuropil,2.14E-14,macaque,prefrontal,39.87517262,2.14E-14,0,Rakic 1994,prefrontal,yes
+Prefrontal cortex (area 46),43.93970561,synapses per 100um^3 neuropil,neuropil,1.53E-14,macaque,prefrontal,43.93970561,1.53E-14,0,Rakic 1994,prefrontal,yes
+Prefrontal cortex (area 46),46.87704071,synapses per 100um^3 neuropil,neuropil,4.14E-17,macaque,prefrontal,46.87704071,4.14E-17,0,Rakic 1994,prefrontal,yes
+Prefrontal cortex (area 46),59.26731255,synapses per 100um^3 neuropil,neuropil,0.210526316,macaque,prefrontal,59.26731255,0.210526316,0.281,Rakic 1994,prefrontal,yes
+Prefrontal cortex (area 46),76.74693021,synapses per 100um^3 neuropil,neuropil,2.105263158,macaque,prefrontal,76.74693021,2.105263158,2.809,Rakic 1994,prefrontal,yes
+Prefrontal cortex (area 46),88.7565513,synapses per 100um^3 neuropil,neuropil,3.157894737,macaque,prefrontal,88.7565513,3.157894737,4.213,Rakic 1994,prefrontal,yes
+Prefrontal cortex (area 46),103.487926,synapses per 100um^3 neuropil,neuropil,3.789473684,macaque,prefrontal,103.487926,3.789473684,5.056,Rakic 1994,prefrontal,yes
+Prefrontal cortex (area 46),147.3928848,synapses per 100um^3 neuropil,neuropil,14.94736842,macaque,prefrontal,147.3928848,14.94736842,19.944,Rakic 1994,prefrontal,yes
+Prefrontal cortex (area 46),175.5537884,synapses per 100um^3 neuropil,neuropil,30.31578947,macaque,prefrontal,175.5537884,30.31578947,40.449,Rakic 1994,prefrontal,yes
+Prefrontal cortex (area 46),162.9640108,synapses per 100um^3 neuropil,neuropil,38.31578947,macaque,prefrontal,162.9640108,38.31578947,51.124,Rakic 1994,prefrontal,yes
+Prefrontal cortex (area 46),162.9154539,synapses per 100um^3 neuropil,neuropil,39.78947368,macaque,prefrontal,162.9154539,39.78947368,53.09,Rakic 1994,prefrontal,yes
+Prefrontal cortex (area 46),223.5578211,synapses per 100um^3 neuropil,neuropil,74.94736842,macaque,prefrontal,223.5578211,74.94736842,100,Rakic 1994,prefrontal,yes
+Prefrontal cortex (area 46),224.3300559,synapses per 100um^3 neuropil,neuropil,57.89473684,macaque,prefrontal,224.3300559,57.89473684,77.247,Rakic 1994,prefrontal,yes
+Prefrontal cortex (area 46),259.555507,synapses per 100um^3 neuropil,neuropil,56.63157895,macaque,prefrontal,259.555507,56.63157895,75.562,Rakic 1994,prefrontal,yes
+Prefrontal cortex (area 46),257.7825668,synapses per 100um^3 neuropil,neuropil,50.52631579,macaque,prefrontal,257.7825668,50.52631579,67.416,Rakic 1994,prefrontal,yes
+Prefrontal cortex (area 46),299.9800139,synapses per 100um^3 neuropil,neuropil,60.84210526,macaque,prefrontal,299.9800139,60.84210526,81.18,Rakic 1994,prefrontal,yes
+Prefrontal cortex (area 46),382.1539764,synapses per 100um^3 neuropil,neuropil,63.57894737,macaque,prefrontal,382.1539764,63.57894737,84.831,Rakic 1994,prefrontal,yes
+Prefrontal cortex (area 46),380.1742902,synapses per 100um^3 neuropil,neuropil,49.26315789,macaque,prefrontal,380.1742902,49.26315789,65.73,Rakic 1994,prefrontal,yes
+Prefrontal cortex (area 46),751.092338,synapses per 100um^3 neuropil,neuropil,42.10526316,macaque,prefrontal,751.092338,42.10526316,56.18,Rakic 1994,prefrontal,yes
+Prefrontal cortex (area 46),1102.384992,synapses per 100um^3 neuropil,neuropil,64.63157895,macaque,prefrontal,1102.384992,64.63157895,86.236,Rakic 1994,prefrontal,yes
+Prefrontal cortex (area 46),1253.257125,synapses per 100um^3 neuropil,neuropil,70.31578947,macaque,prefrontal,1253.257125,70.31578947,93.82,Rakic 1994,prefrontal,yes
+Prefrontal cortex (area 46),1246.181116,synapses per 100um^3 neuropil,neuropil,58.31578947,macaque,prefrontal,1246.181116,58.31578947,77.809,Rakic 1994,prefrontal,yes
+Prefrontal cortex (area 46),1246.605609,synapses per 100um^3 neuropil,neuropil,56.63157895,macaque,prefrontal,1246.605609,56.63157895,75.562,Rakic 1994,prefrontal,yes
+Prefrontal cortex (area 46),2866.502979,synapses per 100um^3 neuropil,neuropil,58.94736842,macaque,prefrontal,2866.502979,58.94736842,78.652,Rakic 1994,prefrontal,yes
+Prefrontal cortex (area 46),1966.896851,synapses per 100um^3 neuropil,neuropil,41.47368421,macaque,prefrontal,1966.896851,41.47368421,55.337,Rakic 1994,prefrontal,yes
+Prefrontal cortex (area 46),1967.901928,synapses per 100um^3 neuropil,neuropil,38.94736842,macaque,prefrontal,1967.901928,38.94736842,51.966,Rakic 1994,prefrontal,yes
+Prefrontal cortex (area 46),3791.291103,synapses per 100um^3 neuropil,neuropil,36.21052632,macaque,prefrontal,3791.291103,36.21052632,48.315,Rakic 1994,prefrontal,yes
+Prefrontal cortex (area 46),4990.793541,synapses per 100um^3 neuropil,neuropil,36.84210526,macaque,prefrontal,4990.793541,36.84210526,49.157,Rakic 1994,prefrontal,yes
+Prefrontal cortex (area 46),4980.817493,synapses per 100um^3 neuropil,neuropil,46.73684211,macaque,prefrontal,4980.817493,46.73684211,62.36,Rakic 1994,prefrontal,yes
+Prefrontal cortex (area 46),7531.52255,synapses per 100um^3 neuropil,neuropil,41.89473684,macaque,prefrontal,7531.52255,41.89473684,55.899,Rakic 1994,prefrontal,yes
+Prefrontal cortex (area 46),7492.187763,synapses per 100um^3 neuropil,neuropil,27.78947368,macaque,prefrontal,7492.187763,27.78947368,37.079,Rakic 1994,prefrontal,yes
+Prefrontal cortex (area 46),7497.931216,synapses per 100um^3 neuropil,neuropil,24,macaque,prefrontal,7497.931216,24,32.022,Rakic 1994,prefrontal,yes

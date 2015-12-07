@@ -1,0 +1,150 @@
+---
+output: 
+html_document:
+keep_md: false
+---
+
+```{r setup, include=FALSE}
+# Set default knitr options
+knitr::opts_chunk$set(cache = FALSE,  # Cache all chunks
+                      echo = FALSE,  # Hide output
+                      dev = c("png", "pdf"))  # Figure formats to output
+
+# If cached chunk is changed, auto-update all following chunks
+knitr::dep_prev()
+
+# Define knitr functions
+fGetmtime <- function(files) {
+  lapply(Sys.glob(files), function(x) file.info(x)$mtime)
+}
+```
+
+```{r init-workspace, echo=FALSE, message=FALSE}
+options(stringsAsFactors = FALSE)
+
+# Load libraries
+library(RColorBrewer)
+
+# Load functions
+
+```
+
+```{r load-data, echo=FALSE}
+# Load macaque starting data
+load(file = "../cache/nhp_PrePost_StartingData.RData")
+```
+
+# Figure 1e-g
+```{r plot-gex-dist, fig.width=6, fig.height=5}
+# Select V1/ACG samples (remove unusual samples)
+ctx.samples <- samplePrePost$toplevel == "NCX" & 
+  ! samplePrePost$layer %in% c("TMZ", "ICD", "WM", "Hem")
+
+data.sets <- list(c("pre", "post"), "pre")
+
+for (i in 1:length(data.sets)) {
+  keep.samples <- ctx.samples & samplePrePost$data_set %in% data.sets[[i]]
+  expr.subset <- exprPrePost[, keep.samples]
+  sample.subset <- droplevels(samplePrePost[keep.samples, ])
+  
+  # MDS of correlation based distances
+  expr.cor <- cor(expr.subset)
+  # expr.dist <- as.dist(sqrt(2 * (1 - expr.cor)))  # Retains metric properties
+  expr.dist <- as.dist(1 - (1 + expr.cor) / 2)
+  
+  
+  pc.idx <- c(1, 2)
+  num.comp <- max(pc.idx)
+  mds1 <- cmdscale(expr.dist, k=num.comp, eig=TRUE)
+  pcs <- mds1$points[, pc.idx]
+  
+  # Calc variance explained
+  var.expl <- vector("list", num.comp)
+  var.expl[1] <- signif(mds1$eig[1] / sum(mds1$eig) * 100, 2)
+  var.expl[2] <- signif(mds1$eig[2] / sum(mds1$eig) * 100, 2)
+  
+  # Define colors/sizes of points
+  pal.layer <- vector("list", 3)
+  brew.pal <- brewer.pal(8, "Set2")
+  pal.layer[[1]] <- c(rev(brew.pal[1:6]), grey.colors(5, 0, 0.8), 
+                      rep(brew.pal[7], 2))
+  pal.layer[[2]] <- c(rev(brew.pal[1:6]), grey.colors(5, 0, 0.8), brew.pal[7])
+  col1 <- pal.layer[[i]][sample.subset$layer_dev]
+  cex.age <- seq(0.75, 2.5, length.out=nlevels(sample.subset$age))
+  cex1 <- cex.age[sample.subset$age]
+  
+  # par(mfrow=c(1,3))
+  par(mar=c(5.1, 4.1, 4.1, 8.1))
+  plot(pcs, col=col1, pch=1, cex=cex1, 
+       xlab=paste0("PC", pc.idx[1], " (", var.expl[[1]], "%)"),
+       ylab=paste0("PC", pc.idx[2], " (", var.expl[[2]], "%)"),
+       #        xlim=c(min(pcs[, 1]), 1.2 * max(pcs[, 1])), 
+       main=paste("NCX -", data.sets[[i]]))
+  
+  legend("topright", inset=c(-0.25, 0), 
+         legend=rev(levels(sample.subset$layer_dev)), 
+         fill=rev(pal.layer[[i]]), bty="n", x.intersp=0.4, xpd=TRUE)
+  
+  legend("topright", inset=c(-0.45, 0), 
+         legend=levels(sample.subset$age), 
+         pch=1, pt.cex=cex.age, 
+         bty="n", x.intersp=1, xpd=TRUE)
+}
+
+
+```
+
+```{r plot-postmitotic-layers, fig.width=6, fig.height=5}
+# Plot post-mitotic layers
+keep.samples <- ctx.samples & samplePrePost$layer_dev %in% paste0("L", 2:6) &
+  ! samplePrePost$age %in% c("E40", "E50") &  # Remove cortical plate ages
+  samplePrePost$subregion == "V1"
+expr.subset <- exprPrePost[, keep.samples]
+sample.subset <- droplevels(samplePrePost[keep.samples, ])
+
+lam.genes <- read.csv(file="../cache/laminarSignatureGenesForBarPlot.csv")
+keep.genes <- which(rownames(expr.subset) %in% lam.genes$V1)
+
+# MDS of correlation based distances
+expr.cor <- cor(expr.subset[keep.genes, ])
+expr.dist <- as.dist(1 - (1 + expr.cor) / 2)
+
+pc.idx <- c(1, 2)
+num.comp <- max(pc.idx)
+mds1 <- cmdscale(expr.dist, k=num.comp, eig=TRUE)
+pcs <- mds1$points[, pc.idx]
+
+# Calc variance explained
+var.expl <- vector("list", num.comp)
+var.expl[1] <- signif(mds1$eig[1] / sum(mds1$eig) * 100, 2)
+var.expl[2] <- signif(mds1$eig[2] / sum(mds1$eig) * 100, 2)
+
+# Define colors/sizes of points
+brew.pal <- rev(brewer.pal(6, "PuBuGn"))[1:5]
+col1 <- brew.pal[sample.subset$layer_dev]
+cex.age <- seq(0.75, 1.75, length.out=nlevels(sample.subset$age))
+cex1 <- cex.age[sample.subset$age]
+
+# par(mfrow=c(1,3))
+par(mar=c(5.1, 4.1, 4.1, 8.1))
+plot(pcs[, 1], -pcs[, 2], col=col1, pch=1, cex=cex1, type="n", 
+     xlab=paste0("PC", pc.idx[1], " (", var.expl[[1]], "%)"),
+     ylab=paste0("PC", pc.idx[2], " (", var.expl[[2]], "%)"),
+     #        xlim=c(min(pcs[, 1]), 1.2 * max(pcs[, 1])), 
+     main="V1 post-mitotic layers")
+
+layer.lab <- sub("L", "", sample.subset$layer_dev)
+text(pcs[, 1], -pcs[, 2], labels=layer.lab, 
+     col=col1, cex=cex1, font=2)
+
+legend("topright", inset=c(-0.25, 0), 
+       legend=rev(levels(sample.subset$layer_dev)), 
+       fill=rev(brew.pal), bty="n", x.intersp=0.4, xpd=TRUE)
+
+legend("topright", inset=c(-0.45, 0), 
+       legend=levels(sample.subset$age), 
+       pch=1, pt.cex=cex.age, 
+       bty="n", x.intersp=1, xpd=TRUE)
+save.image(file = "workspace.RData")
+```
+
