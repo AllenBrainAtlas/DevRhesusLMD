@@ -1,0 +1,1297 @@
+---
+output: 
+html_document:
+keep_md: false
+---
+
+```{r setup, include=FALSE}
+# Set default knitr options
+knitr::opts_chunk$set(cache = FALSE,  # Cache all chunks
+                      echo = FALSE,  # Hide output
+                      dev = c("png", "pdf"))  # Figure formats to output
+
+# If cached chunk is changed, auto-update all following chunks
+# knitr::dep_prev()
+
+# Define knitr functions
+fGetmtime <- function(files) {
+  lapply(Sys.glob(files), function(x) file.info(x)$mtime)
+}
+```
+
+
+```{r init-workspace, echo=FALSE, message=FALSE, warning=FALSE}
+options(stringsAsFactors = FALSE)
+
+# Load libraries 
+library(reshape2)
+library(segmented)
+library(ggplot2)
+library(scatterplot3d)
+library(RColorBrewer)
+library(limma)
+
+# Load functions 
+source(file="../src/fReorderFactorLevels.R")
+source(file="../src/fConvertPcdtoEventScore.R")
+
+```
+
+```{r load-data, echo=FALSE}
+# Load macaque starting data
+load(file="../cache/nhp_PrePost_StartingData.RData")
+
+# Load human starting data
+load(file="../lib/human/brainspan_longitudinal.RData")
+
+# Load rat starting data (frontal cortex, hippo, hypothal, Stearn et al. 2006)
+rat.dev <- read.csv(file="../lib/Stead2006/Stead_S2_nodupes_mean.csv", header=TRUE, row.names=1) 
+
+```
+
+# Figure 6e, Extended Data Figure 7e (Striatum)
+```{r process-data_STR}
+#######
+# Macaque
+#######
+# Keep subset of macaque samples
+m.region <- "STR"  # ACG, V1, HP, AM, STR
+keep.samples <- which(samplePrePost$toplevel == m.region |
+                        samplePrePost$region == m.region |
+                        samplePrePost$subregion == m.region)
+sample.subset <- droplevels(samplePrePost[keep.samples, ])
+expr.subset <- exprPrePost[, keep.samples]
+
+age.logpcd <- factor(sample.subset$age_log2pcd)
+
+# Calculate mean expression by age (macaque)
+expr.mean <- t(apply(expr.subset, 1, function(x)
+  tapply(x, age.logpcd, mean)))
+age.levels <- as.numeric(levels(age.logpcd))
+
+# Relabel macaque genes with human orthologs
+rownames(expr.mean) <- probes$human_genesymbol
+
+# Calc most variable genes (macaque)
+expr.var <- apply(expr.mean, 1, sd)
+expr.range <- apply(expr.mean, 1, function(x) max(x) - min(x))
+
+########
+# Human
+########
+# Calculate mean expression by age (human)
+h.region <- "STR"  # MFC, V1C, HIP, AMY, STR
+h.age <- numAge2[age2]
+h.keep.samples <- which(reg2 == h.region)
+# h.keep.samples <- which(reg2 == h.region & h.age <= 6000) # Remove later ages
+h.age.logpcd <- factor(round(log2(h.age[h.keep.samples]), 2))
+dat2.subset <- dat2[, h.keep.samples]
+h.expr.mean <- t(apply(dat2.subset, 1, function(x) tapply(x, h.age.logpcd, mean)))
+# Remove genes without variation
+h.sd <- apply(h.expr.mean, 1, sd)
+h.expr.mean <- h.expr.mean[h.sd > 0, ]
+h.age.levels <- as.numeric(levels(h.age.logpcd))
+
+
+#######
+# Rat
+#######
+rat.region <- "CTX"
+# Age in pcd (21 day gestation)
+rat.age <- factor(log2(c(16, 17, 18, 20, 23, 26, 29, 36, 43, 52, 112, # CTX
+                         23, 26, 29, 36, 43, 52, 112,                 # HPC
+                         18, 20, 23, 26, 29, 36, 43, 52, 112)))       # HYP
+keep.cols <- grep(rat.region, colnames(rat.dev))
+rat.expr.mean <- as.matrix(rat.dev[, keep.cols])
+colnames(rat.expr.mean) <- round(as.numeric(as.character(rat.age[keep.cols])), 3)
+rat.age.levels <- as.numeric(levels(droplevels(rat.age[keep.cols])))
+
+
+# Get number of genes
+num.genes <- nrow(expr.mean)
+h.num.genes <- nrow(h.expr.mean)
+rat.num.genes <- nrow(rat.dev)
+
+# Keep macaque/human/rat orthologs and match gene order
+ortho.genes <- Reduce(intersect, list(rownames(expr.mean), 
+                                      rownames(h.expr.mean), 
+                                      rownames(rat.expr.mean)))
+ortho.genes <- sort(ortho.genes)
+keep.genes <- match(ortho.genes, rownames(expr.mean))
+expr.mean.subset <- expr.mean[keep.genes, ]
+
+h.keep.genes <- match(ortho.genes, rownames(h.expr.mean))
+h.expr.mean.subset <- h.expr.mean[h.keep.genes, ]
+
+rat.keep.genes <- match(ortho.genes, rownames(rat.expr.mean))
+rat.expr.mean.subset <- rat.expr.mean[rat.keep.genes, ]
+
+# Calc expr z-scores
+expr.mean.subsetz <- t(apply(expr.mean.subset, 1, scale))
+colnames(expr.mean.subsetz) <- colnames(expr.mean.subset)
+
+h.expr.mean.subsetz <- t(apply(h.expr.mean.subset, 1, scale))
+colnames(h.expr.mean.subsetz) <- colnames(h.expr.mean.subset)
+
+rat.expr.mean.subsetz <- t(apply(rat.expr.mean.subset, 1, scale))
+colnames(rat.expr.mean.subsetz) <- colnames(rat.expr.mean.subset)
+
+# Store data in lists
+species.expr <- list(expr.mean.subset, 
+                     h.expr.mean.subset, 
+                     rat.expr.mean.subset)
+names(species.expr) <- c("macaque", "human", "rat")
+
+species.exprz <- list(expr.mean.subsetz, 
+                      h.expr.mean.subsetz, 
+                      rat.expr.mean.subsetz)
+names(species.exprz) <- c("macaque", "human", "rat")
+```
+
+```{r fit-expr-trend_STR, warning=FALSE}
+lseg.fn <- paste0("../cache/dev_expr_species/species.lseg.all_", 
+                  m.region, ".RData") 
+
+# Try loading cached fits
+rm(species.lseg.all)
+try(load(lseg.fn), silent=TRUE)
+
+# SLOW - Run only as needed
+if (! exists("species.lseg.all")) {
+  
+  # Trap lseg warnings
+  options(warn=2)
+  
+  # Define functions
+  CalcSigSlope <- function(x) {
+    slope.est <- x[1]
+    slope.se <- x[2]
+    # Check if 95% CI of slope est. contains zero
+    slope.sign <- sign((slope.est - 1.96 * slope.se) * 
+                         (slope.est + 1.96 * slope.se))
+    return(slope.sign == 1)
+  }
+  
+  # Init vars
+  species.lseg.all <- vector("list", 3)
+  names(species.lseg.all) <- names(species.exprz)
+  
+  # Fit gene trends (use non-transformed ages)
+  for (species1 in names(species.lseg.all)) {
+    age.levels <- 2^as.numeric(colnames(species.exprz[[species1]]))
+    # Guess initial breakpoint(s) at a specific developmental age based on species
+    bp1 <- 2^ConvertPcdtoEventScore(0.5, "eventScore", species1)  # 1 breakpoint
+    lseg.list <- list()
+    
+    for (gene1 in ortho.genes) {
+      expr1 <- species.exprz[[species1]][gene1, ]
+      lm1 <- lm(expr1 ~ age.levels)
+      # Fit 1 breakpoint
+      lseg <- try(segmented(lm1, seg.Z=~age.levels, psi=list(age.levels = bp1)), 
+                  silent=TRUE)
+      #       errmsg <- geterrmessage()
+      # Check if breakpoint(s) are too close to end of age range
+      if (class(lseg)[1] == "try-error") {  # grepl("too close", errmsg)
+        lseg.summary <- rep(NA, 7)
+      } else {
+        # Variance explained by segmented fit
+        lseg.r2 <- summary(lseg)$r.sq
+        # Breakpoint location(s), SE
+        lseg.bp <- lseg$psi
+        # Slope(s), SE
+        lseg.slope <- as.vector(matrix(t(slope(lseg)$age.levels[, 1:2]), nrow=1))
+        # Save gene information
+        lseg.summary <- c(lseg.r2, lseg.bp[2:3], lseg.slope)
+      }
+      lseg.list[[gene1]] <- lseg.summary
+    }
+    # Combine info into data frame
+    lseg.all <- as.data.frame(do.call("rbind", lseg.list))
+    
+    # Add column names
+    colnames(lseg.all) <- c("r2", "bp", "bpse", "slope1", "slope1se", 
+                            "slope2", "slope2se")
+    
+    # Add gene names
+    lseg.all$gene <- rownames(lseg.all)
+    
+    # Check slope significance
+    lseg.all$slope1sig <- apply(lseg.all[, c("slope1", "slope1se")], 1, 
+                                CalcSigSlope)
+    lseg.all$slope2sig <- apply(lseg.all[, c("slope2", "slope2se")], 1, 
+                                CalcSigSlope)
+    
+    # Convert slope to doublings/halvings per year
+    year.diff <- (lseg.all$bp - (lseg.all$bp - 1)) / 365
+    lseg.all$slope1_year <- lseg.all$slope1 / year.diff
+    
+    # Calc breakpoint event score
+    lseg.all$bp_escore <- ConvertPcdtoEventScore(log2(lseg.all$bp), species1)
+    
+    species.lseg.all[[species1]] <- lseg.all
+  }
+  
+  # Restore default warnings
+  options(warn=0)
+  
+  # Save expr fits
+  save(species.lseg.all, file=lseg.fn)
+  
+}
+
+```
+
+```{r plot-species-comparison_STR, fig.width=7, fig.height=7}
+# Load gene conservation lists
+load(file = "../cache/dev_expr_species/gene.list.RData")
+
+# Combine species data
+species.lseg.long <- do.call("rbind", species.lseg.all[1:2])
+species.lseg.long$species <- rep(names(species.lseg.all)[1:2], 
+                                 each=nrow(species.lseg.long) / 2)
+
+# Filter genes
+filter.incr <- NULL
+filter.decr <- NULL
+for (i in 1:nrow(species.lseg.long)) {
+  x1 <- species.lseg.long[i, ]
+  filter1 <- x1["r2"] > 0.8 &  # Good fit
+    (x1["slope1"] > 0 &
+       x1["slope1sig"] == TRUE) &  # Significant slope
+    x1["gene"] %in% gene.list[["conserved"]]  # Cons. genes only
+  filter2 <- x1["r2"] > 0.8 &  # Good fit
+    (x1["slope1"] < 0 &
+       x1["slope1sig"] == TRUE) &  # Significant slope
+    x1["gene"] %in% gene.list[["conserved"]]  # Cons. genes only
+  filter.incr <- c(filter.incr, filter1)
+  filter.decr <- c(filter.decr, filter2)
+}
+
+# Include genes that pass filters in both species
+gene.sym <- species.lseg.long$gene[filter.incr]
+incr.genes <- names(table(gene.sym))[table(gene.sym) == 2]
+gene.sym <- species.lseg.long$gene[filter.decr]
+decr.genes <- names(table(gene.sym))[table(gene.sym) == 2]
+incr.decr <- list(incr.genes, decr.genes)
+names(incr.decr) <- c("incr", "decr")
+
+for (set1 in 1) {  # Plot increasing genes only
+  keep.genes <- incr.decr[[set1]]
+  
+  # Pairs
+  keep.rows <- with(species.lseg.long, which(gene %in% keep.genes))
+  bp.df <- dcast(species.lseg.long[keep.rows, ], 
+                 gene ~ species, value.var="bp")
+  bpse.df <- dcast(species.lseg.long[keep.rows, ], 
+                   gene ~ species, value.var="bpse")
+  
+  cor(bp.df[, -1], method="spearman")
+  
+  # Calc species bp differences
+  bp.df2 <- data.frame(human=sapply(log2(bp.df$human), ConvertPcdtoEventScore, 
+                                    "human", "eventScore"), 
+                       macaque=sapply(log2(bp.df$macaque), ConvertPcdtoEventScore, 
+                                      "macaque", "eventScore"), 
+                       rat=sapply(log2(bp.df$macaque), ConvertPcdtoEventScore, 
+                                  "macaque", "eventScore"))
+  
+  bp.diff <- cbind(bp.df2$human - bp.df2$macaque, 
+                   bp.df2$human - bp.df2$macaque, 
+                   bp.df2$human - bp.df2$macaque)
+  rownames(bp.diff) <- bp.df$gene
+  colnames(bp.diff) <- c("human-macaque", "human-rat", "macaque-rat")
+  
+  # Identify outliers
+  slope2.chg <- list()
+  slope2.sig.incr <- with(species.lseg.all[["human"]], 
+                          gene[which(slope2 > 0  & slope2sig == TRUE)])
+  slope2.sig.decr <- with(species.lseg.all[["human"]],
+                          gene[which(slope2 < 0  & slope2sig == TRUE)])
+  slope2.chg[["incr"]] <- which(bp.df$gene %in% slope2.sig.incr)
+  slope2.chg[["decr"]] <- which(bp.df$gene %in% slope2.sig.decr)
+  
+  # Plot breakpoint comparison
+  ages <- list()
+  ages[[1]] <- seq(0, 2, by=0.2)  # Event score range
+  ages[["human"]] <- 2^sapply(ages[[1]], function(x) ConvertPcdtoEventScore(x, "eventScore", "human"))
+  ages[["macaque"]] <- 2^sapply(ages[[1]], function(x) ConvertPcdtoEventScore(x, "eventScore", "macaque"))
+  ages[["rat"]] <- 2^sapply(ages[[1]], function(x) ConvertPcdtoEventScore(x, "eventScore", "rat"))
+  
+  cols1 <- c("macaque", "human")
+  bp1 <- bp.df[, cols1]
+  bpse1 <- bpse.df[, cols1]
+  bpmin <- bp1 - bpse1
+  bpmax <- bp1 + bpse1
+  
+  # Calc breakpoint correlation between species
+  cor1 <- round(cor(bp.df[, cols1], method="spearman")[1, 2], 2)
+  
+  # Plot breakpoint species pair comparison
+  plot(bp1, log="xy", type="n", main=paste("r =", cor1), las=1,
+       # cex.axis=1.2, cex.lab=1.2, 
+       xlim=c(min(bpmin[, 1]), max(bpmax[, 1])), # Axes should contain SEs
+       ylim=c(min(bpmin[, 2]), max(bpmax[, 2])))
+  
+  # Breakpoint SEs
+  segments(bpmin[, 1], bp1[, 2], bpmax[, 1], bp1[, 2], col="grey90")
+  segments(bp1[, 1], bpmin[, 2], bp1[, 1], bpmax[, 2], col="grey90")
+  
+  # Plot all gene breakpoints
+  points(bp.df[, cols1], pch=19, col="grey90")
+  
+  # Dev equivalent ages (Translating Time)
+  ages.x <- ages[[cols1[1]]]
+  ages.y <- ages[[cols1[2]]]
+  lines(ages.x, ages.y)
+  lines(ages.x[-length(ages[[2]])], ages.y[-1], lty="dashed")
+  lines(ages.x[-1], ages.y[-length(ages[[2]])], lty="dashed")
+  
+  # Highlight genes with sig 2nd slope
+  # Incr
+  text(bp.df[slope2.chg[["incr"]], cols1], 
+       labels=bp.df[slope2.chg[["incr"]], "gene"],
+       pch=19, col="red", cex=0.7, font=2)
+  # Decr
+  text(bp.df[slope2.chg[["decr"]], cols1], 
+       labels=bp.df[slope2.chg[["decr"]], "gene"],
+       pch=19, col="blue", cex=0.7, font=2)
+}
+
+# save.image(file = "../workspace.RData")
+```
+
+
+# Extended Data Figure 7e (V1)
+```{r process-data_V1}
+#######
+# Macaque
+#######
+# Keep subset of macaque samples
+m.region <- "V1"  # ACG, V1, HP, AM, STR
+keep.samples <- which(samplePrePost$toplevel == m.region |
+                        samplePrePost$region == m.region |
+                        samplePrePost$subregion == m.region)
+sample.subset <- droplevels(samplePrePost[keep.samples, ])
+expr.subset <- exprPrePost[, keep.samples]
+
+age.logpcd <- factor(sample.subset$age_log2pcd)
+
+# Calculate mean expression by age (macaque)
+expr.mean <- t(apply(expr.subset, 1, function(x)
+  tapply(x, age.logpcd, mean)))
+age.levels <- as.numeric(levels(age.logpcd))
+
+# Relabel macaque genes with human orthologs
+rownames(expr.mean) <- probes$human_genesymbol
+
+# Calc most variable genes (macaque)
+expr.var <- apply(expr.mean, 1, sd)
+expr.range <- apply(expr.mean, 1, function(x) max(x) - min(x))
+
+########
+# Human
+########
+# Calculate mean expression by age (human)
+h.region <- "V1C"  # MFC, V1C, HIP, AMY, STR
+h.age <- numAge2[age2]
+h.keep.samples <- which(reg2 == h.region)
+# h.keep.samples <- which(reg2 == h.region & h.age <= 6000) # Remove later ages
+h.age.logpcd <- factor(round(log2(h.age[h.keep.samples]), 2))
+dat2.subset <- dat2[, h.keep.samples]
+h.expr.mean <- t(apply(dat2.subset, 1, function(x) tapply(x, h.age.logpcd, mean)))
+# Remove genes without variation
+h.sd <- apply(h.expr.mean, 1, sd)
+h.expr.mean <- h.expr.mean[h.sd > 0, ]
+h.age.levels <- as.numeric(levels(h.age.logpcd))
+
+
+#######
+# Rat
+#######
+rat.region <- "CTX"
+# Age in pcd (21 day gestation)
+rat.age <- factor(log2(c(16, 17, 18, 20, 23, 26, 29, 36, 43, 52, 112, # CTX
+                         23, 26, 29, 36, 43, 52, 112,                 # HPC
+                         18, 20, 23, 26, 29, 36, 43, 52, 112)))       # HYP
+keep.cols <- grep(rat.region, colnames(rat.dev))
+rat.expr.mean <- as.matrix(rat.dev[, keep.cols])
+colnames(rat.expr.mean) <- round(as.numeric(as.character(rat.age[keep.cols])), 3)
+rat.age.levels <- as.numeric(levels(droplevels(rat.age[keep.cols])))
+
+
+# Get number of genes
+num.genes <- nrow(expr.mean)
+h.num.genes <- nrow(h.expr.mean)
+rat.num.genes <- nrow(rat.dev)
+
+# Keep macaque/human/rat orthologs and match gene order
+ortho.genes <- Reduce(intersect, list(rownames(expr.mean), 
+                                      rownames(h.expr.mean), 
+                                      rownames(rat.expr.mean)))
+ortho.genes <- sort(ortho.genes)
+keep.genes <- match(ortho.genes, rownames(expr.mean))
+expr.mean.subset <- expr.mean[keep.genes, ]
+
+h.keep.genes <- match(ortho.genes, rownames(h.expr.mean))
+h.expr.mean.subset <- h.expr.mean[h.keep.genes, ]
+
+rat.keep.genes <- match(ortho.genes, rownames(rat.expr.mean))
+rat.expr.mean.subset <- rat.expr.mean[rat.keep.genes, ]
+
+# Calc expr z-scores
+expr.mean.subsetz <- t(apply(expr.mean.subset, 1, scale))
+colnames(expr.mean.subsetz) <- colnames(expr.mean.subset)
+
+h.expr.mean.subsetz <- t(apply(h.expr.mean.subset, 1, scale))
+colnames(h.expr.mean.subsetz) <- colnames(h.expr.mean.subset)
+
+rat.expr.mean.subsetz <- t(apply(rat.expr.mean.subset, 1, scale))
+colnames(rat.expr.mean.subsetz) <- colnames(rat.expr.mean.subset)
+
+# Store data in lists
+species.expr <- list(expr.mean.subset, 
+                     h.expr.mean.subset, 
+                     rat.expr.mean.subset)
+names(species.expr) <- c("macaque", "human", "rat")
+
+species.exprz <- list(expr.mean.subsetz, 
+                      h.expr.mean.subsetz, 
+                      rat.expr.mean.subsetz)
+names(species.exprz) <- c("macaque", "human", "rat")
+```
+
+```{r fit-expr-trend_V1, warning=FALSE}
+lseg.fn <- paste0("../cache/dev_expr_species/species.lseg.all_", 
+                  m.region, ".RData") 
+
+# Try loading cached fits
+rm(species.lseg.all)
+try(load(lseg.fn), silent=TRUE)
+
+# SLOW - Run only as needed
+if (! exists("species.lseg.all")) {
+  
+  # Trap lseg warnings
+  options(warn=2)
+  
+  # Define functions
+  CalcSigSlope <- function(x) {
+    slope.est <- x[1]
+    slope.se <- x[2]
+    # Check if 95% CI of slope est. contains zero
+    slope.sign <- sign((slope.est - 1.96 * slope.se) * 
+                         (slope.est + 1.96 * slope.se))
+    return(slope.sign == 1)
+  }
+  
+  # Init vars
+  species.lseg.all <- vector("list", 3)
+  names(species.lseg.all) <- names(species.exprz)
+  
+  # Fit gene trends (use non-transformed ages)
+  for (species1 in names(species.lseg.all)) {
+    age.levels <- 2^as.numeric(colnames(species.exprz[[species1]]))
+    # Guess initial breakpoint(s) at a specific developmental age based on species
+    bp1 <- 2^ConvertPcdtoEventScore(0.5, "eventScore", species1)  # 1 breakpoint
+    lseg.list <- list()
+    
+    for (gene1 in ortho.genes) {
+      expr1 <- species.exprz[[species1]][gene1, ]
+      lm1 <- lm(expr1 ~ age.levels)
+      # Fit 1 breakpoint
+      lseg <- try(segmented(lm1, seg.Z=~age.levels, psi=list(age.levels = bp1)), 
+                  silent=TRUE)
+      #       errmsg <- geterrmessage()
+      # Check if breakpoint(s) are too close to end of age range
+      if (class(lseg)[1] == "try-error") {  # grepl("too close", errmsg)
+        lseg.summary <- rep(NA, 7)
+      } else {
+        # Variance explained by segmented fit
+        lseg.r2 <- summary(lseg)$r.sq
+        # Breakpoint location(s), SE
+        lseg.bp <- lseg$psi
+        # Slope(s), SE
+        lseg.slope <- as.vector(matrix(t(slope(lseg)$age.levels[, 1:2]), nrow=1))
+        # Save gene information
+        lseg.summary <- c(lseg.r2, lseg.bp[2:3], lseg.slope)
+      }
+      lseg.list[[gene1]] <- lseg.summary
+    }
+    # Combine info into data frame
+    lseg.all <- as.data.frame(do.call("rbind", lseg.list))
+    
+    # Add column names
+    colnames(lseg.all) <- c("r2", "bp", "bpse", "slope1", "slope1se", 
+                            "slope2", "slope2se")
+    
+    # Add gene names
+    lseg.all$gene <- rownames(lseg.all)
+    
+    # Check slope significance
+    lseg.all$slope1sig <- apply(lseg.all[, c("slope1", "slope1se")], 1, 
+                                CalcSigSlope)
+    lseg.all$slope2sig <- apply(lseg.all[, c("slope2", "slope2se")], 1, 
+                                CalcSigSlope)
+    
+    # Convert slope to doublings/halvings per year
+    year.diff <- (lseg.all$bp - (lseg.all$bp - 1)) / 365
+    lseg.all$slope1_year <- lseg.all$slope1 / year.diff
+    
+    # Calc breakpoint event score
+    lseg.all$bp_escore <- ConvertPcdtoEventScore(log2(lseg.all$bp), species1)
+    
+    species.lseg.all[[species1]] <- lseg.all
+  }
+  
+  # Restore default warnings
+  options(warn=0)
+  
+  # Save expr fits
+  save(species.lseg.all, file=lseg.fn)
+  
+}
+
+```
+
+```{r plot-species-comparison_V1, fig.width=7, fig.height=7}
+# Load gene conservation lists
+load(file = "../cache/dev_expr_species/gene.list.RData")
+
+# Combine species data
+species.lseg.long <- do.call("rbind", species.lseg.all[1:2])
+species.lseg.long$species <- rep(names(species.lseg.all)[1:2], 
+                                 each=nrow(species.lseg.long) / 2)
+
+# Filter genes
+filter.incr <- NULL
+filter.decr <- NULL
+for (i in 1:nrow(species.lseg.long)) {
+  x1 <- species.lseg.long[i, ]
+  filter1 <- x1["r2"] > 0.8 &  # Good fit
+    (x1["slope1"] > 0 &
+       x1["slope1sig"] == TRUE) &  # Significant slope
+    x1["gene"] %in% gene.list[["conserved"]]  # Cons. genes only
+  filter2 <- x1["r2"] > 0.8 &  # Good fit
+    (x1["slope1"] < 0 &
+       x1["slope1sig"] == TRUE) &  # Significant slope
+    x1["gene"] %in% gene.list[["conserved"]]  # Cons. genes only
+  filter.incr <- c(filter.incr, filter1)
+  filter.decr <- c(filter.decr, filter2)
+}
+
+# Include genes that pass filters in both species
+gene.sym <- species.lseg.long$gene[filter.incr]
+incr.genes <- names(table(gene.sym))[table(gene.sym) == 2]
+gene.sym <- species.lseg.long$gene[filter.decr]
+decr.genes <- names(table(gene.sym))[table(gene.sym) == 2]
+incr.decr <- list(incr.genes, decr.genes)
+names(incr.decr) <- c("incr", "decr")
+
+for (set1 in 1) {  # Plot increasing genes only
+  keep.genes <- incr.decr[[set1]]
+  
+  # Pairs
+  keep.rows <- with(species.lseg.long, which(gene %in% keep.genes))
+  bp.df <- dcast(species.lseg.long[keep.rows, ], 
+                 gene ~ species, value.var="bp")
+  bpse.df <- dcast(species.lseg.long[keep.rows, ], 
+                   gene ~ species, value.var="bpse")
+  
+  cor(bp.df[, -1], method="spearman")
+  
+  # Calc species bp differences
+  bp.df2 <- data.frame(human=sapply(log2(bp.df$human), ConvertPcdtoEventScore, 
+                                    "human", "eventScore"), 
+                       macaque=sapply(log2(bp.df$macaque), ConvertPcdtoEventScore, 
+                                      "macaque", "eventScore"), 
+                       rat=sapply(log2(bp.df$macaque), ConvertPcdtoEventScore, 
+                                  "macaque", "eventScore"))
+  
+  bp.diff <- cbind(bp.df2$human - bp.df2$macaque, 
+                   bp.df2$human - bp.df2$macaque, 
+                   bp.df2$human - bp.df2$macaque)
+  rownames(bp.diff) <- bp.df$gene
+  colnames(bp.diff) <- c("human-macaque", "human-rat", "macaque-rat")
+  
+  # Identify outliers
+  slope2.chg <- list()
+  slope2.sig.incr <- with(species.lseg.all[["human"]], 
+                          gene[which(slope2 > 0  & slope2sig == TRUE)])
+  slope2.sig.decr <- with(species.lseg.all[["human"]],
+                          gene[which(slope2 < 0  & slope2sig == TRUE)])
+  slope2.chg[["incr"]] <- which(bp.df$gene %in% slope2.sig.incr)
+  slope2.chg[["decr"]] <- which(bp.df$gene %in% slope2.sig.decr)
+  
+  # Plot breakpoint comparison
+  ages <- list()
+  ages[[1]] <- seq(0, 2, by=0.2)  # Event score range
+  ages[["human"]] <- 2^sapply(ages[[1]], function(x) ConvertPcdtoEventScore(x, "eventScore", "human"))
+  ages[["macaque"]] <- 2^sapply(ages[[1]], function(x) ConvertPcdtoEventScore(x, "eventScore", "macaque"))
+  ages[["rat"]] <- 2^sapply(ages[[1]], function(x) ConvertPcdtoEventScore(x, "eventScore", "rat"))
+  
+  cols1 <- c("macaque", "human")
+  bp1 <- bp.df[, cols1]
+  bpse1 <- bpse.df[, cols1]
+  bpmin <- bp1 - bpse1
+  bpmax <- bp1 + bpse1
+  
+  # Calc breakpoint correlation between species
+  cor1 <- round(cor(bp.df[, cols1], method="spearman")[1, 2], 2)
+  
+  # Plot breakpoint species pair comparison
+  plot(bp1, log="xy", type="n", main=paste("r =", cor1), las=1,
+       # cex.axis=1.2, cex.lab=1.2, 
+       xlim=c(min(bpmin[, 1]), max(bpmax[, 1])), # Axes should contain SEs
+       ylim=c(min(bpmin[, 2]), max(bpmax[, 2])))
+  
+  # Breakpoint SEs
+  segments(bpmin[, 1], bp1[, 2], bpmax[, 1], bp1[, 2], col="grey90")
+  segments(bp1[, 1], bpmin[, 2], bp1[, 1], bpmax[, 2], col="grey90")
+  
+  # Plot all gene breakpoints
+  points(bp.df[, cols1], pch=19, col="grey90")
+  
+  # Dev equivalent ages (Translating Time)
+  ages.x <- ages[[cols1[1]]]
+  ages.y <- ages[[cols1[2]]]
+  lines(ages.x, ages.y)
+  lines(ages.x[-length(ages[[2]])], ages.y[-1], lty="dashed")
+  lines(ages.x[-1], ages.y[-length(ages[[2]])], lty="dashed")
+  
+  # Highlight genes with sig 2nd slope
+  # Incr
+  text(bp.df[slope2.chg[["incr"]], cols1], 
+       labels=bp.df[slope2.chg[["incr"]], "gene"],
+       pch=19, col="red", cex=0.7, font=2)
+  # Decr
+  text(bp.df[slope2.chg[["decr"]], cols1], 
+       labels=bp.df[slope2.chg[["decr"]], "gene"],
+       pch=19, col="blue", cex=0.7, font=2)
+}
+
+# save.image(file = "../workspace.RData")
+```
+
+
+# Extended Data Figure 7e (Hippocampus)
+```{r process-data_HP}
+#######
+# Macaque
+#######
+# Keep subset of macaque samples
+m.region <- "HP"  # ACG, V1, HP, AM, STR
+keep.samples <- which(samplePrePost$toplevel == m.region |
+                        samplePrePost$region == m.region |
+                        samplePrePost$subregion == m.region)
+sample.subset <- droplevels(samplePrePost[keep.samples, ])
+expr.subset <- exprPrePost[, keep.samples]
+
+age.logpcd <- factor(sample.subset$age_log2pcd)
+
+# Calculate mean expression by age (macaque)
+expr.mean <- t(apply(expr.subset, 1, function(x)
+  tapply(x, age.logpcd, mean)))
+age.levels <- as.numeric(levels(age.logpcd))
+
+# Relabel macaque genes with human orthologs
+rownames(expr.mean) <- probes$human_genesymbol
+
+# Calc most variable genes (macaque)
+expr.var <- apply(expr.mean, 1, sd)
+expr.range <- apply(expr.mean, 1, function(x) max(x) - min(x))
+
+########
+# Human
+########
+# Calculate mean expression by age (human)
+h.region <- "HIP"  # MFC, V1C, HIP, AMY, STR
+h.age <- numAge2[age2]
+h.keep.samples <- which(reg2 == h.region)
+# h.keep.samples <- which(reg2 == h.region & h.age <= 6000) # Remove later ages
+h.age.logpcd <- factor(round(log2(h.age[h.keep.samples]), 2))
+dat2.subset <- dat2[, h.keep.samples]
+h.expr.mean <- t(apply(dat2.subset, 1, function(x) tapply(x, h.age.logpcd, mean)))
+# Remove genes without variation
+h.sd <- apply(h.expr.mean, 1, sd)
+h.expr.mean <- h.expr.mean[h.sd > 0, ]
+h.age.levels <- as.numeric(levels(h.age.logpcd))
+
+
+#######
+# Rat
+#######
+rat.region <- "CTX"
+# Age in pcd (21 day gestation)
+rat.age <- factor(log2(c(16, 17, 18, 20, 23, 26, 29, 36, 43, 52, 112, # CTX
+                         23, 26, 29, 36, 43, 52, 112,                 # HPC
+                         18, 20, 23, 26, 29, 36, 43, 52, 112)))       # HYP
+keep.cols <- grep(rat.region, colnames(rat.dev))
+rat.expr.mean <- as.matrix(rat.dev[, keep.cols])
+colnames(rat.expr.mean) <- round(as.numeric(as.character(rat.age[keep.cols])), 3)
+rat.age.levels <- as.numeric(levels(droplevels(rat.age[keep.cols])))
+
+
+# Get number of genes
+num.genes <- nrow(expr.mean)
+h.num.genes <- nrow(h.expr.mean)
+rat.num.genes <- nrow(rat.dev)
+
+# Keep macaque/human/rat orthologs and match gene order
+ortho.genes <- Reduce(intersect, list(rownames(expr.mean), 
+                                      rownames(h.expr.mean), 
+                                      rownames(rat.expr.mean)))
+ortho.genes <- sort(ortho.genes)
+keep.genes <- match(ortho.genes, rownames(expr.mean))
+expr.mean.subset <- expr.mean[keep.genes, ]
+
+h.keep.genes <- match(ortho.genes, rownames(h.expr.mean))
+h.expr.mean.subset <- h.expr.mean[h.keep.genes, ]
+
+rat.keep.genes <- match(ortho.genes, rownames(rat.expr.mean))
+rat.expr.mean.subset <- rat.expr.mean[rat.keep.genes, ]
+
+# Calc expr z-scores
+expr.mean.subsetz <- t(apply(expr.mean.subset, 1, scale))
+colnames(expr.mean.subsetz) <- colnames(expr.mean.subset)
+
+h.expr.mean.subsetz <- t(apply(h.expr.mean.subset, 1, scale))
+colnames(h.expr.mean.subsetz) <- colnames(h.expr.mean.subset)
+
+rat.expr.mean.subsetz <- t(apply(rat.expr.mean.subset, 1, scale))
+colnames(rat.expr.mean.subsetz) <- colnames(rat.expr.mean.subset)
+
+# Store data in lists
+species.expr <- list(expr.mean.subset, 
+                     h.expr.mean.subset, 
+                     rat.expr.mean.subset)
+names(species.expr) <- c("macaque", "human", "rat")
+
+species.exprz <- list(expr.mean.subsetz, 
+                      h.expr.mean.subsetz, 
+                      rat.expr.mean.subsetz)
+names(species.exprz) <- c("macaque", "human", "rat")
+```
+
+```{r fit-expr-trend_HP, warning=FALSE}
+lseg.fn <- paste0("../cache/dev_expr_species/species.lseg.all_", 
+                  m.region, ".RData") 
+
+# Try loading cached fits
+rm(species.lseg.all)
+try(load(lseg.fn), silent=TRUE)
+
+# SLOW - Run only as needed
+if (! exists("species.lseg.all")) {
+  
+  # Trap lseg warnings
+  options(warn=2)
+  
+  # Define functions
+  CalcSigSlope <- function(x) {
+    slope.est <- x[1]
+    slope.se <- x[2]
+    # Check if 95% CI of slope est. contains zero
+    slope.sign <- sign((slope.est - 1.96 * slope.se) * 
+                         (slope.est + 1.96 * slope.se))
+    return(slope.sign == 1)
+  }
+  
+  # Init vars
+  species.lseg.all <- vector("list", 3)
+  names(species.lseg.all) <- names(species.exprz)
+  
+  # Fit gene trends (use non-transformed ages)
+  for (species1 in names(species.lseg.all)) {
+    age.levels <- 2^as.numeric(colnames(species.exprz[[species1]]))
+    # Guess initial breakpoint(s) at a specific developmental age based on species
+    bp1 <- 2^ConvertPcdtoEventScore(0.5, "eventScore", species1)  # 1 breakpoint
+    lseg.list <- list()
+    
+    for (gene1 in ortho.genes) {
+      expr1 <- species.exprz[[species1]][gene1, ]
+      lm1 <- lm(expr1 ~ age.levels)
+      # Fit 1 breakpoint
+      lseg <- try(segmented(lm1, seg.Z=~age.levels, psi=list(age.levels = bp1)), 
+                  silent=TRUE)
+      #       errmsg <- geterrmessage()
+      # Check if breakpoint(s) are too close to end of age range
+      if (class(lseg)[1] == "try-error") {  # grepl("too close", errmsg)
+        lseg.summary <- rep(NA, 7)
+      } else {
+        # Variance explained by segmented fit
+        lseg.r2 <- summary(lseg)$r.sq
+        # Breakpoint location(s), SE
+        lseg.bp <- lseg$psi
+        # Slope(s), SE
+        lseg.slope <- as.vector(matrix(t(slope(lseg)$age.levels[, 1:2]), nrow=1))
+        # Save gene information
+        lseg.summary <- c(lseg.r2, lseg.bp[2:3], lseg.slope)
+      }
+      lseg.list[[gene1]] <- lseg.summary
+    }
+    # Combine info into data frame
+    lseg.all <- as.data.frame(do.call("rbind", lseg.list))
+    
+    # Add column names
+    colnames(lseg.all) <- c("r2", "bp", "bpse", "slope1", "slope1se", 
+                            "slope2", "slope2se")
+    
+    # Add gene names
+    lseg.all$gene <- rownames(lseg.all)
+    
+    # Check slope significance
+    lseg.all$slope1sig <- apply(lseg.all[, c("slope1", "slope1se")], 1, 
+                                CalcSigSlope)
+    lseg.all$slope2sig <- apply(lseg.all[, c("slope2", "slope2se")], 1, 
+                                CalcSigSlope)
+    
+    # Convert slope to doublings/halvings per year
+    year.diff <- (lseg.all$bp - (lseg.all$bp - 1)) / 365
+    lseg.all$slope1_year <- lseg.all$slope1 / year.diff
+    
+    # Calc breakpoint event score
+    lseg.all$bp_escore <- ConvertPcdtoEventScore(log2(lseg.all$bp), species1)
+    
+    species.lseg.all[[species1]] <- lseg.all
+  }
+  
+  # Restore default warnings
+  options(warn=0)
+  
+  # Save expr fits
+  save(species.lseg.all, file=lseg.fn)
+  
+}
+
+```
+
+```{r plot-species-comparison_HP, fig.width=7, fig.height=7}
+# Load gene conservation lists
+load(file = "../cache/dev_expr_species/gene.list.RData")
+
+# Combine species data
+species.lseg.long <- do.call("rbind", species.lseg.all[1:2])
+species.lseg.long$species <- rep(names(species.lseg.all)[1:2], 
+                                 each=nrow(species.lseg.long) / 2)
+
+# Filter genes
+filter.incr <- NULL
+filter.decr <- NULL
+for (i in 1:nrow(species.lseg.long)) {
+  x1 <- species.lseg.long[i, ]
+  filter1 <- x1["r2"] > 0.8 &  # Good fit
+    (x1["slope1"] > 0 &
+       x1["slope1sig"] == TRUE) &  # Significant slope
+    x1["gene"] %in% gene.list[["conserved"]]  # Cons. genes only
+  filter2 <- x1["r2"] > 0.8 &  # Good fit
+    (x1["slope1"] < 0 &
+       x1["slope1sig"] == TRUE) &  # Significant slope
+    x1["gene"] %in% gene.list[["conserved"]]  # Cons. genes only
+  filter.incr <- c(filter.incr, filter1)
+  filter.decr <- c(filter.decr, filter2)
+}
+
+# Include genes that pass filters in both species
+gene.sym <- species.lseg.long$gene[filter.incr]
+incr.genes <- names(table(gene.sym))[table(gene.sym) == 2]
+gene.sym <- species.lseg.long$gene[filter.decr]
+decr.genes <- names(table(gene.sym))[table(gene.sym) == 2]
+incr.decr <- list(incr.genes, decr.genes)
+names(incr.decr) <- c("incr", "decr")
+
+for (set1 in 1) {  # Plot increasing genes only
+  keep.genes <- incr.decr[[set1]]
+  
+  # Pairs
+  keep.rows <- with(species.lseg.long, which(gene %in% keep.genes))
+  bp.df <- dcast(species.lseg.long[keep.rows, ], 
+                 gene ~ species, value.var="bp")
+  bpse.df <- dcast(species.lseg.long[keep.rows, ], 
+                   gene ~ species, value.var="bpse")
+  
+  cor(bp.df[, -1], method="spearman")
+  
+  # Calc species bp differences
+  bp.df2 <- data.frame(human=sapply(log2(bp.df$human), ConvertPcdtoEventScore, 
+                                    "human", "eventScore"), 
+                       macaque=sapply(log2(bp.df$macaque), ConvertPcdtoEventScore, 
+                                      "macaque", "eventScore"), 
+                       rat=sapply(log2(bp.df$macaque), ConvertPcdtoEventScore, 
+                                  "macaque", "eventScore"))
+  
+  bp.diff <- cbind(bp.df2$human - bp.df2$macaque, 
+                   bp.df2$human - bp.df2$macaque, 
+                   bp.df2$human - bp.df2$macaque)
+  rownames(bp.diff) <- bp.df$gene
+  colnames(bp.diff) <- c("human-macaque", "human-rat", "macaque-rat")
+  
+  # Identify outliers
+  slope2.chg <- list()
+  slope2.sig.incr <- with(species.lseg.all[["human"]], 
+                          gene[which(slope2 > 0  & slope2sig == TRUE)])
+  slope2.sig.decr <- with(species.lseg.all[["human"]],
+                          gene[which(slope2 < 0  & slope2sig == TRUE)])
+  slope2.chg[["incr"]] <- which(bp.df$gene %in% slope2.sig.incr)
+  slope2.chg[["decr"]] <- which(bp.df$gene %in% slope2.sig.decr)
+  
+  # Plot breakpoint comparison
+  ages <- list()
+  ages[[1]] <- seq(0, 2, by=0.2)  # Event score range
+  ages[["human"]] <- 2^sapply(ages[[1]], function(x) ConvertPcdtoEventScore(x, "eventScore", "human"))
+  ages[["macaque"]] <- 2^sapply(ages[[1]], function(x) ConvertPcdtoEventScore(x, "eventScore", "macaque"))
+  ages[["rat"]] <- 2^sapply(ages[[1]], function(x) ConvertPcdtoEventScore(x, "eventScore", "rat"))
+  
+  cols1 <- c("macaque", "human")
+  bp1 <- bp.df[, cols1]
+  bpse1 <- bpse.df[, cols1]
+  bpmin <- bp1 - bpse1
+  bpmax <- bp1 + bpse1
+  
+  # Calc breakpoint correlation between species
+  cor1 <- round(cor(bp.df[, cols1], method="spearman")[1, 2], 2)
+  
+  # Plot breakpoint species pair comparison
+  plot(bp1, log="xy", type="n", main=paste("r =", cor1), las=1,
+       # cex.axis=1.2, cex.lab=1.2, 
+       xlim=c(min(bpmin[, 1]), max(bpmax[, 1])), # Axes should contain SEs
+       ylim=c(min(bpmin[, 2]), max(bpmax[, 2])))
+  
+  # Breakpoint SEs
+  segments(bpmin[, 1], bp1[, 2], bpmax[, 1], bp1[, 2], col="grey90")
+  segments(bp1[, 1], bpmin[, 2], bp1[, 1], bpmax[, 2], col="grey90")
+  
+  # Plot all gene breakpoints
+  points(bp.df[, cols1], pch=19, col="grey90")
+  
+  # Dev equivalent ages (Translating Time)
+  ages.x <- ages[[cols1[1]]]
+  ages.y <- ages[[cols1[2]]]
+  lines(ages.x, ages.y)
+  lines(ages.x[-length(ages[[2]])], ages.y[-1], lty="dashed")
+  lines(ages.x[-1], ages.y[-length(ages[[2]])], lty="dashed")
+  
+  # Highlight genes with sig 2nd slope
+  # Incr
+  text(bp.df[slope2.chg[["incr"]], cols1], 
+       labels=bp.df[slope2.chg[["incr"]], "gene"],
+       pch=19, col="red", cex=0.7, font=2)
+  # Decr
+  text(bp.df[slope2.chg[["decr"]], cols1], 
+       labels=bp.df[slope2.chg[["decr"]], "gene"],
+       pch=19, col="blue", cex=0.7, font=2)
+}
+
+# save.image(file = "../workspace.RData")
+```
+
+
+# Extended Data Figure 7e (Amygdala)
+```{r process-data_AM}
+#######
+# Macaque
+#######
+# Keep subset of macaque samples
+m.region <- "AM"  # ACG, V1, HP, AM, STR
+keep.samples <- which(samplePrePost$toplevel == m.region |
+                        samplePrePost$region == m.region |
+                        samplePrePost$subregion == m.region)
+sample.subset <- droplevels(samplePrePost[keep.samples, ])
+expr.subset <- exprPrePost[, keep.samples]
+
+age.logpcd <- factor(sample.subset$age_log2pcd)
+
+# Calculate mean expression by age (macaque)
+expr.mean <- t(apply(expr.subset, 1, function(x)
+  tapply(x, age.logpcd, mean)))
+age.levels <- as.numeric(levels(age.logpcd))
+
+# Relabel macaque genes with human orthologs
+rownames(expr.mean) <- probes$human_genesymbol
+
+# Calc most variable genes (macaque)
+expr.var <- apply(expr.mean, 1, sd)
+expr.range <- apply(expr.mean, 1, function(x) max(x) - min(x))
+
+########
+# Human
+########
+# Calculate mean expression by age (human)
+h.region <- "AMY"  # MFC, V1C, HIP, AMY, STR
+h.age <- numAge2[age2]
+h.keep.samples <- which(reg2 == h.region)
+# h.keep.samples <- which(reg2 == h.region & h.age <= 6000) # Remove later ages
+h.age.logpcd <- factor(round(log2(h.age[h.keep.samples]), 2))
+dat2.subset <- dat2[, h.keep.samples]
+h.expr.mean <- t(apply(dat2.subset, 1, function(x) tapply(x, h.age.logpcd, mean)))
+# Remove genes without variation
+h.sd <- apply(h.expr.mean, 1, sd)
+h.expr.mean <- h.expr.mean[h.sd > 0, ]
+h.age.levels <- as.numeric(levels(h.age.logpcd))
+
+
+#######
+# Rat
+#######
+rat.region <- "CTX"
+# Age in pcd (21 day gestation)
+rat.age <- factor(log2(c(16, 17, 18, 20, 23, 26, 29, 36, 43, 52, 112, # CTX
+                         23, 26, 29, 36, 43, 52, 112,                 # HPC
+                         18, 20, 23, 26, 29, 36, 43, 52, 112)))       # HYP
+keep.cols <- grep(rat.region, colnames(rat.dev))
+rat.expr.mean <- as.matrix(rat.dev[, keep.cols])
+colnames(rat.expr.mean) <- round(as.numeric(as.character(rat.age[keep.cols])), 3)
+rat.age.levels <- as.numeric(levels(droplevels(rat.age[keep.cols])))
+
+
+# Get number of genes
+num.genes <- nrow(expr.mean)
+h.num.genes <- nrow(h.expr.mean)
+rat.num.genes <- nrow(rat.dev)
+
+# Keep macaque/human/rat orthologs and match gene order
+ortho.genes <- Reduce(intersect, list(rownames(expr.mean), 
+                                      rownames(h.expr.mean), 
+                                      rownames(rat.expr.mean)))
+ortho.genes <- sort(ortho.genes)
+keep.genes <- match(ortho.genes, rownames(expr.mean))
+expr.mean.subset <- expr.mean[keep.genes, ]
+
+h.keep.genes <- match(ortho.genes, rownames(h.expr.mean))
+h.expr.mean.subset <- h.expr.mean[h.keep.genes, ]
+
+rat.keep.genes <- match(ortho.genes, rownames(rat.expr.mean))
+rat.expr.mean.subset <- rat.expr.mean[rat.keep.genes, ]
+
+# Calc expr z-scores
+expr.mean.subsetz <- t(apply(expr.mean.subset, 1, scale))
+colnames(expr.mean.subsetz) <- colnames(expr.mean.subset)
+
+h.expr.mean.subsetz <- t(apply(h.expr.mean.subset, 1, scale))
+colnames(h.expr.mean.subsetz) <- colnames(h.expr.mean.subset)
+
+rat.expr.mean.subsetz <- t(apply(rat.expr.mean.subset, 1, scale))
+colnames(rat.expr.mean.subsetz) <- colnames(rat.expr.mean.subset)
+
+# Store data in lists
+species.expr <- list(expr.mean.subset, 
+                     h.expr.mean.subset, 
+                     rat.expr.mean.subset)
+names(species.expr) <- c("macaque", "human", "rat")
+
+species.exprz <- list(expr.mean.subsetz, 
+                      h.expr.mean.subsetz, 
+                      rat.expr.mean.subsetz)
+names(species.exprz) <- c("macaque", "human", "rat")
+```
+
+```{r fit-expr-trend_AM, warning=FALSE}
+lseg.fn <- paste0("../cache/dev_expr_species/species.lseg.all_", 
+                  m.region, ".RData") 
+
+# Try loading cached fits
+rm(species.lseg.all)
+try(load(lseg.fn), silent=TRUE)
+
+# SLOW - Run only as needed
+if (! exists("species.lseg.all")) {
+  
+  # Trap lseg warnings
+  options(warn=2)
+  
+  # Define functions
+  CalcSigSlope <- function(x) {
+    slope.est <- x[1]
+    slope.se <- x[2]
+    # Check if 95% CI of slope est. contains zero
+    slope.sign <- sign((slope.est - 1.96 * slope.se) * 
+                         (slope.est + 1.96 * slope.se))
+    return(slope.sign == 1)
+  }
+  
+  # Init vars
+  species.lseg.all <- vector("list", 3)
+  names(species.lseg.all) <- names(species.exprz)
+  
+  # Fit gene trends (use non-transformed ages)
+  for (species1 in names(species.lseg.all)) {
+    age.levels <- 2^as.numeric(colnames(species.exprz[[species1]]))
+    # Guess initial breakpoint(s) at a specific developmental age based on species
+    bp1 <- 2^ConvertPcdtoEventScore(0.5, "eventScore", species1)  # 1 breakpoint
+    lseg.list <- list()
+    
+    for (gene1 in ortho.genes) {
+      expr1 <- species.exprz[[species1]][gene1, ]
+      lm1 <- lm(expr1 ~ age.levels)
+      # Fit 1 breakpoint
+      lseg <- try(segmented(lm1, seg.Z=~age.levels, psi=list(age.levels = bp1)), 
+                  silent=TRUE)
+      #       errmsg <- geterrmessage()
+      # Check if breakpoint(s) are too close to end of age range
+      if (class(lseg)[1] == "try-error") {  # grepl("too close", errmsg)
+        lseg.summary <- rep(NA, 7)
+      } else {
+        # Variance explained by segmented fit
+        lseg.r2 <- summary(lseg)$r.sq
+        # Breakpoint location(s), SE
+        lseg.bp <- lseg$psi
+        # Slope(s), SE
+        lseg.slope <- as.vector(matrix(t(slope(lseg)$age.levels[, 1:2]), nrow=1))
+        # Save gene information
+        lseg.summary <- c(lseg.r2, lseg.bp[2:3], lseg.slope)
+      }
+      lseg.list[[gene1]] <- lseg.summary
+    }
+    # Combine info into data frame
+    lseg.all <- as.data.frame(do.call("rbind", lseg.list))
+    
+    # Add column names
+    colnames(lseg.all) <- c("r2", "bp", "bpse", "slope1", "slope1se", 
+                            "slope2", "slope2se")
+    
+    # Add gene names
+    lseg.all$gene <- rownames(lseg.all)
+    
+    # Check slope significance
+    lseg.all$slope1sig <- apply(lseg.all[, c("slope1", "slope1se")], 1, 
+                                CalcSigSlope)
+    lseg.all$slope2sig <- apply(lseg.all[, c("slope2", "slope2se")], 1, 
+                                CalcSigSlope)
+    
+    # Convert slope to doublings/halvings per year
+    year.diff <- (lseg.all$bp - (lseg.all$bp - 1)) / 365
+    lseg.all$slope1_year <- lseg.all$slope1 / year.diff
+    
+    # Calc breakpoint event score
+    lseg.all$bp_escore <- ConvertPcdtoEventScore(log2(lseg.all$bp), species1)
+    
+    species.lseg.all[[species1]] <- lseg.all
+  }
+  
+  # Restore default warnings
+  options(warn=0)
+  
+  # Save expr fits
+  save(species.lseg.all, file=lseg.fn)
+  
+}
+
+```
+
+```{r plot-species-comparison_AM, fig.width=7, fig.height=7}
+# Load gene conservation lists
+load(file = "../cache/dev_expr_species/gene.list.RData")
+
+# Combine species data
+species.lseg.long <- do.call("rbind", species.lseg.all[1:2])
+species.lseg.long$species <- rep(names(species.lseg.all)[1:2], 
+                                 each=nrow(species.lseg.long) / 2)
+
+# Filter genes
+filter.incr <- NULL
+filter.decr <- NULL
+for (i in 1:nrow(species.lseg.long)) {
+  x1 <- species.lseg.long[i, ]
+  filter1 <- x1["r2"] > 0.8 &  # Good fit
+    (x1["slope1"] > 0 &
+       x1["slope1sig"] == TRUE) &  # Significant slope
+    x1["gene"] %in% gene.list[["conserved"]]  # Cons. genes only
+  filter2 <- x1["r2"] > 0.8 &  # Good fit
+    (x1["slope1"] < 0 &
+       x1["slope1sig"] == TRUE) &  # Significant slope
+    x1["gene"] %in% gene.list[["conserved"]]  # Cons. genes only
+  filter.incr <- c(filter.incr, filter1)
+  filter.decr <- c(filter.decr, filter2)
+}
+
+# Include genes that pass filters in both species
+gene.sym <- species.lseg.long$gene[filter.incr]
+incr.genes <- names(table(gene.sym))[table(gene.sym) == 2]
+gene.sym <- species.lseg.long$gene[filter.decr]
+decr.genes <- names(table(gene.sym))[table(gene.sym) == 2]
+incr.decr <- list(incr.genes, decr.genes)
+names(incr.decr) <- c("incr", "decr")
+
+for (set1 in 1) {  # Plot increasing genes only
+  keep.genes <- incr.decr[[set1]]
+  
+  # Pairs
+  keep.rows <- with(species.lseg.long, which(gene %in% keep.genes))
+  bp.df <- dcast(species.lseg.long[keep.rows, ], 
+                 gene ~ species, value.var="bp")
+  bpse.df <- dcast(species.lseg.long[keep.rows, ], 
+                   gene ~ species, value.var="bpse")
+  
+  cor(bp.df[, -1], method="spearman")
+  
+  # Calc species bp differences
+  bp.df2 <- data.frame(human=sapply(log2(bp.df$human), ConvertPcdtoEventScore, 
+                                    "human", "eventScore"), 
+                       macaque=sapply(log2(bp.df$macaque), ConvertPcdtoEventScore, 
+                                      "macaque", "eventScore"), 
+                       rat=sapply(log2(bp.df$macaque), ConvertPcdtoEventScore, 
+                                  "macaque", "eventScore"))
+  
+  bp.diff <- cbind(bp.df2$human - bp.df2$macaque, 
+                   bp.df2$human - bp.df2$macaque, 
+                   bp.df2$human - bp.df2$macaque)
+  rownames(bp.diff) <- bp.df$gene
+  colnames(bp.diff) <- c("human-macaque", "human-rat", "macaque-rat")
+  
+  # Identify outliers
+  slope2.chg <- list()
+  slope2.sig.incr <- with(species.lseg.all[["human"]], 
+                          gene[which(slope2 > 0  & slope2sig == TRUE)])
+  slope2.sig.decr <- with(species.lseg.all[["human"]],
+                          gene[which(slope2 < 0  & slope2sig == TRUE)])
+  slope2.chg[["incr"]] <- which(bp.df$gene %in% slope2.sig.incr)
+  slope2.chg[["decr"]] <- which(bp.df$gene %in% slope2.sig.decr)
+  
+  # Plot breakpoint comparison
+  ages <- list()
+  ages[[1]] <- seq(0, 2, by=0.2)  # Event score range
+  ages[["human"]] <- 2^sapply(ages[[1]], function(x) ConvertPcdtoEventScore(x, "eventScore", "human"))
+  ages[["macaque"]] <- 2^sapply(ages[[1]], function(x) ConvertPcdtoEventScore(x, "eventScore", "macaque"))
+  ages[["rat"]] <- 2^sapply(ages[[1]], function(x) ConvertPcdtoEventScore(x, "eventScore", "rat"))
+  
+  cols1 <- c("macaque", "human")
+  bp1 <- bp.df[, cols1]
+  bpse1 <- bpse.df[, cols1]
+  bpmin <- bp1 - bpse1
+  bpmax <- bp1 + bpse1
+  
+  # Calc breakpoint correlation between species
+  cor1 <- round(cor(bp.df[, cols1], method="spearman")[1, 2], 2)
+  
+  # Plot breakpoint species pair comparison
+  plot(bp1, log="xy", type="n", main=paste("r =", cor1), las=1,
+       # cex.axis=1.2, cex.lab=1.2, 
+       xlim=c(min(bpmin[, 1]), max(bpmax[, 1])), # Axes should contain SEs
+       ylim=c(min(bpmin[, 2]), max(bpmax[, 2])))
+  
+  # Breakpoint SEs
+  segments(bpmin[, 1], bp1[, 2], bpmax[, 1], bp1[, 2], col="grey90")
+  segments(bp1[, 1], bpmin[, 2], bp1[, 1], bpmax[, 2], col="grey90")
+  
+  # Plot all gene breakpoints
+  points(bp.df[, cols1], pch=19, col="grey90")
+  
+  # Dev equivalent ages (Translating Time)
+  ages.x <- ages[[cols1[1]]]
+  ages.y <- ages[[cols1[2]]]
+  lines(ages.x, ages.y)
+  lines(ages.x[-length(ages[[2]])], ages.y[-1], lty="dashed")
+  lines(ages.x[-1], ages.y[-length(ages[[2]])], lty="dashed")
+  
+  # Highlight genes with sig 2nd slope
+  # Incr
+  text(bp.df[slope2.chg[["incr"]], cols1], 
+       labels=bp.df[slope2.chg[["incr"]], "gene"],
+       pch=19, col="red", cex=0.7, font=2)
+  # Decr
+  text(bp.df[slope2.chg[["decr"]], cols1], 
+       labels=bp.df[slope2.chg[["decr"]], "gene"],
+       pch=19, col="blue", cex=0.7, font=2)
+}
+
+# save.image(file = "../workspace.RData")
+```

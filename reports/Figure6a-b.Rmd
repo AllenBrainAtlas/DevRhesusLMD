@@ -1,0 +1,454 @@
+---
+output: 
+html_document:
+keep_md: false
+---
+
+```{r setup, include=FALSE}
+# Set default knitr options
+knitr::opts_chunk$set(cache = FALSE,  # Cache all chunks
+                      echo = FALSE,  # Hide output
+                      dev = c("png", "pdf"))  # Figure formats to output
+
+# If cached chunk is changed, auto-update all following chunks
+# knitr::dep_prev()
+
+# Define knitr functions
+fGetmtime <- function(files) {
+  lapply(Sys.glob(files), function(x) file.info(x)$mtime)
+}
+```
+
+
+```{r init-workspace, echo=FALSE, message=FALSE, warning=FALSE}
+options(stringsAsFactors = FALSE)
+
+# Load libraries 
+library(reshape2)
+library(segmented)
+library(ggplot2)
+library(scatterplot3d)
+library(RColorBrewer)
+library(limma)
+
+# Load functions 
+source(file="../src/fReorderFactorLevels.R")
+source(file="../src/fConvertPcdtoEventScore.R")
+
+```
+
+```{r load-data, echo=FALSE}
+# Load macaque starting data
+load(file="../cache/nhp_PrePost_StartingData.RData")
+
+# Load human starting data
+load(file="../lib/human/brainspan_longitudinal.RData")
+
+# Load human starting data (BrainCloud dlPFC)
+load(file="../lib/human/human_BrainCloud.RData")
+
+# Load rat starting data (frontal cortex, hippo, hypothal, Stearn et al. 2006)
+rat.dev <- read.csv(file="../lib/Stead2006/Stead_S2_nodupes_mean.csv", header=TRUE, row.names=1) 
+
+```
+
+```{r process-data}
+#######
+# Macaque
+#######
+# Keep subset of macaque samples
+m.region <- "ACG"  # ACG / V1
+keep.samples <- which(samplePrePost$subregion == m.region)
+# keep.samples <- which(samplePrePost$region == m.region)
+sample.subset <- droplevels(samplePrePost[keep.samples, ])
+expr.subset <- exprPrePost[, keep.samples]
+
+age.logpcd <- factor(sample.subset$age_log2pcd)
+
+# Calculate mean expression by age (macaque)
+expr.mean <- t(apply(expr.subset, 1, function(x)
+  tapply(x, age.logpcd, mean)))
+age.levels <- as.numeric(levels(age.logpcd))
+
+# Relabel macaque genes with human orthologs
+rownames(expr.mean) <- probes$human_genesymbol
+
+# Calc most variable genes (macaque)
+expr.var <- apply(expr.mean, 1, sd)
+expr.range <- apply(expr.mean, 1, function(x) max(x) - min(x))
+
+########
+# Human - BrainSpan
+########
+# Calculate mean expression by age (human)
+h.region <- "MFC"  # MFC / V1C
+h.age <- numAge2[age2]
+h.keep.samples <- which(reg2 == h.region)
+# h.keep.samples <- which(reg2 == h.region & h.age <= 6000) # Remove later ages
+h.age.logpcd <- factor(round(log2(h.age[h.keep.samples]), 2))
+dat2.subset <- dat2[, h.keep.samples]
+h.expr.mean <- t(apply(dat2.subset, 1, function(x) tapply(x, h.age.logpcd, mean)))
+# Remove genes without variation
+h.sd <- apply(h.expr.mean, 1, sd)
+h.expr.mean <- h.expr.mean[h.sd > 0, ]
+h.age.levels <- as.numeric(levels(h.age.logpcd))
+
+########
+# Human - BrainCloud
+########
+# Calc mean expression by binned age
+h2.region <- "DFC"
+h2.keep.samples <- which(samp.dat$age_yrs < 41)
+samp.dat.subset <- droplevels(samp.dat[h2.keep.samples, ])
+agepcd.cat <- round(log2(tapply(samp.dat.subset$age_pcd, 
+                                samp.dat.subset$age_cat, mean)), 2)
+h2.age.logpcd <- factor(agepcd.cat[samp.dat.subset$age_cat])
+expr.dat3.subset <- expr.dat3[, h2.keep.samples]
+h2.expr.mean <- t(apply(expr.dat3.subset, 1, 
+                        function(x) tapply(x, h2.age.logpcd, mean)))
+h2.age.levels <- as.numeric(levels(h2.age.logpcd))
+
+#######
+# Rat
+#######
+rat.region <- "CTX"
+# Age in pcd (21 day gestation)
+rat.age <- factor(log2(c(16, 17, 18, 20, 23, 26, 29, 36, 43, 52, 112, # CTX
+                         23, 26, 29, 36, 43, 52, 112,                 # HPC
+                         18, 20, 23, 26, 29, 36, 43, 52, 112)))       # HYP
+keep.cols <- grep(rat.region, colnames(rat.dev))
+rat.expr.mean <- as.matrix(rat.dev[, keep.cols])
+colnames(rat.expr.mean) <- round(as.numeric(as.character(rat.age[keep.cols])), 3)
+rat.age.levels <- as.numeric(levels(droplevels(rat.age[keep.cols])))
+
+
+# Get number of genes
+num.genes <- nrow(expr.mean)
+h.num.genes <- nrow(h.expr.mean)
+h2.num.genes <- nrow(h2.expr.mean)
+rat.num.genes <- nrow(rat.dev)
+```
+
+
+```{r match-orthologs-2hs}
+# Keep macaque/human/rat orthologs and match gene order
+ortho.genes <- Reduce(intersect, list(rownames(expr.mean), 
+                                      rownames(h.expr.mean), 
+                                      rownames(h2.expr.mean), 
+                                      rownames(rat.expr.mean)))
+ortho.genes <- sort(ortho.genes)
+keep.genes <- match(ortho.genes, rownames(expr.mean))
+expr.mean.subset <- expr.mean[keep.genes, ]
+
+h.keep.genes <- match(ortho.genes, rownames(h.expr.mean))
+h.expr.mean.subset <- h.expr.mean[h.keep.genes, ]
+
+h2.keep.genes <- match(ortho.genes, rownames(h2.expr.mean))
+h2.expr.mean.subset <- h2.expr.mean[h2.keep.genes, ]
+
+rat.keep.genes <- match(ortho.genes, rownames(rat.expr.mean))
+rat.expr.mean.subset <- rat.expr.mean[rat.keep.genes, ]
+
+# Calc expr z-scores
+expr.mean.subsetz <- t(apply(expr.mean.subset, 1, scale))
+colnames(expr.mean.subsetz) <- colnames(expr.mean.subset)
+
+h.expr.mean.subsetz <- t(apply(h.expr.mean.subset, 1, scale))
+colnames(h.expr.mean.subsetz) <- colnames(h.expr.mean.subset)
+
+h2.expr.mean.subsetz <- t(apply(h2.expr.mean.subset, 1, scale))
+colnames(h2.expr.mean.subsetz) <- colnames(h2.expr.mean.subset)
+
+rat.expr.mean.subsetz <- t(apply(rat.expr.mean.subset, 1, scale))
+colnames(rat.expr.mean.subsetz) <- colnames(rat.expr.mean.subset)
+
+# Store data in lists
+species.expr <- list(expr.mean.subset, 
+                     h.expr.mean.subset, 
+                     h2.expr.mean.subset, 
+                     rat.expr.mean.subset)
+names(species.expr) <- c("macaque", "human", "rat")
+
+species.exprz <- list(expr.mean.subsetz, 
+                      h.expr.mean.subsetz, 
+                      h2.expr.mean.subset, 
+                      rat.expr.mean.subsetz)
+names(species.exprz) <- c("macaque", "human", "human_bc", "rat")
+
+```
+
+```{r fit-dev-trend-2hs}
+dev.pred.fn <- "../cache/dev_expr_species/dev.expr_dev.pred_2hs.RData"
+
+# Try loading cached fits
+try(load(dev.pred.fn), silent=TRUE)
+
+# SLOW - Run only as needed
+if (! exists("dev.pred")) {
+  
+  # Combine species data
+  dev.expr <- rbind(data.frame(species="macaque", melt(expr.mean.subset), 
+                               exprz=melt(expr.mean.subsetz)$value), 
+                    data.frame(species="human", melt(h.expr.mean.subset), 
+                               exprz=melt(h.expr.mean.subsetz)$value), 
+                    data.frame(species="human_bc", melt(h2.expr.mean.subset), 
+                               exprz=melt(h2.expr.mean.subsetz)$value), 
+                    data.frame(species="rat", melt(rat.expr.mean.subset), 
+                               exprz=melt(rat.expr.mean.subsetz)$value))
+  colnames(dev.expr) <- c("species", "gene", "log2pcd", "expr", "exprz")
+  
+  # Calc Translating Time escore
+  dev.expr$escore <- apply(dev.expr, 1, 
+                           function(x) ConvertPcdtoEventScore(as.numeric(x["log2pcd"]), 
+                                                              x["species"]))
+  dev.expr$escore <- round(dev.expr$escore, 2)
+  
+  # Calc spline fit
+  # Select escores that are near all 3 species
+  escore1 <- c(0.27, 0.36, 0.46, 0.54, 0.75, 0.85, 0.96, 1.32)
+  dev.pred <- list()
+  for (species1 in c("macaque", "human", "human_bc", "rat")) {
+    species.dev <- subset(dev.expr, species==species1)
+    pred.df <- NULL
+    for (i in 1:length(ortho.genes)) {
+      # Select rows corresponding to each gene
+      gene.row <- seq(i, nrow(species.dev), by=length(ortho.genes))
+      gene.dev <- species.dev[gene.row, ]
+      
+      # Fit expr trend
+      gene.lo <- loess(expr ~ escore, gene.dev, degree=1)
+      expr.pred <- predict(gene.lo, data.frame(escore = escore1))
+      pred.df <- rbind(pred.df, expr.pred)
+    }
+    rownames(pred.df) <- ortho.genes
+    dev.pred[[species1]] <- pred.df
+  }
+  
+  # Save expr fits
+  save(dev.expr, dev.pred, file=dev.pred.fn)
+}
+
+```
+
+
+```{r calc-species-cor-2hs}
+# Calc species expr correlation
+cor.method <- "spearman"
+cor.all <- NULL
+pval.all <- NULL
+for (gene1 in ortho.genes) {
+  cor1 <- cor.test(dev.pred[["human"]][gene1, ], dev.pred[["human_bc"]][gene1, ], 
+                   method=cor.method, alternative="two.sided")
+  cor2 <- cor.test(dev.pred[["human"]][gene1, ], dev.pred[["macaque"]][gene1, ], 
+                   method=cor.method, alternative="two.sided")
+  cor3 <- cor.test(dev.pred[["human"]][gene1, ], dev.pred[["rat"]][gene1, ], 
+                   method=cor.method, alternative="two.sided")
+  cor4 <- cor.test(dev.pred[["macaque"]][gene1, ], dev.pred[["rat"]][gene1, ], 
+                   method=cor.method, alternative="two.sided")
+  cor.all <- rbind(cor.all, c(cor1$est, cor2$est, cor3$est, cor4$est))
+  pval.all <- rbind(pval.all, c(cor1$p.val, cor2$p.val, cor3$p.val, cor4$p.val))
+}
+rownames(cor.all) <- ortho.genes
+colnames(cor.all) <- c("human-human_bc", "human-macaque", 
+                       "human-rat", "macaque-rat")
+rownames(pval.all) <- ortho.genes
+colnames(pval.all) <- c("human-human_bc", "human-macaque", 
+                        "human-rat", "macaque-rat")
+
+```
+
+
+```{r calc-cor-summary-2hs}
+# Calc species variation
+rh.var <- apply(dev.pred[["macaque"]], 1, function(x) sd(x) / mean(x)) 
+h.var <- apply(dev.pred[["human"]], 1, function(x) sd(x) / mean(x))
+rat.var <- apply(dev.pred[["rat"]], 1, function(x) sd(x) / mean(x))
+
+# Keep genes that are variable in at least 2/3 species 
+var.thresh <- c(quantile(rh.var, 0.5), 
+                quantile(h.var, 0.5), 
+                quantile(rat.var, 0.5))
+var.genes <- which((rh.var > var.thresh[1] &
+                      h.var > var.thresh[2]) | 
+                     (rh.var > var.thresh[1] &
+                        h.var > var.thresh[3]) | 
+                     (rh.var > var.thresh[2] &
+                        h.var > var.thresh[3]))
+cor.subset <- cor.all[var.genes, ]
+pval.subset <- pval.all[var.genes, ]
+
+# Save correlations
+# write.csv(data.frame(cor.subset, pval.subset), file="../tmp/devcor2.csv")
+```
+
+# Figure 6a (left)
+```{r plot-cor-summary, fig.width=3, fig.height=5}
+# apply(cor.subset, 2, quantile)
+cor.subsetl <- melt(cor.subset)
+
+# Barplot of cross-species correlations
+par(mar=c(8, 5, 2, 2))
+boxplot(value ~ Var2, cor.subsetl, las=2, outline=TRUE, ylim=c(-1, 1), 
+        ylab="Cross-species correlation")
+abline(h=0.5, col="red")
+
+# ANOVA
+aov1 <- aov(value ~ Var2, melt(cor.subset))
+summary(aov1)
+TukeyHSD(aov1)
+
+# Non-parametric tests
+# apply(cor.subset, 2, shapiro.test)
+# print(kruskal.test(value ~ Var2, melt(cor.subset))$p.value)
+print("Test for significant difference in correlations (Wilcoxon signed rank test)")
+for (i in 1:3) {
+  for (j in (i + 1):4) {
+    wt1 <- wilcox.test(cor.subset[, i], cor.subset[, j], paired = TRUE)$p.value
+    print(c(colnames(cor.subset)[i], colnames(cor.subset)[j], wt1))
+  }
+}
+
+```
+
+
+
+
+
+```{r fit-dev-trend, eval=FALSE}
+dev.pred.fn <- paste0("../cache/dev_expr_species/dev.expr_dev.pred_", 
+                      m.region, ".RData")
+
+# Try loading cached fits
+rm(dev.pred)
+try(load(dev.pred.fn), silent=TRUE)
+
+# SLOW - Run only as needed
+if (! exists("dev.pred")) {
+  
+  # Combine species data
+  dev.expr <- rbind(data.frame(species="macaque", melt(expr.mean.subset), 
+                               exprz=melt(expr.mean.subsetz)$value), 
+                    data.frame(species="human", melt(h.expr.mean.subset), 
+                               exprz=melt(h.expr.mean.subsetz)$value), 
+                    data.frame(species="rat", melt(rat.expr.mean.subset), 
+                               exprz=melt(rat.expr.mean.subsetz)$value))
+  colnames(dev.expr) <- c("species", "gene", "log2pcd", "expr", "exprz")
+  
+  # Calc Translating Time escore
+  dev.expr$escore <- apply(dev.expr, 1, 
+                           function(x) ConvertPcdtoEventScore(as.numeric(x["log2pcd"]), 
+                                                              x["species"]))
+  dev.expr$escore <- round(dev.expr$escore, 2)
+  
+  # Calc spline fit
+  # Select escores that are near all 3 species
+  escore1 <- c(0.27, 0.36, 0.46, 0.54, 0.75, 0.85, 0.96, 1.32)
+  dev.pred <- list()
+  for (species1 in c("macaque", "human", "rat")) {
+    species.dev <- subset(dev.expr, species==species1)
+    pred.df <- NULL
+    for (i in 1:length(ortho.genes)) {
+      # Select rows corresponding to each gene
+      gene.row <- seq(i, nrow(species.dev), by=length(ortho.genes))
+      gene.dev <- species.dev[gene.row, ]
+      
+      # Fit expr trend
+      gene.lo <- loess(expr ~ escore, gene.dev, degree=1)
+      expr.pred <- predict(gene.lo, data.frame(escore = escore1))
+      pred.df <- rbind(pred.df, expr.pred)
+    }
+    rownames(pred.df) <- ortho.genes
+    dev.pred[[species1]] <- pred.df
+  }
+  
+  # Save expr fits
+  save(dev.expr, dev.pred, file=dev.pred.fn)
+  
+}
+
+# Calc species variation
+rh.var <- apply(dev.pred[["macaque"]], 1, function(x) sd(x) / mean(x)) 
+h.var <- apply(dev.pred[["human"]], 1, function(x) sd(x) / mean(x))
+rat.var <- apply(dev.pred[["rat"]], 1, function(x) sd(x) / mean(x))
+
+```
+
+
+```{r compare-mouse-expr, fig.width=6, fig.height=6, warning=FALSE}
+# Load mouse dev data
+fn1 <- "../lib/mouse/devmouse_brainspan.csv"
+dev.mouse <- read.csv(file=fn1)
+
+# Convert age to factor
+dev.mouse$age <- factor(dev.mouse$age, 
+                        levels=c("E13.5", "E15.5", "E18.5", "P4", "P14", "P28"))
+
+# Add mouse numeric ages (18.5 days gestation)
+mouse.ages <- log2(c(13.5, 15.5, 18.5, 22.5, 32.5, 46.5))
+names(mouse.ages) <- levels(dev.mouse$age)
+dev.mouse$log2pcd <- round(mouse.ages[dev.mouse$age], 2)
+
+# Calc expr zscores
+keep.cols <- c("log2pcd", "gene_acronym", "DPall")
+keep.ortho <- which(dev.mouse$gene_acronym %in% 
+                      probes$mouse_genesymbol[probes$human_genesymbol %in% 
+                                                ortho.genes])
+dev.mousew <- dcast(dev.mouse[keep.ortho, keep.cols], gene_acronym ~ log2pcd, 
+                    value.var="DPall")
+rownames(dev.mousew) <- probes$human_genesymbol[match(dev.mousew$gene_acronym, probes$mouse_genesymbol)]
+dev.mouse.expr <- dev.mousew[, -1]
+dev.mouse.exprz <- t(apply(dev.mouse.expr, 1, scale))
+colnames(dev.mouse.exprz) <- colnames(dev.mouse.expr)
+
+dev.mouse.expr2 <- data.frame(species="mouse", melt(as.matrix(dev.mouse.expr)), 
+                              exprz=melt(dev.mouse.exprz)$value)
+colnames(dev.mouse.expr2) <- colnames(dev.expr)[1:ncol(dev.mouse.expr2)]
+
+# Add mouse escore ages
+dev.mouse.expr2$escore <- round(sapply(dev.mouse.expr2$log2pcd, 
+                                       ConvertPcdtoEventScore, "mouse"), 2)
+
+# Combine mouse data with human/macaque/rat
+dev.expr2 <- rbind(dev.expr, dev.mouse.expr2)
+dev.expr2$species <- factor(dev.expr2$species, levels = c("human", "human_bc", 
+                                                          "macaque", "rat", "mouse"))
+```
+
+
+# Figure 6b
+```{r plot-example-genes, fig.width=8, fig.height=4}
+# genes.toplot <- c("EMX2", "CNTN1", "BMP3", "CNTN2", "SYTL4", "LIN7A")  # orig submission
+genes.toplot <- c("EMX2", "CNTN1", "BMP3", "CNTN2", "LGALS1", "LIN7A")
+# genes.toplot <- c("BHLHE40", "CDS1", "EFNB1", "ITPR1", "KCNC2", "NRCAM", "PCSK2", "PLP1", "TYRO3", "AMIGO1", "ATP1A1", "CALB1", "NRGN", "PEX5L", "PRNP", "SCG2", "SLC1A2", "VIP", "FGF14", "GABBR1", "KCNAB1", "ROCK2", "TEF", "APOE", "EPAS1", "GAD1", "SYNPR", "VGF", "GSG1L", "HRH3", "KCNA1", "LHX2", "RGS4", "SOX10", "PTGS2", "TGFBR1", "ATP1B2", "CHRM3", "CTSS", "DLG4", "GRIN2B", "NFE2L1")
+# genes.toplot <- c("BDNF", "PPP3CB", "MEF2A", "ARC", "SYNGAP1", "EGR", "NR4A1", "DLG4", "SYP")
+dev.expr2.subset <- subset(dev.expr2, gene %in% genes.toplot)
+
+# Remove redundant species from plots
+dev.expr2.subset <- subset(dev.expr2.subset, ! (gene == "LGALS1" & species == "mouse") &
+                             ! (gene == "EMX2" & species == "human_bc") & 
+                             ! (gene == "CNTN1" & species == "human_bc") &
+                             ! (gene == "BMP3" & species == "human_bc") & 
+                             ! (gene == "CNTN2" & species == "human_bc"))
+dev.expr2.subset <- droplevels(dev.expr2.subset)
+
+# Reorder levels to change panel arrangement
+dev.expr2.subset$gene <- factor(dev.expr2.subset$gene, 
+                                levels=c("EMX2", "BMP3", "LGALS1",
+                                         "CNTN1", "CNTN2", "LIN7A"))
+
+pal1 <- brewer.pal(5, "Dark2")[c(1, 5, 2:4)]
+
+g3 <- ggplot(dev.expr2.subset, aes(x=escore, y=exprz, shape=species,
+                                   col=species, fill=species)) +
+  geom_point(alpha=0.5) +
+  geom_smooth(method="loess", se=FALSE, degree=1, size=2) +
+  #   geom_point() + geom_line() +  # More clear legend
+  facet_wrap( ~ gene, ncol=3, scales="free_y") +
+  theme_bw() + 
+  theme(panel.grid.minor = element_blank()) +
+  scale_color_manual(values = pal1) +
+  scale_fill_manual(values = pal1)
+
+plot(g3)
+
+```

@@ -1,0 +1,36 @@
+HGNC ID,Approved Symbol,Approved Name,Status,Previous Symbols,Synonyms,Chromosome,Accession Numbers,RefSeq IDs,Gene Family Tag,Gene family description,Gene family ID
+18783,AKAP17A,A kinase (PRKA) anchor protein 17A,Approved,"CXYorf3, SFRS17A","XE7, XE7Y, DXYS155E, MGC39904, 721P, CCDC133",Xp22.33 and Yp11.32,L03426,NM_005088,PAR1,Pseudoautosomal region 1,715
+750,ASMT,acetylserotonin O-methyltransferase,Approved,,"HIOMT, ASMTY, HIOMTY",Xp22.3 and Yp11.3,M83779,NM_004043,PAR1,Pseudoautosomal region 1,715
+751,ASMTL,acetylserotonin O-methyltransferase-like,Approved,,,Xp22.3 and Yp11.3,Y15521,NM_004192,PAR1,Pseudoautosomal region 1,715
+25811,ASMTL-AS1,ASMTL antisense RNA 1,Approved,"CXYorf2, NCRNA00105, ASMTLAS, ASMTL-AS",FLJ13330,Xp22.33 and Yp11.32,AK023392,XR_040863,PAR1,Pseudoautosomal region 1,715
+7082,CD99,CD99 molecule,Approved,MIC2,,Xp22.32 and Yp11.3,M16279,NM_001122898,PAR1,Pseudoautosomal region 1,715
+7083,CD99P1,CD99 molecule pseudogene 1,Approved,"MIC2R, NCRNA00103, CXYorf12, CD99L1",,Xp22.33 and Yp11.31,,NR_033380,PAR1,Pseudoautosomal region 1,715
+14281,CRLF2,cytokine receptor-like factor 2,Approved,,"CRL2, TSLPR",Xp22.3 and Yp11.3,AF142570,NM_022148,PAR1,Pseudoautosomal region 1,715
+2435,CSF2RA,"colony stimulating factor 2 receptor, alpha, low-affinity (granulocyte-macrophage)",Approved,CSF2R,CD116,Xp22.32 and Yp11.3,M64445,,PAR1,Pseudoautosomal region 1,715
+18399,DHRSX,dehydrogenase/reductase (SDR family) X-linked,Approved,,"DHRS5X, DHRSXY, DHRSY, DHRS5Y, SDR46C1, SDR7C6",Xp22.33 and Yp11.2,AJ293620,NM_145177,PAR1,Pseudoautosomal region 1,715
+38713,DHRSX-IT1,DHRSX intronic transcript 1,Approved,DHRSXIT1,DHRSX-IT,Xp22.33 and Yp11,,,PAR1,Pseudoautosomal region 1,715
+38717,FABP5P13,fatty acid binding protein 5 pseudogene 13,Approved,FABP5L13,,Xp22.33 and Yp11.32,,,PAR1,Pseudoautosomal region 1,715
+30189,GTPBP6,GTP binding protein 6 (putative),Approved,,"PGPL, FLJ20977",Xp22.33 and Yp11.32,Y14391,NM_012227,PAR1,Pseudoautosomal region 1,715
+6012,IL3RA,"interleukin 3 receptor, alpha (low affinity)",Approved,,CD123,Xp22.3 and Yp13.3,M74782,,PAR1,Pseudoautosomal region 1,715
+30470,LINC00102,long intergenic non-protein coding RNA 102,Approved,NCRNA00102,OTTHUMT00000055623,Xp22.33 and Yp11.31,,,PAR1,Pseudoautosomal region 1,715
+31843,LINC00106,long intergenic non-protein coding RNA 106,Approved,"CXYorf8, NCRNA00106",OTTHUMG00000021061,Xp22.33 and Yp11.32,,,PAR1,Pseudoautosomal region 1,715
+27560,LINC00685,long intergenic non-protein coding RNA 685,Approved,"CXYorf10, NCRNA00107, PPP2R3B-AS1",OTTHUMT00000055574,Xp22.33 and Yp11.32,BC041934,,PAR1,Pseudoautosomal region 1,715
+38967,MIR3690,microRNA 3690,Approved,"MIR3690-2, MIR3690-1","hsa-mir-3690, hsa-mir-3690-2",Xp22.32 and Yp11.3,,NR_037461,PAR1,Pseudoautosomal region 1,715
+50179,MIR6089,microRNA 6089,Approved,"MIR6089-1, MIR6089-2",hsa-mir-6089-1,Xp22.3 and Yp11.3,,NR_106737,PAR1,Pseudoautosomal region 1,715
+15524,P2RY8,"purinergic receptor P2Y, G-protein coupled, 8",Approved,,P2Y8,Xp22.33 and Yp11.3,AA804531,NM_178129,PAR1,Pseudoautosomal region 1,715
+23148,PLCXD1,"phosphatidylinositol-specific phospholipase C, X domain containing 1",Approved,,FLJ11323,Xp22.33 and Yp11.32,AK002185,NM_018390,PAR1,Pseudoautosomal region 1,715
+13417,PPP2R3B,"protein phosphatase 2, regulatory subunit B'', beta",Approved,PPP2R3L,"PPP2R3LY, PR48",Xp22.3 and Yp11.3,AF215840,NM_013239,PAR1,Pseudoautosomal region 1,715
+10853,SHOX,short stature homeobox,Approved,,"PHOG, GCFX, SS, SHOXY",Xp22.33 and Yp11.32,U82668,NM_000451,PAR1,Pseudoautosomal region 1,715
+10992,SLC25A6,"solute carrier family 25 (mitochondrial carrier; adenine nucleotide translocator), member 6",Approved,ANT3,"ANT3Y, MGC17525",Xp22.32 and Yp11.3,AY007135,NM_001636,PAR1,Pseudoautosomal region 1,715
+12806,XG,Xg blood group,Approved,PBDX,,Xp22.32,AF380356,NM_175569,PAR1,Pseudoautosomal region 1,715
+447,ZBED1,"zinc finger, BED-type containing 1",Approved,ALTE,"TRAMP, KIAA0785, DREF, hDREF",Xp22.33 and Yp11,AB018328,NM_004729,PAR1,Pseudoautosomal region 1,715
+460,AMD1P2,adenosylmethionine decarboxylase 1 pseudogene 2,Approved,"AMD2, AMD, AMDP1","AMDPX, AMDPY",Xq28 and Yq12,U02035,NG_001073,PAR2,Pseudoautosomal region 2,716
+37115,DDX11L16,DEAD/H (Asp-Glu-Ala-Asp/His) box helicase 11 like 16,Approved,,,Xq28 and Yq12,AM992882,NG_006978.2,PAR2,Pseudoautosomal region 2,716
+38719,DPH3P2,diphthamide biosynthesis 3 pseudogene 2,Approved,,,Xq28 and Yq12,,,PAR2,Pseudoautosomal region 2,716
+6030,IL9R,interleukin 9 receptor,Approved,,CD129,Xq28 and Yq12,M84747,NM_002186,PAR2,Pseudoautosomal region 2,716
+11271,SPRY3,sprouty RTK signaling antagonist 3,Approved,,HSPRY3,Xq28 and Yq12,AF041038,NM_005840,PAR2,Pseudoautosomal region 2,716
+38160,TCEB1P24,"transcription elongation factor B (SIII), polypeptide 1 pseudogene 24",Approved,TCEB1P25,,Xq28 and Yq12,,,PAR2,Pseudoautosomal region 2,716
+23270,TRPC6P,"transient receptor potential cation channel, subfamily C, member 6 pseudogene",Approved,,TRPC6L,Xq28 and Yq12,,NG_005687,PAR2,Pseudoautosomal region 2,716
+11486,VAMP7,vesicle-associated membrane protein 7,Approved,SYBL1,"VAMP-7, TI-VAMP",Xq28 and Yq12,AJ295938,NM_005638,PAR2,Pseudoautosomal region 2,716
+31685,WASH6P,WAS protein family homolog 6 pseudogene,Approved,"FAM39A, CXYorf1",,Xq28 and Yq12,AI042587,NG_008380,PAR2,Pseudoautosomal region 2,716
+38513,WASIR1,WASH and IL9R antisense RNA 1,Approved,NCRNA00286B,,Xq28 and Yq12,AJ271736,,PAR2,Pseudoautosomal region 2,716

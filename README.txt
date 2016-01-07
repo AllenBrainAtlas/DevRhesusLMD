@@ -1,3 +1,3 @@
 This project is licensed under the terms of the Allen Institute license.
 
-This code reproduces all figures from the manuscript titled "Comprehensive transcriptional map of primate brain development". All code was written in the R programming language and is contained within an R Studio project (https://www.rstudio.com/).
+This code reproduces all figures from the manuscript titled "Comprehensive transcriptional map of primate brain development". All code was written in the R programming language and is contained within an R Studio project (https://www.rstudio.com/). Please download entire project and run scripts from 'src' and 'reports' folders to generate figures.
