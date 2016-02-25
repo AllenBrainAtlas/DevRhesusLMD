@@ -301,7 +301,7 @@ rat.var <- apply(dev.pred[["rat"]], 1, function(x) sd(x) / mean(x))
 
 ```{r calc-species-cor}
 # Calc species expr correlation
-cor.method <- "spearman"
+cor.method <- "pearson"
 cor.all <- NULL
 pval.all <- NULL
 for (gene1 in ortho.genes) {
@@ -319,33 +319,29 @@ colnames(cor.all) <- c("macaque-human", "macaque-rat", "human-rat")
 rownames(pval.all) <- ortho.genes
 colnames(pval.all) <- c("macaque-human", "macaque-rat", "human-rat")
 
+save(cor.all, file = "../cache/dev_expr_species/cor.all_hrhrat.RData")
 ```
 
 
 # Figure 6a
 ```{r calc-cor-summary, fig.width=5, fig.height=5}
-# Keep genes that are variable in at least 2/3 species 
-var.thresh <- c(quantile(rh.var, 0.5), 
-                quantile(h.var, 0.5), 
-                quantile(rat.var, 0.5))
-var.genes <- which((rh.var > var.thresh[1] &
-                      h.var > var.thresh[2]) | 
-                     (rh.var > var.thresh[1] &
-                        h.var > var.thresh[3]) | 
-                     (rh.var > var.thresh[2] &
-                        h.var > var.thresh[3]))
+# Calc species variation
+rh.var <- apply(dev.pred[["macaque"]], 1, sd) 
+
+# Keep genes that are variable
+var.genes <- which(rh.var > median(rh.var))
+# print(length(var.genes))
 cor.subset <- cor.all[var.genes, ]
-pval.subset <- pval.all[var.genes, ]
 
 # Save correlations
-# write.csv(data.frame(cor.subset, pval.subset), file="../tmp/devcor.csv")
+# write.csv(data.frame(cor.subset), file="devcor.csv")
 
 cor.subsetl <- melt(cor.subset)
 
 # Plot Venn diagram of conserved dev expr trends
 venn.matrix <- cor.subset
 venn.matrix[1:length(venn.matrix)] <- 0
-venn.matrix[cor.subset > 0.5 & pval.subset < 0.1] <- 1
+venn.matrix[cor.subset > 0.5] <- 1
 vennDiagram(vennCounts(venn.matrix), cex=0.7)
 
 ```
@@ -364,17 +360,12 @@ names(gene.list) <- kTests
 for (col1 in 1:5) {
   if (col1 %in% 1:3) {
     keep.genes <- names(which(cor.subset[, col1] > 0.5 & 
-                                pval.subset[, col1] < 0.05 &
                                 (apply(cor.subset[, -col1], 1, 
-                                       function(x) all(x <= 0.5)) |
-                                   apply(pval.subset[, -col1], 1, 
-                                         function(x) all(x >= 0.05)))))
+                                       function(x) all(x <= 0.5)))))
   } else if (col1 == 4) {
-    keep.genes <- names(which(apply(pval.subset, 1, function(x) all(x < 0.05)) & 
-                                apply(cor.subset, 1, function(x) all(x > 0.5))))
+    keep.genes <- names(which(apply(cor.subset, 1, function(x) sum(x > 0.5) >= 2)))
   } else if (col1 == 5) {
-    keep.genes <- names(which(apply(pval.subset, 1, function(x) all(x >= 0.05)) |
-                                apply(cor.subset, 1, function(x) all(x <= 0.5))))
+    keep.genes <- names(which(apply(cor.subset, 1, function(x) all(x <= 0.5))))
   }
   
   # Store gene list
@@ -932,7 +923,7 @@ dev.pred.fn <- "../cache/dev_expr_species/dev.expr_dev.pred_mouse.RData"
 
 # Try loading cached fits
 rm(dev.pred)
-try(load(dev.pred.fn), silent=TRUE)
+# try(load(dev.pred.fn), silent=TRUE)
 
 # SLOW - Run only as needed
 if (! exists("dev.pred")) {

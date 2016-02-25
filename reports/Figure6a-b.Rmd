@@ -178,7 +178,7 @@ names(species.exprz) <- c("macaque", "human", "human_bc", "rat")
 ```
 
 ```{r fit-dev-trend-2hs}
-dev.pred.fn <- "../cache/dev_expr_species/dev.expr_dev.pred_2hs.RData"
+dev.pred.fn <- "../cache/dev_expr_species/dev.expr_dev.pred_2hs.RData" 
 
 # Try loading cached fits
 try(load(dev.pred.fn), silent=TRUE)
@@ -233,7 +233,7 @@ if (! exists("dev.pred")) {
 
 ```{r calc-species-cor-2hs}
 # Calc species expr correlation
-cor.method <- "spearman"
+cor.method <- "pearson"
 cor.all <- NULL
 pval.all <- NULL
 for (gene1 in ortho.genes) {
@@ -260,53 +260,63 @@ colnames(pval.all) <- c("human-human_bc", "human-macaque",
 
 ```{r calc-cor-summary-2hs}
 # Calc species variation
-rh.var <- apply(dev.pred[["macaque"]], 1, function(x) sd(x) / mean(x)) 
-h.var <- apply(dev.pred[["human"]], 1, function(x) sd(x) / mean(x))
-rat.var <- apply(dev.pred[["rat"]], 1, function(x) sd(x) / mean(x))
+rh.var <- apply(dev.pred[["macaque"]], 1, sd) 
 
-# Keep genes that are variable in at least 2/3 species 
-var.thresh <- c(quantile(rh.var, 0.5), 
-                quantile(h.var, 0.5), 
-                quantile(rat.var, 0.5))
-var.genes <- which((rh.var > var.thresh[1] &
-                      h.var > var.thresh[2]) | 
-                     (rh.var > var.thresh[1] &
-                        h.var > var.thresh[3]) | 
-                     (rh.var > var.thresh[2] &
-                        h.var > var.thresh[3]))
+# Keep genes that are variable
+var.genes <- which(rh.var > median(rh.var))
+# print(length(var.genes))
 cor.subset <- cor.all[var.genes, ]
 pval.subset <- pval.all[var.genes, ]
 
 # Save correlations
-# write.csv(data.frame(cor.subset, pval.subset), file="../tmp/devcor2.csv")
+# write.csv(data.frame(cor.subset), file="devcor2.csv")
 ```
 
 # Figure 6a (left)
-```{r plot-cor-summary, fig.width=3, fig.height=5}
+```{r plot-cor-summary, fig.width=2.5, fig.height=4}
 # apply(cor.subset, 2, quantile)
 cor.subsetl <- melt(cor.subset)
 
-# Barplot of cross-species correlations
-par(mar=c(8, 5, 2, 2))
-boxplot(value ~ Var2, cor.subsetl, las=2, outline=TRUE, ylim=c(-1, 1), 
-        ylab="Cross-species correlation")
-abline(h=0.5, col="red")
+# Distribution of cross-species correlations
+# par(mar=c(8, 5, 2, 2))
+# boxplot(value ~ Var2, cor.subsetl, las=2, outline=TRUE, ylim=c(-1, 1), 
+#         ylab="Cross-species correlation")
+# abline(h=0.5, col="red")
+ggplot(cor.subsetl, aes(x = Var2, y = value)) +
+  # geom_violin(draw_quantiles = 0.5, scale = "area", size = 1) +
+  geom_point(color = "grey90", size = 0.1) +
+  stat_boxplot(geom ='errorbar', width = 0.2, size = 0.8) +
+  geom_boxplot(outlier.shape = NA, width = 0.8, size = 0.8) +
+  theme_bw() +
+  theme(panel.grid.major = element_blank(), 
+        panel.grid.minor = element_blank(), 
+        axis.text.x=element_text(angle = 45, hjust = 1)) +
+  xlab("Species comparison") +
+  ylab("Expression trajectory correlation")
+
 
 # ANOVA
 aov1 <- aov(value ~ Var2, melt(cor.subset))
 summary(aov1)
-TukeyHSD(aov1)
+# TukeyHSD(aov1)
 
 # Non-parametric tests
 # apply(cor.subset, 2, shapiro.test)
 # print(kruskal.test(value ~ Var2, melt(cor.subset))$p.value)
 print("Test for significant difference in correlations (Wilcoxon signed rank test)")
+pw.pval <- NULL
 for (i in 1:3) {
   for (j in (i + 1):4) {
     wt1 <- wilcox.test(cor.subset[, i], cor.subset[, j], paired = TRUE)$p.value
-    print(c(colnames(cor.subset)[i], colnames(cor.subset)[j], wt1))
+    pw.pval <- rbind(pw.pval, c(colnames(cor.subset)[i], colnames(cor.subset)[j], wt1))
   }
 }
+pw.pval <- as.data.frame(pw.pval)
+colnames(pw.pval) <- c("Species pair 1", "Species pair 2", "p")
+pw.pval$p.adj <- p.adjust(as.numeric(as.character(pw.pval$p)), method = "bonf")
+print(pw.pval)
+
+# save.image("workspace.RData")
 
 ```
 
@@ -441,10 +451,10 @@ pal1 <- brewer.pal(5, "Dark2")[c(1, 5, 2:4)]
 g3 <- ggplot(dev.expr2.subset, aes(x=escore, y=exprz, shape=species,
                                    col=species, fill=species)) +
   geom_point(alpha=0.5) +
-  geom_smooth(method="loess", se=FALSE, degree=1, size=2) +
-  #   geom_point() + geom_line() +  # More clear legend
+  geom_smooth(method="loess", se=FALSE, span=1, size=2) +
+  #   #   geom_point() + geom_line() +  # More clear legend
   facet_wrap( ~ gene, ncol=3, scales="free_y") +
-  theme_bw() + 
+  theme_bw() +
   theme(panel.grid.minor = element_blank()) +
   scale_color_manual(values = pal1) +
   scale_fill_manual(values = pal1)
