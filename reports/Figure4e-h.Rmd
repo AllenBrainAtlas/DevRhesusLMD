@@ -174,4 +174,38 @@ for (i in gene.ids) {  # 1:nrow(probes)
 
 ```
 
+```{r plot-gene, fig.width=4, fig.height=4, message=FALSE, warning=FALSE, eval=TRUE}
 
+num.timepoints <- length(table(exprl2$age))
+
+pd <- position_dodge(width = 0.4)
+m.gene <- c("RBFOX3", "DCX")
+
+# Select gene data
+exprl2.subset <- subset(exprl2, gene %in% m.gene)
+exprl2.subset <- droplevels(exprl2.subset)
+exprl2.subset$layer_type <- ifelse(exprl2.subset$layer %in% c("VZ", "SZ"),
+                                   "Progenitor", "Post-mitotic")
+
+p2 <- ggplot(data = exprl2.subset, 
+             aes(x = as.numeric(age), y = expr, color=gene)) + 
+  facet_grid(layer_type ~ .) +
+  stat_summary(fun.y = mean, geom = "line", position=pd) +
+  stat_summary(fun.data = mean_sdl, geom = "pointrange", position=pd) +
+  xlab("Age") + 
+  ylab("log2(Expression)") +
+  scale_x_continuous(breaks = 1:num.timepoints, 
+                     labels = levels(exprl2$age)) +
+  theme_bw() + 
+  theme(axis.text.x = element_text(angle=45),
+        axis.text = element_text(size=9),
+        panel.grid.minor = element_blank())
+
+plot(p2)
+
+f.name <- paste(m.gene, collapse = "_")
+# ggsave(plot=p2, file = paste0("../analysis/", f.name, ".pdf"),
+#        width=4, height=4)
+
+
+```
